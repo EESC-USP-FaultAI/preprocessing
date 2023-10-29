@@ -1,1 +1,1 @@
-print("trabalhando nas funções das wavelets")
+import numpy as np
