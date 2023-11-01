@@ -1,6 +1,6 @@
 import numpy as np
 
-#TODO: Fazer mudanças nessa classe
+#TODO: Terminar essa clase
 
 def morlet_wavelet(t, freq, sigma):
     return np.exp(-t**2 / (2 * sigma**2)) * np.exp(2j * np.pi * freq * t)
@@ -16,7 +16,7 @@ def symlet_wavelet(t, j, k):
         return 0
 
     if t < j - k:
-        return np.exp(-t / 2) * np.sin(2 * np.pi * t)
+        return np.exp(-t / 2) * np.sin(2 * np.pi * t) #TODO: preciso revisar essa função
 
     if t < j + k:
         return np.exp(-t / 2) * (np.sin(2 * np.pi * t) + np.cos(2 * np.pi * t))
