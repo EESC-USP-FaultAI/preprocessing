@@ -7,7 +7,7 @@ import pywt
 
 def see_functions():
     print("1 - wavelet_viewer")
-    print("2 - evaluate_dwt")
+    print("2 - evaluate_dwt_single_signal")
     print("3 - dwt_from_csv")
     print("4 - daubechies_wavelet_transform")
 
@@ -55,7 +55,7 @@ def wavelet_viewer(wave_name):
     plt.show()
 
 
-def evaluate_dwt(data, wavelet_name, mode="symmetric", axis=-1):
+def evaluate_dwt_single_phase(data, wavelet_name, mode="symmetric", axis=-1):
     cA, cD = pywt.dwt(data, mode=mode, wavelet=wavelet_name, axis=axis)
     t = np.linspace(0, 0.4, len(data))
     plt.figure(figsize=(30, 20))
@@ -79,6 +79,39 @@ def evaluate_dwt(data, wavelet_name, mode="symmetric", axis=-1):
     plt.title("Detail Coefficients", fontsize=20)
 
     return cA, cD
+
+
+def dwt_from_signal_generator(signal_data, wavelet_name, level=1, save_to_csv=True):
+
+    """
+    :param signal_data: Three-phase signal to apply Discrete Wavelet Transform.
+    :param wavelet_name: Name of mother wavelet to effectuate DWT.
+    :param level: Level of multi-level decomposition of DWT, default=1 to single level decomposition.
+    :param save_to_csv: Save the wavelet coefficients in a csv file. default=True.
+    :return: wavelet_dataframe: DataFrame with wavelet coefficients for each phase signal.
+    """
+
+    """Apply dwt in each phase of the signal"""
+    phaseA_cA, phaseA_cD = pywt.wavedec(signal_data["A"], wavelet=wavelet_name, level=level)[:2]
+    phaseB_cA, phaseB_cD = pywt.wavedec(signal_data["B"], wavelet=wavelet_name, level=level)[:2]
+    phaseC_cA, phaseC_cD = pywt.wavedec(signal_data["C"], wavelet=wavelet_name, level=level)[:2]
+
+    """Constructing DataFrame with Wavelet Coefficients"""
+    wavelet_dataframe = pd.DataFrame()
+    wavelet_dataframe["phaseA_cA"] = phaseA_cA
+    wavelet_dataframe["phaseA_cD"] = phaseA_cD
+    wavelet_dataframe["phaseB_cA"] = phaseB_cA
+    wavelet_dataframe["phaseB_cD"] = phaseB_cD
+    wavelet_dataframe["phaseC_cA"] = phaseC_cA
+    wavelet_dataframe["phaseC_cD"] = phaseC_cD
+
+    """Saving DataFrame in csv if wanted"""
+    if save_to_csv:
+        save = wavelet_dataframe.to_csv("wavelet_coefficients.csv", mode='x')
+        if save is None:
+            print("ERROR: Couldn't save the csv file, it probably already exists, verify that.")
+
+    return wavelet_dataframe
 
 
 def dwt_from_csv(csv_path, wavelet_name, level=1):
