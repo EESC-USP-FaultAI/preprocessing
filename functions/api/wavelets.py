@@ -1,6 +1,6 @@
 import numpy as np
 
-#TODO: Fazer mudanças nessa classe
+#TODO: Esse código será removido depois
 
 def morlet_wavelet(t, freq, sigma):
     return np.exp(-t**2 / (2 * sigma**2)) * np.exp(2j * np.pi * freq * t)
