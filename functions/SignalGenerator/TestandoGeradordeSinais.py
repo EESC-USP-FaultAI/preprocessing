@@ -3,7 +3,7 @@
 Código para testar os sinais gerados criado por Gabriela Nunes.
 dúvidas: gabrielanuneslopes@usp.br
 """
-from GeraSinais import GeraSinais  # Import the class from the module
+from functions.SignalGenerator.GeraSinais import GeraSinais  # Import the class from the module
 import matplotlib.pyplot as plt
 import numpy as np
 
