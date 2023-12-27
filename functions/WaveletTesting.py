@@ -36,23 +36,50 @@ plt.show()
 
 PyWaveletScripts.list_wavelets()  # Showing wavelets available.
 wave_name = input("Write the name of the wavelet you wanna choose: ")  # User chooses the wavelet they want.
-print(f"You choose {wave_name} wavelet:")
-PyWaveletScripts.wavelet_viewer(wave_name)  # Showing chosen wavelet properties.
-cA, cD = PyWaveletScripts.evaluate_dwt_single_phase(short_circuit_current, wave_name)  # Evaluating DWT
+mode = input("Write the mode of signal extension: ")
+print(f"You choose {wave_name} wavelet")
+print(f"You choose {mode} signal extension mode")
+# PyWaveletScripts.wavelet_viewer(wave_name)  # Showing chosen wavelet properties.
+cA1, cD1 = PyWaveletScripts.evaluate_dwt_single_phase(short_circuit_current, wave_name, mode=mode)  # Evaluating DWT
+cA2, cD2 = PyWaveletScripts.evaluate_dwt_manually_single_phase(short_circuit_current, wave_name)
 
 # Plotting Approximation Coefficients
-plt.plot(cA)
-plt.title("Approximation Coefficients")
-plt.xlabel("Sample")
-plt.ylabel("cA")
-plt.grid(True)
+fig1, (ax1, ax2) = plt.subplots(1, 2)
+ax1.plot(cA1, label="Package")
+ax2.plot(cA2, label="Manual")
+ax1.set_title("cA Package calculation")
+ax2.set_title("cA Manual calculation")
+ax1.set_xlabel("Sample")
+ax2.set_xlabel("Sample")
+ax1.set_ylabel("cA")
+ax2.set_ylabel("cA")
+ax1.grid(True)
+ax2.grid(True)
+ax1.legend()
+ax2.legend()
 plt.show()
 
 
 # Plotting Detail Coefficients
-plt.plot(cD)
-plt.title("Detail Coefficients")
-plt.xlabel("Sample")
-plt.ylabel("cD")
-plt.grid(True)
+fig2, (ax1, ax2) = plt.subplots(1, 2)
+ax1.plot(cD1, label="Package")
+ax2.plot(cD2, label="Manual")
+ax1.set_title("cD Package calculation")
+ax2.set_title("cD Manual calculation")
+ax1.set_xlabel("Sample")
+ax2.set_xlabel("Sample")
+ax1.set_ylabel("cA")
+ax2.set_ylabel("cA")
+ax1.grid(True)
+ax2.grid(True)
+ax1.legend()
+ax2.legend()
 plt.show()
+
+print(f"cA with package: {cA1}")
+print(f"cA manually: {cA2}")
+print(f"cD with package: {cD1}")
+print(f"cD manually: {cD2}")
+
+print(f"Euclidean distance cA: {np.sqrt(np.sum(np.square(cA1 - cA2)))}")
+print(f"Euclidean distance cD: {np.sqrt(np.sum(np.square(cD1 - cD2)))}")

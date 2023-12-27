@@ -65,7 +65,41 @@ def wavelet_viewer(wave_name):
 
 
 def evaluate_dwt_single_phase(data, wavelet_name, mode="symmetric", axis=-1):
+    """
+    Evaluate Discrete Wavelet Transform using package PyWavelets.
+    :param data: single-phase signal to perform transform
+    :param wavelet_name: name of mother wavelet
+    :param mode: mode of signal extension (default="symmetric")
+    :param axis: axis of decomposition
+    :return: Approximation and Detail coefficients
+    """
     cA, cD = pywt.dwt(data, mode=mode, wavelet=wavelet_name, axis=axis)
+
+    return cA, cD
+
+
+def evaluate_dwt_manually_single_phase(data, wavelet_name):
+    """
+    Evaluate Discrete Wavelet Transform using scientifc package NumPy for convolution.
+    :param data: single-phase signal to perform transform
+    :param wavelet_name: name of mother wavelet
+    :return: Approximation and Detail coefficients
+    """
+    wavelet = pywt.Wavelet(wavelet_name)
+    dec_low = wavelet.dec_lo
+    dec_high = wavelet.dec_hi
+    cA = []
+    cD = []
+
+    cA_aux = np.convolve(data, dec_low)
+    cD_aux = np.convolve(data, dec_high)
+
+    for i in range(len(cA_aux)):
+        if i % 2 == 1:
+            cA.append(cA_aux[i])
+            cD.append(cD_aux[i])
+    cA = np.array(cA)
+    cD = np.array(cD)
 
     return cA, cD
 
