@@ -98,15 +98,3 @@ class MyWavelet:
         ax2.grid(True)
         plt.grid(True)
         plt.show()
-
-# Example usage of the code
-x = [0.00000000e+00, 5.00000000e+01, 8.66025404e+01, 1.00000000e+02, 8.66025404e+01, 5.00000000e+01, 5.66553890e-14,
-     -5.00000000e+01, -8.66025404e+01, -7.00000000e+02, -6.05796944e+02, -3.49514226e+02]
-
-f = MyWavelet
-
-[ca, cd] = f.dwt_single_name(data=x, wavelet='db4')
-
-MyWavelet.plot(ca, cd)
-
-print(cd)
