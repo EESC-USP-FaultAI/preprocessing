@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 class MinhaWavelet:
     def wavelet(wavelet):
 
@@ -15,10 +16,8 @@ class MinhaWavelet:
 
         return [None, None]
 
-    def dwt_single(data, wavelet='db4'):
+    def dwt_single(data, dec_low, dec_hi):
         import numpy as np
-
-        [dec_low, dec_hi] = MinhaWavelet.wavelet(wavelet)
 
         n = len(dec_low) - 1
 
@@ -39,10 +38,32 @@ class MinhaWavelet:
 
         return [ca, cd]
 
+    def dwt_single_name(data, wavelet='db4'):
+
+        [dec_low, dec_hi] = MinhaWavelet.wavelet(wavelet)
+        if (dec_low == None or dec_hi == None):
+            print(f'A wavelet "{wavelet}" não é válida')
+            return [[],[]]
+        return MinhaWavelet.dwt_single(data, dec_low, dec_hi)
+
+    def plot(ca, cd):
+        fig1, (ax1, ax2) = plt.subplots(2, 1)
+        ax1.plot(ca)
+        ax2.plot(cd)
+        ax2.set_xlabel("Sample")
+        ax1.set_ylabel("cA")
+        ax2.set_ylabel("cD")
+        ax1.grid(True)
+        ax2.grid(True)
+        plt.grid(True)
+        plt.show()
+
 x = [ 0.00000000e+00,  5.00000000e+01,  8.66025404e+01,  1.00000000e+02, 8.66025404e+01,  5.00000000e+01,  5.66553890e-14, -5.00000000e+01,  -8.66025404e+01, -7.00000000e+02, -6.05796944e+02, -3.49514226e+02]
 
 f = MinhaWavelet
 
-[ca, cd] = f.dwt_single(data=x)
+[ca, cd] = f.dwt_single_name(data=x, wavelet='db4')
+
+MinhaWavelet.plot(ca, cd)
 
 print(cd)
