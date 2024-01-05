@@ -1,5 +1,5 @@
-from api.GeraSinais import GeraSinais
-import api.MinhaWavelet as mw
+from functions.SignalGenerator.GeraSinais import GeraSinais
+import functions.Wavelet.MinhaWavelet as mw
 
 
 def main():
@@ -7,7 +7,7 @@ def main():
     voltage_sag_signals = GeraSinais.voltage_sag_short_circuit(0.9, 0.01, 0.02, 0.03, 60, 'A', True, 30)
 
     # Example of fault signals
-    time, fault_signals = GeraSinais.short_circuit_current(100, 60, 0.0125, 7, 0.5, 0.016, 32 * 60, False, 100)
+    time, fault_signals = GeraSinais.short_circuit_current(100, 60, 0.0125, 7, 0.5, 0.016, 256 * 60, True, 30)
 
     # Apply wavelet transform
     wavelet_instance = mw.MyWavelet
