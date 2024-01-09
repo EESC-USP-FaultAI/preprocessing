@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+#teste
 class MyWavelet:
     @staticmethod
     def wavelet(wavelet):
