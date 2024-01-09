@@ -4,6 +4,7 @@ import pandas as pd
 import pywt
 
 
+#teste
 def see_functions():
     """
     lists available functions in this file
