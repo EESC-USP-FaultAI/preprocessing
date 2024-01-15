@@ -2,9 +2,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-class MyWavelet:
+class DWT:
     @staticmethod
-    def wavelet(wavelet):
+    def name(wavelet):
         """
         Returns the coefficients of the chosen wavelet.
 
@@ -28,20 +28,30 @@ class MyWavelet:
         return [None, None]
 
     @staticmethod
-    def dwt_single(data, dec_low, dec_hi):
+    def transform(data=None, *args, wavelet='db4', dec_low=None, dec_hi=None):
         """
-        Performs a single step of the one-dimensional discrete wavelet transform (DWT).
+        Performs a single step of the DWT based on the chosen wavelet or with explicit coefficients.
 
         Parameters:
         - data (array): The input time series.
+        - *args: Variable positional arguments.
+        - wavelet (str): The name of the desired wavelet.
         - dec_low (array): Low-pass coefficients for decomposition.
         - dec_hi (array): High-pass coefficients for decomposition.
 
         Returns:
         - List containing approximation (ca) and detail (cd) coefficients.
         """
-        n = len(dec_low) - 1
+        if not isinstance(wavelet, str):
+            dec_low, dec_hi = args
+        else:
+            dec_low, dec_hi = DWT.name(wavelet)
 
+        if data is None or dec_low is None or dec_hi is None:
+            print("Invalid arguments")
+            return [[], []]
+
+        n = len(dec_low) - 1
         x0 = np.flip(data[0:n])
         x1 = np.flip(data[len(data) - n:len(data)])
         xn = np.concatenate((x0, data, x1))
@@ -58,24 +68,6 @@ class MyWavelet:
                 ca.append(ca1[i])
 
         return [ca, cd]
-
-    @staticmethod
-    def dwt_single_name(data, wavelet='db4'):
-        """
-        Performs a single step of the DWT based on the chosen wavelet.
-
-        Parameters:
-        - data (array): The input time series.
-        - wavelet (str): The name of the desired wavelet.
-
-        Returns:
-        - List containing approximation (ca) and detail (cd) coefficients.
-        """
-        [dec_low, dec_hi] = MyWavelet.wavelet(wavelet)
-        if (dec_low is None or dec_hi is None):
-            print(f'The wavelet "{wavelet}" is not valid')
-            return [[], []]
-        return MyWavelet.dwt_single(data, dec_low, dec_hi)
 
     @staticmethod
     def plot(ca, cd):
