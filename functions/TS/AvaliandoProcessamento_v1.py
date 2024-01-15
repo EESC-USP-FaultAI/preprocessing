@@ -25,14 +25,12 @@ tempo_sinal, signal = GeraSinais.GenerateSignalWithHarmonics(
     amplitude_fundamental, samples_per_cycle, frequency, harmonics, amplitudes, duration, harmonics_start_time, add_noise_harmonics, SNR_harmonics
 )
 
-
 # Passo 2: Avalia o tempo de processamrnto do sinal
 # Criar uma instância da classe Stockwell
 stockwell_instance = Stockwell()
-
 # Chamar o método calcula_TS_do_sinal da instância stockwell_instance
 start_time = time.time()
-amp, ang = stockwell_instance.calcula_TS_do_sinal(signal, samples_per_cycle)
+amp, ang = stockwell_instance.calcula_TS_do_sinal(signal, samples_per_cycle, 3)
 end_time = time.time()
 tempo_total = end_time - start_time
 
@@ -42,13 +40,16 @@ num_harm = len(harmonics) + 1
 
 # Criar subplots para 'amp'
 plt.figure(figsize=(12, 8))
-for i in range(num_harm):
-    plt.subplot(num_harm, 1, i+1)
-    plt.plot(amp[i, :], label=f'{i+1}ª Harmônica' if i > 0 else 'Fundamental')
-    plt.title(f'{i+1}ª Harmônica' if i > 0 else 'Fundamental')
+j=0
+for i in [1] + harmonics:
+    plt.subplot(num_harm, 1, j+1)
+    plt.plot(amp[i, :], label=f'{i}ª Harmônica' if i > 1 else 'Fundamental')
+    plt.title(f'{i}ª Harmônica' if i > 1 else 'Fundamental')
+    plt.ylim(0, 11)
     plt.xlabel('Tempo')
     plt.ylabel('Amplitude')
     plt.legend()
+    j+=1
 
 plt.suptitle(f'Tempo de Processamento: {tempo_total:.4f} segundos', y=1.02)
 plt.tight_layout()
@@ -56,13 +57,16 @@ plt.show()
 
 # Criar subplots para 'ang'
 plt.figure(figsize=(12, 8))
-for i in range(num_harm):
-    plt.subplot(num_harm, 1, i+1)
-    plt.plot(ang[i, :], label=f'{harmonics[i-1]}ª Harmônica' if i > 0 else 'Fundamental')
-    plt.title(f'{harmonics[i-1]}ª Harmônica' if i > 0 else 'Fundamental')
+j=0
+for i in [1] + harmonics:
+    plt.subplot(num_harm, 1, j + 1)
+    plt.plot(ang[i, :], label=f'{i}ª Harmônica' if i > 1 else 'Fundamental')
+    plt.title(f'{i}ª Harmônica' if i > 1 else 'Fundamental')
     plt.xlabel('Tempo')
+    # plt.xlim(0, 6)
     plt.ylabel('Ângulo')
     plt.legend()
+    j+=1
 
 plt.suptitle(f'Tempo de Processamento: {tempo_total:.4f} segundos', y=1.02)
 plt.tight_layout()
