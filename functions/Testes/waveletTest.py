@@ -1,5 +1,5 @@
 from functions.SignalGenerator.GeraSinais import GeraSinais
-import functions.Wavelet.MinhaWavelet as mw
+import functions.Wavelet.DTW as mw
 
 #skajhdkasjkdasj
 def main():

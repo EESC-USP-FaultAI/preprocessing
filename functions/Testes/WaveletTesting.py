@@ -1,4 +1,4 @@
-from functions.Wavelet import PyWaveletScripts
+from functions.Wavelet import TW_PYWT
 from functions.SignalGenerator.GeraSinais import GeraSinais
 import matplotlib.pyplot as plt
 import numpy as np
