@@ -11,17 +11,18 @@ def toeplitz(vetor, tam):
     return np.array(matriz_toeplitz)
 
 class Stockwell():
-    def calcula_TS_do_sinal(self, sinal, tamanho_da_janela):
+    def calcula_TS_do_sinal(self, sinal, tamanho_da_janela, k):
         '''
         :param sinal: vetor numpy
         :param tamanho_da_janela: int que representa o tamanho da janela avaliada
+        :param k: fator de escala
         :return: matriz amp com a amplitude de cada amostra da S-matriz e matriz ang com o ângulo de cada amostra da S-matriz
         '''
         t0 = 0
         t1 = tamanho_da_janela
 
         for j in range(1, int(len(sinal)/tamanho_da_janela)+1):
-            st = self.TS_da_janelada(sinal, t0, t1) #Calcula a TS janela a janela do sinal de entrada
+            st = self.TS_da_janelada(sinal, t0, t1, k) #Calcula a TS janela a janela do sinal de entrada
             if j == 1:
                 amp = st[1]
                 ang = st[2]
@@ -33,11 +34,12 @@ class Stockwell():
             t1 = t0+tamanho_da_janela
         return amp, ang
 
-    def TS_da_janelada(self, sinal, t0, t1):
+    def TS_da_janelada(self, sinal, t0, t1, k):
         '''
         :param sinal: vetor numpy a ser avaliado
         :param t0: amostra inicial que marca o começo da janela avaliada no sinal
         :param t1: amostra final que marca o fim da janela avaliada no sinal
+        :param k: fator de escala
         :return: st é S-matriz, A é a amplitude de cada amostra da S-matriz e ang é o ângulo de cada amostra da S-matriz
         '''
         def angle(matrix):
@@ -50,19 +52,19 @@ class Stockwell():
             return result
 
         x = sinal[t0:t1] #Janelamento do sinal de entrada de acordo com a amostra de início t0 e de fim t1
-        st = self.transformada_de_stockwell(x)
+        st = self.transformada_de_stockwell(x, k)
 
         A = 2*abs(st) #Calcula a amplitude de cada entrada da S-matriz
         ang=angle(st) #Calcula o ângulo de cada entrada da S-matriz
         return st, A, ang
 
-    def transformada_de_stockwell(self, sinal):
+    def transformada_de_stockwell(self, sinal, k):
         '''
         A função implementa o algoritmo de Dash
         :param sinal: vetor numpy
+        :param k: fator de escala
         :return: S-matriz
         '''
-        k = 1  # fator de escala
         N = len(sinal)
         nhaf = N // 2
         odvn = N%2
