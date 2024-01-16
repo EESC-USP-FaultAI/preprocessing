@@ -4,8 +4,8 @@ Código para avaliar o tempo de processamento de sinais
 Será utilizado o sinal gerado com harmônicas
 """
 
-from GeraSinais import GeraSinais  # Import the class from the module
-from StockwellTransform import Stockwell
+from functions.SignalGenerator.GeraSinais import GeraSinais  # Import the class from the module
+from functions.TS.ST import Stockwell
 import time
 import matplotlib.pyplot as plt
 import numpy as np
