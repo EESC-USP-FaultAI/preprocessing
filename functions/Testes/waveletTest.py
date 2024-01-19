@@ -1,7 +1,7 @@
 from functions.SignalGenerator.GeraSinais import GeraSinais
 import functions.TW.DTW as mw
 
-#skajhdkasjkdasj
+#Editado caio 19/01
 def main():
     # Generate signals
     voltage_sag_signals = GeraSinais.voltage_sag_short_circuit(0.9, 0.01, 0.02, 0.03, 60, 'A', True, 30)
