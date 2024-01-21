@@ -47,7 +47,12 @@ class Stockwell():
             for line in matrix:
                 aux = []
                 for i in line:
-                    aux.append(np.arccos(i.real/abs(i)))
+                    if abs(i) < 0.0001:
+                        ang = 0
+                    else:
+                        ang = i.real/abs(i)
+
+                    aux.append(np.arccos(ang))
                 result.append(aux)
             return result
 

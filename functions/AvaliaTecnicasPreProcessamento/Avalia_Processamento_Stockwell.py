@@ -108,6 +108,8 @@ nome_sinais = [
 # Estrutura para armazenar os resultados
 resultados = {}
 
+print("Gerou todos os sinais")
+
 # Loop sobre os tipos de sinais
 for nome_sinal, signal_values in zip(nome_sinais, vetor_sinais):
     # Determinar se é highsample ou lowsample com base no nome do sinal
@@ -120,6 +122,7 @@ for nome_sinal, signal_values in zip(nome_sinais, vetor_sinais):
 
     # Calcular a função desejada usando a função 'calcula_TS_do_sinal'
     amp, ang = stockwell_instance.calcula_TS_do_sinal(signal_values, samples_per_cycle, 3)
+    print(nome_sinal)
 
     # Salvar os resultados na estrutura
     resultados[nome_sinal] = {'Amplitude': amp, 'Ângulo': ang}
