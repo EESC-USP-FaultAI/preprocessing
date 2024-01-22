@@ -1,9 +1,7 @@
-from functions.Wavelet import PyWaveletScripts
+from functions.TW import TW_PYWT
 from functions.SignalGenerator.GeraSinais import GeraSinais
 import matplotlib.pyplot as plt
 import numpy as np
-
-#testando...
 
 """Generating Signal"""
 amplitude = 100.00     # Peak amplitude of the current waveform
