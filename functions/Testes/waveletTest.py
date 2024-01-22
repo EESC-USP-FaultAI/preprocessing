@@ -1,3 +1,5 @@
+from matplotlib import pyplot as plt
+
 from functions.SignalGenerator.GeraSinais import GeraSinais
 import functions.Wavelet.MinhaWavelet as mw
 
@@ -12,6 +14,15 @@ def main():
     # Apply wavelet transform
     wavelet_instance = mw.MyWavelet
     ca, cd = wavelet_instance.dwt_single_name(fault_signals, 'db4')
+
+    # Plotting generated signal
+    plt.plot(time, fault_signals)
+    plt.title('Short Circuit Current')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Current (A)')
+    plt.grid(True)
+    plt.show()
+
 
     # Plot the results
     wavelet_instance.plot(ca, cd)
