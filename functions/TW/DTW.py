@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+#from memory_profiler import profile
 
 
 class DWT:
