@@ -1,3 +1,4 @@
+import functions
 from functions.TW import TW_PYWT
 from functions.SignalGenerator.GeraSinais import GeraSinais
 import matplotlib.pyplot as plt
@@ -33,14 +34,14 @@ plt.show()
 
 """Wavelet Testing"""
 
-PyWaveletScripts.list_wavelets()  # Showing wavelets available.
+functions.TW.TW_PYWT.list_wavelets()  # Showing wavelets available.
 wave_name = input("Write the name of the wavelet you wanna choose: (db4)")  # User chooses the wavelet they want.
 mode = input("Write the mode of signal extension: (symmetric)")
 print(f"You choose {wave_name} wavelet")
 print(f"You choose {mode} signal extension mode")
 # PyWaveletScripts.wavelet_viewer(wave_name)  # Showing chosen wavelet properties.
-cA1, cD1 = PyWaveletScripts.evaluate_dwt_single_phase(short_circuit_current, wave_name, mode=mode)  # Evaluating DWT
-cA2, cD2 = PyWaveletScripts.evaluate_dwt_manually_single_phase(short_circuit_current, wave_name)
+cA1, cD1 = functions.TW.TW_PYWT.evaluate_dwt_single_phase(short_circuit_current, wave_name, mode=mode)  # Evaluating DWT
+cA2, cD2 = functions.TW.TW_PYWT.evaluate_dwt_manually_single_phase(short_circuit_current, wave_name)
 
 # Plotting Approximation Coefficients
 fig1, (ax1, ax2) = plt.subplots(1, 2)
