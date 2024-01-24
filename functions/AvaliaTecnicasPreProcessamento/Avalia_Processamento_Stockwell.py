@@ -35,8 +35,6 @@ resulting_voltages_withnoise_lowsample = GeraSinais.voltage_sag_short_circuit(sa
 resulting_voltages_nonoise_lowsample = GeraSinais.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'False', 1000)
 
 
-
-
 # Test 2 - Short Circuit Current
 
 amplitude = 1.00     # Peak amplitude of the current waveform
@@ -120,13 +118,16 @@ for nome_sinal, signal_values in zip(nome_sinais, vetor_sinais):
     else:
         raise ValueError(f"Tipo de sinal não reconhecido no nome: {nome_sinal}")
 
+    ''' Iniciar a substituição por outra função aqui'''
     # Calcular a função desejada usando a função 'calcula_TS_do_sinal'
+
     amp, ang = stockwell_instance.calcula_TS_do_sinal(signal_values, samples_per_cycle, 3)
+
     print(nome_sinal)
 
     # Salvar os resultados na estrutura
     resultados[nome_sinal] = {'Amplitude': amp, 'Ângulo': ang}
-
+    ''' Finalizar a substituição por outra função aqui'''
 # Exemplo de como acessar os resultados
 for nome_sinal, resultado in resultados.items():
     print(f"Sinal: {nome_sinal}, Amplitude: {resultado['Amplitude']}, Ângulo: {resultado['Ângulo']}")
