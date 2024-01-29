@@ -7,6 +7,7 @@ Será utilizado o sinal gerado com harmônicas
 from functions.SignalGenerator.GeraSinais import GeraSinais  # Import the class from the module
 from functions.TS.ST import Stockwell  # Import the class from the module
 import matplotlib.pyplot as plt
+from plotST import plotST
 # ADICIONAR AQUI OS PACOTES E FUNCOES DAS OUTRAS TRANSFORMADAS
 
 
@@ -121,13 +122,28 @@ for nome_sinal, signal_values in zip(nome_sinais, vetor_sinais):
     ''' Iniciar a substituição por outra função aqui'''
     # Calcular a função desejada usando a função 'calcula_TS_do_sinal'
 
-    amp, ang = stockwell_instance.calcula_TS_do_sinal(signal_values, samples_per_cycle, 3)
+    if True:#samples_per_cycle == 128:
+        if 'voltages' in nome_sinal:
+            amp, ang = stockwell_instance.calcula_TS_do_sinal(signal_values, samples_per_cycle, 3)
 
-    print(nome_sinal)
+            print(nome_sinal + ' feito')
+            plotST(nome_sinal, amp, samples_per_cycle, start_time, end_time, signal_values)
 
-    # Salvar os resultados na estrutura
-    resultados[nome_sinal] = {'Amplitude': amp, 'Ângulo': ang}
-    ''' Finalizar a substituição por outra função aqui'''
+            # Salvar os resultados na estrutura
+            resultados[nome_sinal] = {'Amplitude': amp, 'Ângulo': ang}
+            ''' Finalizar a substituição por outra função aqui'''
+
+        else:
+            amp, ang = stockwell_instance.calcula_TS_do_sinal(signal_values, samples_per_cycle, 3)
+
+            print(nome_sinal + ' feito')
+            plotST(nome_sinal, amp, samples_per_cycle, start_time, start_time, signal_values)
+
+            # Salvar os resultados na estrutura
+            resultados[nome_sinal] = {'Amplitude': amp, 'Ângulo': ang}
+            ''' Finalizar a substituição por outra função aqui'''
+
+
 # Exemplo de como acessar os resultados
 for nome_sinal, resultado in resultados.items():
     print(f"Sinal: {nome_sinal}, Amplitude: {resultado['Amplitude']}, Ângulo: {resultado['Ângulo']}")
