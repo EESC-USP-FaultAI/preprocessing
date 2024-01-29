@@ -3,9 +3,11 @@
 Código para avaliar o tempo de processamento de sinais
 Será utilizado o sinal gerado com harmônicas
 """
+from matplotlib.ticker import FormatStrFormatter, ScalarFormatter
 
 from functions.SignalGenerator.GeraSinais import GeraSinais  # Import the class from the module
 from functions.TW.DTW import DWT  # Import the class from the module
+import numpy as np
 import matplotlib.pyplot as plt
 
 ''' Parte 1 - Gera os sinais a serem analisados'''
@@ -106,26 +108,89 @@ resultados = {}
 
 print("Gerou todos os sinais")
 
-# Loop sobre os tipos de sinais
-for nome_sinal, signal_values in zip(nome_sinais, vetor_sinais):
-    # Determinar se é highsample ou lowsample com base no nome do sinal
-    if 'highsample' in nome_sinal:
+# Loop over signal types
+for signal_name, signal_values in zip(nome_sinais, vetor_sinais):
+    # Determine if it's highsample or lowsample based on signal name
+    if 'highsample' in signal_name:
         samples_per_cycle = 2048
-    elif 'lowsample' in nome_sinal:
+    elif 'lowsample' in signal_name:
         samples_per_cycle = 128
     else:
-        raise ValueError(f"Tipo de sinal não reconhecido no nome: {nome_sinal}")
+        raise ValueError(f"Unrecognized signal type in name: {signal_name}")
 
-    ''' Iniciar a substituição por outra função aqui'''
-    # Calcular a função desejada usando a função 'calcula_TS_do_sinal'
+    '''Start substitution with another function here'''
+    # Calculate desired function using 'calculate_TS_of_signal' function
 
-    ca, cd = DWT.transform(signal_values, 'db4')
+    # Determine the duration based on signal type
+    if 'voltages' in signal_name:
+        duration = 1.0
+    else:
+        duration = 0.5
 
-    #print(nome_sinal)
+    # Apply Discrete Wavelet Transform (DWT) to the signal
+    ca, cd = wavelet_instance.transform(signal_values, 'db4')
 
-    # Salvar os resultados na estrutura
-    #resultados[nome_sinal] = {'Amplitude': amp, 'Ângulo': ang}
-    #''' Finalizar a substituição por outra função aqui'''
-# Exemplo de como acessar os resultados
-for nome_sinal, resultado in resultados.items():
-    print(f"Sinal: {nome_sinal}, Amplitude: {resultado['Amplitude']}, Ângulo: {resultado['Ângulo']}")
+    # Generate time arrays for the signal and its DWT
+    signal_time = np.linspace(0, duration, len(signal_values))
+    cd_time = np.linspace(0, duration, len(cd))
+
+    # Square the DWT coefficients and ignore certain elements
+    cd = list(map(lambda x: x**2, cd))
+    cd_ignored = cd[100:-100]
+
+    # Find the index of the maximum value in the ignored portion of the DWT
+    max_index = None
+    value = max(cd_ignored) * 0.9
+    size = len(cd)
+    for i, element in enumerate(cd):
+        if i < 100 or i > size - 100:
+            continue
+        if element >= value:
+            max_index = i
+            break
+
+    # Calculate the time corresponding to the maximum value
+    time = cd_time[max_index]
+
+    # Generate a binary signal indicating trip occurrence based on this time
+    y = [1 if t >= time else 0 for t in cd_time]
+    y_signal = [1 if t >= start_time else 0 for t in signal_time]
+
+    # Create subplots for each aspect of the analysis
+    fig, axs = plt.subplots(3)
+    fig.suptitle(signal_name)
+
+    # Adjust subplot layout
+    plt.subplots_adjust(left=0.22)
+    plt.subplots_adjust(hspace=1.0)
+
+    # Plot the original signal
+    axs[0].plot(signal_time, signal_values)
+    axs[0].set_title('Signal')
+    axs[0].set_xlabel('Time')
+    axs[0].set_ylabel('Amplitude [pu]')
+
+    # Plot the DWT
+    axs[1].plot(cd_time, cd)
+    axs[1].set_title('DWT')
+    axs[1].set_xlabel('Time')
+    axs[1].set_ylabel('Amplitude [pu]')
+
+    # Plot the trip occurrence
+    axs[2].plot(cd_time, y, label='Real trip')
+    axs[2].plot(signal_time, y_signal, linestyle='--', label='Ideal trip')
+    axs[2].legend()
+    axs[2].set_xlabel('Time')
+    axs[2].set_ylabel('Amplitude [pu]')
+    axs[2].set_title('Trip')
+
+    # Set custom formatter for y-axis to display in scientific notation
+    def scientific_formatter(value, pos):
+        return "{:.1e}".format(value)
+
+    for ax in axs.flat:
+        ax.yaxis.set_major_formatter(ScalarFormatter(useMathText=True, useOffset=False))
+        ax.yaxis.set_major_formatter(plt.FuncFormatter(scientific_formatter))
+
+    # Show the plots
+    plt.show()
