@@ -1,5 +1,5 @@
 import numpy as np
-class DFT():
+class discrete_fourier_transform():
     def DFT(x): #CALCULA A DFT DE UM SINAL REAL DE UMA VARIÁVEL
 
         N = len(x) #lê o tamanho do vetor x e atribui para N

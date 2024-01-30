@@ -5,7 +5,7 @@ Será utilizado o sinal gerado com harmônicas
 """
 
 from functions.SignalGenerator.GeraSinais import GeraSinais  # Import the class from the module
-from functions.TF.DFT import DFT  # Import the class from the module
+from functions.TF.DFT_function import discrete_fourier_transform  # Import the class from the module
 import matplotlib.pyplot as plt
 import numpy as np
 # ADICIONAR AQUI OS PACOTES E FUNCOES DAS OUTRAS TRANSFORMADAS
@@ -74,7 +74,7 @@ time2, short_circuit_current_nonoise_lowsample = GeraSinais.short_circuit_curren
 
 
 # Criar uma instância da classe DFT
-DFT_instance = DFT()
+DFT_instance = discrete_fourier_transform()
 
 # Tipos de sinais já carregados no ambiente Python
 resulting_voltages_withnoise_highsample_A = resulting_voltages_withnoise_highsample['A']
@@ -119,18 +119,12 @@ for nome_sinal, signal_values in zip(nome_sinais, vetor_sinais):
     else:
         raise ValueError(f"Tipo de sinal não reconhecido no nome: {nome_sinal}")
 
-    ''' Iniciar a substituição por outra função aqui'''
-    # Calcular a função desejada usando a função 'calcula_TS_do_sinal'
+    # PARTE ESPECÍFICA??
+''' Iniciar a substituição por outra função aqui'''
+# Calcular a função desejada usando a função 'calcula_TS_do_sinal'
 
 
-#PARTE ESPECÍFICA??
-    X = DFT_instance.DFT(signal_values)
 
-    print(nome_sinal)
 
-    # Salvar os resultados na estrutura
-    resultados[nome_sinal] = {'Coef. da DFT': X}
-    ''' Finalizar a substituição por outra função aqui'''
-# Exemplo de como acessar os resultados
-for nome_sinal, resultado in resultados.items():
-    print(f"Sinal: {nome_sinal}, Amplitude: {resultado['Amplitude']}, Ângulo: {resultado['Ângulo']}")
+
+
