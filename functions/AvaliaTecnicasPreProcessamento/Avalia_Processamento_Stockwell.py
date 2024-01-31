@@ -122,7 +122,7 @@ for nome_sinal, signal_values in zip(nome_sinais, vetor_sinais):
     ''' Iniciar a substituição por outra função aqui'''
     # Calcular a função desejada usando a função 'calcula_TS_do_sinal'
 
-    if True:#samples_per_cycle == 128:
+    if True: #samples_per_cycle == 128:
         if 'voltages' in nome_sinal:
             amp, ang = stockwell_instance.calcula_TS_do_sinal(signal_values, samples_per_cycle, 3)
 
