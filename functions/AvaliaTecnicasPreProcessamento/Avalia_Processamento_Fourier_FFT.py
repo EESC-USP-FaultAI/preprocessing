@@ -5,7 +5,7 @@ Será utilizado o sinal gerado com harmônicas
 """
 
 from functions.SignalGenerator.GeraSinais import GeraSinais  # Import the class from the module
-from functions.TF.DFT_function import discrete_fourier_transform  # Import the class from the module
+from functions.TF.FFT_function import fast_fourier_transform  # Import the class from the module
 import matplotlib.pyplot as plt
 import numpy as np
 # ADICIONAR AQUI OS PACOTES E FUNCOES DAS OUTRAS TRANSFORMADAS
@@ -75,7 +75,7 @@ time2, short_circuit_current_nonoise_lowsample = GeraSinais.short_circuit_curren
 
 # Criar uma instância da classe DFT
 
-DFT_instance = discrete_fourier_transform()
+FFT_instance = fast_fourier_transform()
 
 # Tipos de sinais já carregados no ambiente Python
 resulting_voltages_withnoise_highsample_A = resulting_voltages_withnoise_highsample['A']
@@ -110,9 +110,8 @@ resultados = {}
 
 print("Gerou todos os sinais")
 
-X = discrete_fourier_transform.DFT(short_circuit_current_nonoise_lowsample)
+X = fast_fourier_transform.FFT(short_circuit_current_nonoise_lowsample)
 
-#calculando a frequência
 N = len(X)
 n = np.arange(N)
 T = N/(samples_per_cycle/(1/frequency)) #T = N/taxa_de_amostragem
@@ -131,10 +130,7 @@ plt.figure(figsize = (12, 6))
 plt.stem(f_oneside, abs(X_oneside), 'b', \
          markerfmt=" ", basefmt="-b")
 plt.xlabel('Frequency (Hz)')
-plt.ylabel('DFT Normalized Amplitude |X(freq)|')
+plt.ylabel('FFT Normalized Amplitude |X(freq)|')
 plt.xlim(0, 420)
 plt.show()
-
-
-
-
+#redução da amplitude de alguns harmonicos?
