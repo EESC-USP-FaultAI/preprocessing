@@ -2,6 +2,18 @@
 Metricas de preprocessamentop para wavelet
 '''
 
+'''
+Listando:
+- Média
+- Mediana
+- Desvio Padrão / Variância
+- Kurtosis (Curtose)
+- Entropia
+    - Entropia de Shannon / Rényi (generalizada);
+    - Permutation Entropy;
+- Energia do sinal
+    - Energia dos coeficientes da Wavelet.
+'''
 
 
 '''
