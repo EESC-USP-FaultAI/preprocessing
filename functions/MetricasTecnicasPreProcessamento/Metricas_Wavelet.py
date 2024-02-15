@@ -9,7 +9,7 @@ Listando:
 - Média (ok)
 - Mediana (ok)
 - Desvio Padrão (ok) / Variância (ok)
-- Kurtosis (Curtose)
+- Kurtosis (Curtose) (ok)
 - Entropia
     - Entropia de Shannon / Rényi (generalizada);
     - Permutation Entropy;
@@ -102,6 +102,40 @@ def standard_deviation(coef):
     coef_std_dev = np.sqrt(variance_value)
 
     return coef_std_dev
+
+
+def kurtosis(coef, fisher=True):  # Fisher's Kurtosis
+    """
+    Calculate kurtosis (Fisher or Pearson) of wavelet coefficients
+    :param coef: Coefficients obtained with Wavelet Transform
+    :param fisher: If true subtract 3.0 from the result to give 0.0 for a normal distribution (default=true)
+    :return: Kurtosis value of the given wavelet coefficients
+    """
+    data_length = len(coef)  # Number of values
+    mean_value = mean(coef)  # Mean value of coefficients
+    square_variance_value = variance(coef)**2  # Square variance of coefficients
+
+    forth_diff_sum = 0  # variable to stor sum of square differences
+
+    # Loop to compute sum of forth differences
+    for i in range(data_length):
+        forth_diff_sum += (coef[i] - mean_value) ** 4
+
+    # Compute forth central moment
+    forth_moment_value = forth_diff_sum / data_length
+
+    # Compute kurtosis value
+    if fisher:
+        coef_kurtosis = (forth_moment_value / square_variance_value) - 3.0
+    else:
+        coef_kurtosis = (forth_moment_value / square_variance_value)
+
+    return coef_kurtosis
+
+
+
+
+
 
 '''
 Análise da energia do sinal atraves de tal e tal
