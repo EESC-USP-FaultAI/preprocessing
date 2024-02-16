@@ -22,7 +22,7 @@ def mean(coef):
     """
     Calculate mean value of wavelet coefficients.
     :param coef: Coefficients obtained with Wavelet Transform
-    :return: Mean value of the given wavelet coefficients.
+    :return: Mean value of given wavelet coefficients.
     """
     data_sum = 0  # Variable to store sum of values
     data_length = len(coef)  # Number of samples
@@ -40,7 +40,7 @@ def median(coef):
     """
     Calculate median value of wavelet coefficients
     :param coef: Coefficients obtained with Wavelet Transform
-    :return: Median value of the given wavelet coefficients
+    :return: Median value of given wavelet coefficients
     """
     data_length = len(coef)  # Number of samples
 
@@ -73,7 +73,7 @@ def variance(coef, ddof=0):
     :param coef: Coefficients obtained with Wavelet Transform
     :param ddof: “Delta Degrees of Freedom”: the divisor used in the calculation
     is N - ddof, where N represents the number of elements. By default ddof is zero.
-    :return: Variance value of the given wavelet coefficients
+    :return: Variance value of given wavelet coefficients
     """
     data_length = len(coef)  # Number of values
     mean_value = mean(coef)  # Mean value of coefficients
@@ -96,7 +96,7 @@ def standard_deviation(coef, ddof=0):
     :param coef: Coefficients obtained with Wavelet Transform
     :param ddof: “Delta Degrees of Freedom”: the divisor used in the calculation
     is N - ddof, where N represents the number of elements. By default ddof is zero.
-    :return: Standard deviation value of the given wavelet coefficients
+    :return: Standard deviation value of given wavelet coefficients
     """
 
     # following: S = sqrt(variance)
@@ -113,7 +113,7 @@ def kurtosis(coef, fisher=True):  # Fisher's Kurtosis
     Calculate kurtosis (Fisher or Pearson) of wavelet coefficients
     :param coef: Coefficients obtained with Wavelet Transform
     :param fisher: If true subtract 3.0 from the result to give 0.0 for a normal distribution (default=true)
-    :return: Kurtosis value of the given wavelet coefficients
+    :return: Kurtosis value of given wavelet coefficients
     """
     data_length = len(coef)  # Number of values
     mean_value = mean(coef)  # Mean value of coefficients
@@ -137,6 +137,33 @@ def kurtosis(coef, fisher=True):  # Fisher's Kurtosis
     return coef_kurtosis
 
 
+def shannon_entropy(coef):
+    # Precisa ser corrigida...
+    """
+    Calculate Shannon Entropy of wavelet coefficients
+    :param coef: Coefficients obtained with Wavelet Transform
+    :return: Shannon Entropy value of given wavelet coefficients
+    """
+    data_log_sum = 0  # Variable to store sum of values
+    data_length = len(coef)  # Number of values
+
+    # Compute Probability Mass Function
+    unique_values, counts = np.unique(coef, return_counts=True)
+    pmf_values = counts / data_length
+    pmf_dict = dict(zip(unique_values, pmf_values))
+
+    # Loop to compute sum of all possible values of x
+    for i in range(data_length):
+        pi = pmf_dict.get(coef[i])
+        data_log_sum += pi*np.log2(pi)
+
+    # Compute the shannon entropy as the negative of log sum
+    coef_shanon_entropy = -data_log_sum
+
+    return coef_shanon_entropy
+
+
+
 """ Quick Test """
 a = [1, 2, 3, 4, 5, 6, 7, 10, 12, 53, 60, 12, 45, 214]
 a = np.array(a)
@@ -157,6 +184,9 @@ print("Variance using function: %.4f" % (standard_deviation(a, ddof=1)))
 # Kurtosis
 print("Kurtosis using scipy: %.4f" % (sc.stats.kurtosis(a)))
 print("Kurtosis using function: %.4f" % (kurtosis(a)))
+# Shannon Entropy
+print("Shannon Entropy using scipy: %.4f" % (sc.stats.entropy(a, base=2)))
+print("Shannon Entropy using function: %.4f" % (shannon_entropy(a)))
 
 
 '''
