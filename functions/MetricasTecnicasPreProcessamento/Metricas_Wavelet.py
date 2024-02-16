@@ -1,4 +1,5 @@
 import numpy as np
+import scipy as sc  # Used for testing
 
 '''
 Metricas de preprocessamentop para wavelet
@@ -16,7 +17,6 @@ Listando:
 - Energia do sinal
     - Energia dos coeficientes da Wavelet.
 '''
-
 
 def mean(coef):
     """
@@ -58,7 +58,7 @@ def median(coef):
         count += 1
 
     # Compute median value
-    n_mean = data_length / 2
+    n_mean = int(data_length / 2)
     if data_length % 2 == 0:  # Even number of values
         coef_median = (coef[n_mean] + coef[n_mean-1])/2
     else:  # Odd number of values
@@ -67,10 +67,12 @@ def median(coef):
     return coef_median
 
 
-def variance(coef):
+def variance(coef, ddof=0):
     """
     Calculate variance of wavelet coefficients
     :param coef: Coefficients obtained with Wavelet Transform
+    :param ddof: “Delta Degrees of Freedom”: the divisor used in the calculation
+    is N - ddof, where N represents the number of elements. By default ddof is zero.
     :return: Variance value of the given wavelet coefficients
     """
     data_length = len(coef)  # Number of values
@@ -80,23 +82,25 @@ def variance(coef):
 
     # Loop to compute sum of square differences
     for i in range(data_length):
-        square_diff_sum += (coef[i] - mean_value)**2
+        square_diff_sum += abs(coef[i] - mean_value)**2
 
     # Compute variance of values
-    coef_variance = square_diff_sum / (data_length - 1)
+    coef_variance = square_diff_sum / (data_length-ddof)
 
     return coef_variance
 
 
-def standard_deviation(coef):
+def standard_deviation(coef, ddof=0):
     """
     Calculate standard deviation of wavelet coefficients
     :param coef: Coefficients obtained with Wavelet Transform
+    :param ddof: “Delta Degrees of Freedom”: the divisor used in the calculation
+    is N - ddof, where N represents the number of elements. By default ddof is zero.
     :return: Standard deviation value of the given wavelet coefficients
     """
 
     # following: S = sqrt(variance)
-    variance_value = variance(coef)
+    variance_value = variance(coef, ddof=ddof)
 
     # Compute standard deviation value
     coef_std_dev = np.sqrt(variance_value)
@@ -133,8 +137,26 @@ def kurtosis(coef, fisher=True):  # Fisher's Kurtosis
     return coef_kurtosis
 
 
+""" Quick Test """
+a = [1, 2, 3, 4, 5, 6, 7, 10, 12, 53, 60, 12, 45, 214]
+a = np.array(a)
 
-
+print("Array a:", a)
+# Mean
+print("Mean using numpy: %.4f" % (np.mean(a)))
+print("Mean using function: %.4f" % (mean(a)))
+# Median
+print("Median using numpy: %.4f" % (np.median(a)))
+print("Median using function: %.4f" % (median(a)))
+# Variance
+print("Variance using numpy: %.4f" % (np.var(a, ddof=1)))
+print("Variance using function: %.4f" % (variance(a, ddof=1)))
+# Standard Deviation
+print("Variance using numpy: %.4f" % (np.std(a, ddof=1)))
+print("Variance using function: %.4f" % (standard_deviation(a, ddof=1)))
+# Kurtosis
+print("Kurtosis using scipy: %.4f" % (sc.stats.kurtosis(a)))
+print("Kurtosis using function: %.4f" % (kurtosis(a)))
 
 
 '''
