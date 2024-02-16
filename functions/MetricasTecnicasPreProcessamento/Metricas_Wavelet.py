@@ -137,40 +137,38 @@ def kurtosis(coef, fisher=True):  # Fisher's Kurtosis
     return coef_kurtosis
 
 
-def shannon_entropy(coef):
-    # Preciso descobrir o que está errado...
+def shannon_entropy(coef, base=None):
     """
     Calculate Shannon Entropy of wavelet coefficients
     :param coef: Coefficients obtained with Wavelet Transform
+    :param base: The logarithmic base to use, defaults to e (natural logarithm).
     :return: Shannon Entropy value of given wavelet coefficients
     """
-    data_log_sum = 0  # Variable to store sum of values
+    data_log_sum = 0  # Variable to store log sum of values
+    data_sum = 0  # Variable to store sum of values
     data_length = len(coef)  # Number of values
 
-    # Compute Probability Mass Function
-    unique_values, counts = np.unique(coef, return_counts=True)
-    pmf_values = counts / data_length
-    pmf_dict = dict(zip(unique_values, pmf_values))
-
-    # Probability values of each coefficient
-    pmfi = []
+    # Loop to compute sum of all values
     for i in range(data_length):
-        pmfi.append(pmf_dict.get(coef[i]))
-    pmfi = np.array(pmfi)
+        data_sum += abs(coef[i])
 
-    # Normalize values
-    if np.sum(pmfi) != 1:
-        pmfi = pmfi / np.sum(pmfi)
+    # Compute Probability Mass Function
+    pmf = []
+    for i in range(data_length):
+        pmf.append(abs(coef[i])/data_sum)
+    pmf = np.array(pmf)
 
-    # Loop to compute sum of all possible values of x
+    # Loop to compute sum of all possible values multiplied by logarithm
     for k in range(data_length):
-        pk = pmfi[k]
-        data_log_sum += pk*np.log2(pk)
+        pk = pmf[k]
+        data_log_sum += pk * np.log(pk)
 
-    # Compute the shannon entropy as the negative of log sum
-    coef_shanon_entropy = -data_log_sum
+    # Compute Shannon Entropy as the negative of log sum
+    coef_shannon_entropy = -data_log_sum
+    if base is not None:
+        coef_shannon_entropy /= np.log(base)
 
-    return coef_shanon_entropy
+    return coef_shannon_entropy
 
 
 
@@ -196,7 +194,7 @@ print("Kurtosis using scipy: %.4f" % (sc.stats.kurtosis(a)))
 print("Kurtosis using function: %.4f" % (kurtosis(a)))
 # Shannon Entropy
 print("Shannon Entropy using scipy: %.4f" % (sc.stats.entropy(a, base=2)))
-print("Shannon Entropy using function: %.4f" % (shannon_entropy(a)))
+print("Shannon Entropy using function: %.4f" % (shannon_entropy(a, base=2)))
 
 
 '''
