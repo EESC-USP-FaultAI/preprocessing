@@ -138,7 +138,7 @@ def kurtosis(coef, fisher=True):  # Fisher's Kurtosis
 
 
 def shannon_entropy(coef):
-    # Precisa ser corrigida...
+    # Preciso descobrir o que está errado...
     """
     Calculate Shannon Entropy of wavelet coefficients
     :param coef: Coefficients obtained with Wavelet Transform
@@ -152,10 +152,20 @@ def shannon_entropy(coef):
     pmf_values = counts / data_length
     pmf_dict = dict(zip(unique_values, pmf_values))
 
-    # Loop to compute sum of all possible values of x
+    # Probability values of each coefficient
+    pmfi = []
     for i in range(data_length):
-        pi = pmf_dict.get(coef[i])
-        data_log_sum += pi*np.log2(pi)
+        pmfi.append(pmf_dict.get(coef[i]))
+    pmfi = np.array(pmfi)
+
+    # Normalize values
+    if np.sum(pmfi) != 1:
+        pmfi = pmfi / np.sum(pmfi)
+
+    # Loop to compute sum of all possible values of x
+    for k in range(data_length):
+        pk = pmfi[k]
+        data_log_sum += pk*np.log2(pk)
 
     # Compute the shannon entropy as the negative of log sum
     coef_shanon_entropy = -data_log_sum
