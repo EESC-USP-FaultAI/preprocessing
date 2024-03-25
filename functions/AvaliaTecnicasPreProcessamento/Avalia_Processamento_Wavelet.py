@@ -103,10 +103,23 @@ nome_sinais = [
     'short_circuit_current_nonoise_lowsample'
 ]
 
+nome_sinais_title = [
+    'Voltage with noise - High sample',
+    'Voltage without noise - High sample',
+    'Voltage with noise - Low sample',
+    'Voltage without noise - Low sample',
+    'Current with noise - High sample',
+    'Current without noise - High sample',
+    'Current with noise - Low sample',
+    'Current without noise - Low sample'
+]
+
 # Estrutura para armazenar os resultados
 resultados = {}
 
 print("Gerou todos os sinais")
+
+i = 0
 
 # Loop over signal types
 for signal_name, signal_values in zip(nome_sinais, vetor_sinais):
@@ -158,7 +171,7 @@ for signal_name, signal_values in zip(nome_sinais, vetor_sinais):
 
     # Create subplots for each aspect of the analysis
     fig, axs = plt.subplots(3)
-    fig.suptitle(signal_name)
+    #fig.suptitle(nome_sinais_title[0])
 
     # Adjust subplot layout
     plt.subplots_adjust(left=0.22)
@@ -194,3 +207,4 @@ for signal_name, signal_values in zip(nome_sinais, vetor_sinais):
 
     # Show the plots
     plt.show()
+    i = i+1
