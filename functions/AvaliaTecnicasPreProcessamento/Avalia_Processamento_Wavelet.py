@@ -180,22 +180,23 @@ for signal_name, signal_values in zip(nome_sinais, vetor_sinais):
     # Plot the original signal
     axs[0].plot(signal_time, signal_values)
     axs[0].set_title('Signal')
-    axs[0].set_xlabel('Time')
+    axs[0].set_xlabel('Time [s]')
     axs[0].set_ylabel('Amplitude [pu]')
 
     # Plot the DWT
     axs[1].plot(cd_time, cd)
     axs[1].set_title('DWT')
-    axs[1].set_xlabel('Time')
+    axs[1].set_xlabel('Time [s]')
     axs[1].set_ylabel('Amplitude [pu]')
 
     # Plot the trip occurrence
     axs[2].plot(cd_time, y, label='Real trip')
     axs[2].plot(signal_time, y_signal, linestyle='--', label='Ideal trip')
     axs[2].legend()
-    axs[2].set_xlabel('Time')
+    axs[2].set_xlabel('Time [s]')
     axs[2].set_ylabel('Amplitude [pu]')
     axs[2].set_title('Trip')
+    print(signal_name)
 
     # Set custom formatter for y-axis to display in scientific notation
     def scientific_formatter(value, pos):
