@@ -12,11 +12,12 @@ Listando:
 - Desvio Padrão (ok) / Variância (ok)
 - Kurtosis (Curtose) (ok)
 - Entropia
-    - Entropia de Shannon / Rényi (generalizada);
+    - Entropia de Shannon (ok) / Rényi (generalizada);
     - Permutation Entropy;
 - Energia do sinal
     - Energia dos coeficientes da Wavelet.
 '''
+
 
 def mean(coef):
     """
@@ -169,7 +170,6 @@ def shannon_entropy(coef, base=None):
         coef_shannon_entropy /= np.log(base)
 
     return coef_shannon_entropy
-
 
 
 """ Quick Test """
