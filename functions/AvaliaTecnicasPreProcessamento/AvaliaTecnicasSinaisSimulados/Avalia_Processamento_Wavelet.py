@@ -10,13 +10,14 @@ data = data_selection('Z:\\modelo_simulacoes\\results_Modelo_Aero_INTEGRADO_LOOP
                       'A')
 
 
-def applyDWTSignal(signal, dwt, plot=False):
+def applyDWTSignal(signal, dwt, time=0.3, plot=False):
     """
     Apply Discrete Wavelet Transform to a signal and optionally plot the result.
 
     Parameters:
         signal (array_like): The input signal.
         dwt (str): The type of wavelet to use for the transformation.
+        time (float): Duration time of signal
         plot (bool, optional): Whether to plot the original signal and its DWT. Defaults to False.
 
     Returns:
@@ -33,8 +34,8 @@ def applyDWTSignal(signal, dwt, plot=False):
 
     if plot:
         # Generate time arrays for the signal and its DWT
-        signal_time = np.linspace(0, 0.3, len(signal_values))
-        cd_time = np.linspace(0, 0.3, len(cd))
+        signal_time = np.linspace(0, time, len(signal_values))
+        cd_time = np.linspace(0, time, len(cd))
 
         # Create subplots for each aspect of the analysis
         fig, axs = plt.subplots(2)
