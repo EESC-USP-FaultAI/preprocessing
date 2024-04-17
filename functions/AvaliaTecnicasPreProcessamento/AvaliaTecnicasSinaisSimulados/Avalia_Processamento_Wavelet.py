@@ -62,4 +62,4 @@ def applyDWTSignal(signal, dwt, time=0.3, plot=False):
 
 
 # Example usage
-approximation_coefficients, detail_coefficients = applyDWTSignal(data[:, 0], 'db4', True)
+approximation_coefficients, detail_coefficients = applyDWTSignal(data[:, 0], 'db4', 0.3, True)
