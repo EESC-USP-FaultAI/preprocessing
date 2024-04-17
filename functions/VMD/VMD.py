@@ -72,15 +72,17 @@ signal = np.array(resulting_voltages['A'])
 # Apply VMD to decompose the signal
 modes = vmd(signal)
 
-# Plot the original signal and decomposed modes
-plt.figure(figsize=(10, 6))
-plt.subplot(2, 1, 1)
-plt.plot(np.arange(0, duration, 1 / sampling_frequency), signal, label='Original Signal')
-plt.legend()
+if __name__ == '__main__': # Alailton: Se não colocar este If, o código abaixo será executado quando está importando o módulo
 
-plt.subplot(2, 1, 2)
-for i in range(modes.shape[1]):
-    plt.plot(np.arange(0, duration, 1 / sampling_frequency), modes[:, i], label=f'Mode {i + 1}')
-plt.legend()
+    # Plot the original signal and decomposed modes
+    plt.figure(figsize=(10, 6))
+    plt.subplot(2, 1, 1)
+    plt.plot(np.arange(0, duration, 1 / sampling_frequency), signal, label='Original Signal')
+    plt.legend()
 
-plt.show()
+    plt.subplot(2, 1, 2)
+    for i in range(modes.shape[1]):
+        plt.plot(np.arange(0, duration, 1 / sampling_frequency), modes[:, i], label=f'Mode {i + 1}')
+    plt.legend()
+
+    plt.show()

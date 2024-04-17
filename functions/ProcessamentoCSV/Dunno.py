@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 
-
 def data_selection(data_file_path, meas, meas_file_path="medicoes.csv", single_phase=None):
     """
     Select the voltage/current data given its name on file "medicoes.csv".
