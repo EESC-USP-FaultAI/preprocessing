@@ -14,7 +14,7 @@ Listando:
 - Entropia
     - Entropia de Shannon (ok) / Rényi (generalizada);
     - Permutation Entropy;
-- Energia do sinal
+- Energia do sinal (ok)
     - Energia dos coeficientes da Wavelet.
 '''
 
@@ -48,7 +48,7 @@ def median(coef):
     # Loop to sort coefficients values
     count = 0  # Auxiliary variable to sort values
     while count < data_length - 1:
-        for i in range(count+1, data_length):
+        for i in range(count + 1, data_length):
             smaller = coef[i]
             smaller_id = i
             if smaller > coef[i]:
@@ -61,7 +61,7 @@ def median(coef):
     # Compute median value
     n_mean = int(data_length / 2)
     if data_length % 2 == 0:  # Even number of values
-        coef_median = (coef[n_mean] + coef[n_mean-1])/2
+        coef_median = (coef[n_mean] + coef[n_mean - 1]) / 2
     else:  # Odd number of values
         coef_median = coef[int(n_mean)]
 
@@ -83,10 +83,10 @@ def variance(coef, ddof=0):
 
     # Loop to compute sum of square differences
     for i in range(data_length):
-        square_diff_sum += abs(coef[i] - mean_value)**2
+        square_diff_sum += abs(coef[i] - mean_value) ** 2
 
     # Compute variance of values
-    coef_variance = square_diff_sum / (data_length-ddof)
+    coef_variance = square_diff_sum / (data_length - ddof)
 
     return coef_variance
 
@@ -118,7 +118,7 @@ def kurtosis(coef, fisher=True):  # Fisher's Kurtosis
     """
     data_length = len(coef)  # Number of values
     mean_value = mean(coef)  # Mean value of coefficients
-    square_variance_value = variance(coef)**2  # Square variance of coefficients
+    square_variance_value = variance(coef) ** 2  # Square variance of coefficients
 
     forth_diff_sum = 0  # variable to stor sum of square differences
 
@@ -156,7 +156,7 @@ def shannon_entropy(coef, base=None):
     # Compute Probability Mass Function
     pmf = []
     for i in range(data_length):
-        pmf.append(abs(coef[i])/data_sum)
+        pmf.append(abs(coef[i]) / data_sum)
     pmf = np.array(pmf)
 
     # Loop to compute sum of all possible values multiplied by logarithm
@@ -170,6 +170,74 @@ def shannon_entropy(coef, base=None):
         coef_shannon_entropy /= np.log(base)
 
     return coef_shannon_entropy
+
+
+"""Energy of signal"""
+
+
+def energy_sum_of_squares(coef):
+    """
+    Calculates the energy of a signal using the sum of squares method.
+
+    Parameters:
+    coef (array-like): Coefficients representing the signal.
+
+    Returns:
+    float: Energy of the signal.
+    """
+    energy = 0
+    for c in coef:
+        energy += abs(c) ** 2
+    return energy
+
+
+def energy_parseval(coef):
+    """
+    Calculates the energy of a signal using Parseval's theorem.
+
+    Parameters:
+    coef (array-like): Coefficients representing the signal.
+
+    Returns:
+    float: Energy of the signal.
+    """
+    energy = 0
+    for c in coef:
+        energy += abs(c) ** 2
+    return energy / len(coef)
+
+
+def energy_mean_power(coef):
+    """
+    Calculates the energy of a signal using the mean power method.
+
+    Parameters:
+    coef (array-like): Coefficients representing the signal.
+
+    Returns:
+    float: Energy of the signal.
+    """
+    energy = 0
+    for c in coef:
+        energy += abs(c) ** 2
+    return energy / len(coef)
+
+
+def energy_autocorrelation(coef):
+    """
+    Calculates the energy of a signal using the autocorrelation method.
+
+    Parameters:
+    coef (array-like): Coefficients representing the signal.
+
+    Returns:
+    float: Energy of the signal.
+    """
+    autocorr = np.correlate(coef, coef, mode='full')
+    energy = 0
+    for ac in autocorr:
+        energy += abs(ac)
+    return energy
 
 
 """ Quick Test """
@@ -195,18 +263,3 @@ print("Kurtosis using function: %.4f" % (kurtosis(a)))
 # Shannon Entropy
 print("Shannon Entropy using scipy: %.4f" % (sc.stats.entropy(a, base=2)))
 print("Shannon Entropy using function: %.4f" % (shannon_entropy(a, base=2)))
-
-
-'''
-Análise da energia do sinal atraves de tal e tal
-'''
-
-
-'''
-Função para calcular a entropia do sinal
-'''
-
-
-'''
-Funções para calcular a energia e a densidade de energia
-'''
