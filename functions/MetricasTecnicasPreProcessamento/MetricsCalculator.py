@@ -117,9 +117,6 @@ def shannon_entropy(coef, base=None):
     return coef_shannon_entropy
 
 
-"""Energy of signal"""
-
-
 def energy_sum_of_squares(coef):
     """
     Calculates the energy of a signal using the sum of squares method.
