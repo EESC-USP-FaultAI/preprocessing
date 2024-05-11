@@ -3,7 +3,7 @@
 Código para testar os sinais gerados criado por Gabriela Nunes.
 dúvidas: gabrielanuneslopes@usp.br
 """
-from functions.SignalGenerator.GeraSinais import GeraSinais  # Import the class from the module
+from functions.SignalGenerator.SignalGenerator import Generate_Signals  # Import the class from the module
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -26,7 +26,7 @@ involved_phases = 'AB'    # Change this to set the involved phase or combination
 add_noise_sag = True  # Change this to True if you want to add noise
 SNR_sag = 20  # Change this to set the SNR for the sag signal
 
-resulting_voltages = GeraSinais.voltage_sag_short_circuit(
+resulting_voltages = Generate_Signals.voltage_sag_short_circuit(
     sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, add_noise_sag, SNR_sag
 )
 
@@ -61,7 +61,7 @@ harmonics_start_time = 0.1  # tempo em segundos para começar a adicionar as har
 add_noise_harmonics = True  # Change this to True if you want to add noise
 SNR_harmonics = 15  # Change this to set the SNR for the harmonics signal
 
-time, generated_signal = GeraSinais.GenerateSignalWithHarmonics(
+time, generated_signal = Generate_Signals.GenerateSignalWithHarmonics(
     amplitude_fundamental, samples_per_cycle, frequency, harmonics, amplitudes, duration, harmonics_start_time, add_noise_harmonics, SNR_harmonics
 )
 
@@ -93,7 +93,7 @@ add_noise_current = True  # Change this to True if you want to add noise
 SNR_current = 60  # Change this to set the SNR for the short circuit current signal
 
 # Generate short circuit current waveform
-time, short_circuit_current = GeraSinais.short_circuit_current(
+time, short_circuit_current = Generate_Signals.short_circuit_current(
     amplitude, frequency, short_circuit_time, increase_factor, decay_factor, duration, sampling_frequency, add_noise_current, SNR_current
 )
 

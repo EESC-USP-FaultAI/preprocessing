@@ -1,6 +1,6 @@
 from matplotlib import pyplot as plt
 from functions.TW.DTW import DWT
-from functions.ProcessamentoCSV.Dunno import data_selection
+from functions.CSVProcessing.Dunno import data_selection
 import numpy as np
 
 # Select data from CSV files

@@ -7,11 +7,12 @@ def mean(coef):
     Calculate the mean value of wavelet coefficients.
 
     Parameters:
-    coef (array-like): Coefficients obtained with Wavelet Transform.
+    - coef (array-like): Coefficients obtained with Wavelet Transform.
 
     Returns:
-    float: Mean value of given wavelet coefficients.
+    - float: Mean value of given wavelet coefficients.
     """
+
     data_sum = sum(coef)
     data_length = len(coef)
     coef_mean = data_sum / data_length
@@ -23,11 +24,12 @@ def median(coef):
     Calculate the median value of wavelet coefficients.
 
     Parameters:
-    coef (array-like): Coefficients obtained with Wavelet Transform.
+    - coef (array-like): Coefficients obtained with Wavelet Transform.
 
     Returns:
-    float: Median value of given wavelet coefficients.
+    - float: Median value of given wavelet coefficients.
     """
+
     sorted_coef = sorted(coef)
     data_length = len(coef)
     n_mean = data_length // 2
@@ -43,13 +45,14 @@ def variance(coef, ddof=0):
     Calculate the variance of wavelet coefficients.
 
     Parameters:
-    coef (array-like): Coefficients obtained with Wavelet Transform.
-    ddof (int, optional): Delta Degrees of Freedom. The divisor used in the calculation
+    - coef (array-like): Coefficients obtained with Wavelet Transform.
+    - ddof (int, optional): Delta Degrees of Freedom. The divisor used in the calculation
     is N - ddof, where N represents the number of elements. By default ddof is zero.
 
     Returns:
-    float: Variance value of given wavelet coefficients.
+    - float: Variance value of given wavelet coefficients.
     """
+
     mean_value = mean(coef)
     data_length = len(coef)
     square_diff_sum = sum((x - mean_value) ** 2 for x in coef)
@@ -62,13 +65,14 @@ def standard_deviation(coef, ddof=0):
     Calculate the standard deviation of wavelet coefficients.
 
     Parameters:
-    coef (array-like): Coefficients obtained with Wavelet Transform.
-    ddof (int, optional): Delta Degrees of Freedom. The divisor used in the calculation
+    - coef (array-like): Coefficients obtained with Wavelet Transform.
+    - ddof (int, optional): Delta Degrees of Freedom. The divisor used in the calculation
     is N - ddof, where N represents the number of elements. By default ddof is zero.
 
     Returns:
-    float: Standard deviation value of given wavelet coefficients.
+    - float: Standard deviation value of given wavelet coefficients.
     """
+
     variance_value = variance(coef, ddof=ddof)
     coef_std_dev = np.sqrt(variance_value)
     return coef_std_dev
@@ -79,12 +83,13 @@ def kurtosis(coef, fisher=True):  # Fisher's Kurtosis
     Calculate the kurtosis (Fisher or Pearson) of wavelet coefficients.
 
     Parameters:
-    coef (array-like): Coefficients obtained with Wavelet Transform.
-    fisher (bool, optional): If True, subtract 3.0 from the result to give 0.0 for a normal distribution (default=True).
+    - coef (array-like): Coefficients obtained with Wavelet Transform.
+    - fisher (bool, optional): If True, subtract 3.0 from the result to give 0.0 for a normal distribution (default=True).
 
     Returns:
-    float: Kurtosis value of given wavelet coefficients.
+    - float: Kurtosis value of given wavelet coefficients.
     """
+
     mean_value = mean(coef)
     variance_value = variance(coef)
     data_length = len(coef)
@@ -102,12 +107,13 @@ def shannon_entropy(coef, base=None):
     Calculate the Shannon Entropy of wavelet coefficients.
 
     Parameters:
-    coef (array-like): Coefficients obtained with Wavelet Transform.
-    base (float, optional): The logarithmic base to use, defaults to e (natural logarithm).
+    - coef (array-like): Coefficients obtained with Wavelet Transform.
+    - base (float, optional): The logarithmic base to use, defaults to e (natural logarithm).
 
     Returns:
-    float: Shannon Entropy value of given wavelet coefficients.
+    - float: Shannon Entropy value of given wavelet coefficients.
     """
+
     data_sum = sum(abs(x) for x in coef)
     pmf = [abs(x) / data_sum for x in coef]
     data_log_sum = sum(pk * np.log(pk) for pk in pmf if pk != 0)
@@ -122,11 +128,12 @@ def energy_sum_of_squares(coef):
     Calculates the energy of a signal using the sum of squares method.
 
     Parameters:
-    coef (array-like): Coefficients representing the signal.
+    - coef (array-like): Coefficients representing the signal.
 
     Returns:
-    float: Energy of the signal.
+    - float: Energy of the signal.
     """
+
     energy = sum(abs(c) ** 2 for c in coef)
     return energy
 
@@ -136,11 +143,12 @@ def energy_parseval(coef):
     Calculates the energy of a signal using Parseval's theorem.
 
     Parameters:
-    coef (array-like): Coefficients representing the signal.
+    - coef (array-like): Coefficients representing the signal.
 
     Returns:
-    float: Energy of the signal.
+    - float: Energy of the signal.
     """
+
     energy = energy_sum_of_squares(coef)
     return energy / len(coef)
 
@@ -150,11 +158,12 @@ def energy_mean_power(coef):
     Calculates the energy of a signal using the mean power method.
 
     Parameters:
-    coef (array-like): Coefficients representing the signal.
+    - coef (array-like): Coefficients representing the signal.
 
     Returns:
-    float: Energy of the signal.
+    - float: Energy of the signal.
     """
+
     energy = energy_sum_of_squares(coef)
     return energy / len(coef)
 
@@ -164,11 +173,12 @@ def energy_autocorrelation(coef):
     Calculates the energy of a signal using the autocorrelation method.
 
     Parameters:
-    coef (array-like): Coefficients representing the signal.
+    - coef (array-like): Coefficients representing the signal.
 
     Returns:
-    float: Energy of the signal.
+    - float: Energy of the signal.
     """
+
     autocorr = np.correlate(coef, coef, mode='full')
     energy = sum(abs(ac) for ac in autocorr)
     return energy

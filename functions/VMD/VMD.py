@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from functions.SignalGenerator.GeraSinais import GeraSinais # Import the class from the module
+from functions.SignalGenerator.SignalGenerator import Generate_Signals
 
 def vmd(X, alpha=200, tau=0.1, K=10, tol=1e-7, max_iter=500):
     """
@@ -59,7 +59,7 @@ involved_phases = 'AB'  # Change this to set the involved phase or combination
 add_noise_sag = False  # Change this to True if you want to add noise
 SNR_sag = 20  # Change this to set the SNR for the sag signal
 
-resulting_voltages = GeraSinais.voltage_sag_short_circuit(
+resulting_voltages = Generate_Signals.voltage_sag_short_circuit(
     sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, add_noise_sag, SNR_sag
 )
 

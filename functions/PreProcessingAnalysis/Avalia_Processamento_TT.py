@@ -3,7 +3,7 @@
 Código para avaliar o tempo de processamento de sinais
 Será utilizado o sinal gerado com harmônicas
 """
-from functions.SignalGenerator.GeraSinais import GeraSinais  # Import the class from the module
+from functions.SignalGenerator.SignalGenerator import Generate_Signals  # Import the class from the module
 from functions.TT import componentes_simetricas as cs
 from functions.TT import clarke
 from functions.TT import park
@@ -27,14 +27,14 @@ involved_phases = 'A'    # Change this to set the involved phase or combination
 # Gerando os sinais com afundamento - com 2048 amostras por ciclo
 samples_per_cycle = 2048
 sampling_frequency = samples_per_cycle*frequency  # Change this to set the sampling frequency
-resulting_voltages_withnoise_highsample = GeraSinais.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'True', 40)
-resulting_voltages_nonoise_highsample = GeraSinais.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'False', 1000)
+resulting_voltages_withnoise_highsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'True', 40)
+resulting_voltages_nonoise_highsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'False', 1000)
 
 # Gerando os sinais com afundamento - com 128 amostras por ciclo
 samples_per_cycle = 128
 sampling_frequency = samples_per_cycle*frequency  # Change this to set the sampling frequency
-resulting_voltages_withnoise_lowsample = GeraSinais.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'True', 40)
-resulting_voltages_nonoise_lowsample = GeraSinais.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'False', 1000)
+resulting_voltages_withnoise_lowsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'True', 40)
+resulting_voltages_nonoise_lowsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'False', 1000)
 
 
 ''' Parte 2 - Analisa a Técnica de Processamento de Sinais'''

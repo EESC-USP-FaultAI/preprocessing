@@ -1,7 +1,5 @@
 import matplotlib.pyplot as plt
 import numpy as np
-#from memory_profiler import profile
-
 
 class DWT:
     @staticmethod
@@ -15,6 +13,7 @@ class DWT:
         Returns:
         - List of low-pass (f_low) and high-pass (f_hi) decomposition coefficients.
         """
+
         if wavelet == 'db4':
             f_hi = [-0.2303778133088965, 0.7148465705529157,
                     -0.6308807679298589, -0.027983769416859854,
@@ -43,6 +42,7 @@ class DWT:
         Returns:
         - List containing approximation (ca) and detail (cd) coefficients.
         """
+
         if not isinstance(wavelet, str):
             dec_low, dec_hi = args
         else:
@@ -82,6 +82,7 @@ class DWT:
         Returns:
         - None
         """
+
         fig1, (ax1, ax2) = plt.subplots(2, 1)
         ax1.plot(ca)
         ax2.plot(cd)

@@ -3,7 +3,7 @@
 Code to evaluate the ST of signals with harmonics 
 """
 
-from functions.SignalGenerator.GeraSinais import Generate_Signals  # Import the class from the module
+from functions.SignalGenerator.SignalGenerator import Generate_Signals  # Import the class from the module
 from functions.TS.ST import Stockwell
 import time
 import matplotlib.pyplot as plt
