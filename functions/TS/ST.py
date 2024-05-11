@@ -1,5 +1,12 @@
+"""
+If the user wants to calculate the ST of a signal, they should use the method:
+    def calculate_ST_of_the_signal(self, signal, window_size, k):
+
+"""
+
 import numpy as np
 
+# function
 def toeplitz(vetor, tam):
     n = len(vetor)
     matriz_toeplitz = [[0] * n for _ in range(tam)]
@@ -10,19 +17,21 @@ def toeplitz(vetor, tam):
 
     return np.array(matriz_toeplitz)
 
+# Stockwell Class 
 class Stockwell():
-    def calcula_TS_do_sinal(self, sinal, tamanho_da_janela, k):
+    
+    def calculate_ST_of_the_signal(self, signal, window_size, k):
         '''
-        :param sinal: vetor numpy
-        :param tamanho_da_janela: int que representa o tamanho da janela avaliada
-        :param k: fator de escala
-        :return: matriz amp com a amplitude de cada amostra da S-matriz e matriz ang com o ângulo de cada amostra da S-matriz
+        :param signal: vetor numpy
+        :param window_size: int that represents the window size
+        :param k: ST scale factor. It is usually 1.
+        :return: Matrix "amp" with the amplitude and matrix "ang" with the angle of each smple of the ST-output matrixda S-matriz
         '''
         t0 = 0
-        t1 = tamanho_da_janela
+        t1 = window_size
 
-        for j in range(1, int(len(sinal)/tamanho_da_janela)+1):
-            st = self.TS_da_janelada(sinal, t0, t1, k) #Calcula a TS janela a janela do sinal de entrada
+        for j in range(1, int(len(signal)/window_size)+1):
+            st = self.window_ST(signal, t0, t1, k) # Calculate the ST at each window of the input signal
             if j == 1:
                 amp = st[1]
                 ang = st[2]
@@ -31,16 +40,16 @@ class Stockwell():
                 ang = np.concatenate([ang, st[2]], 1)
 
             t0 = t1
-            t1 = t0+tamanho_da_janela
+            t1 = t0+window_size
         return amp, ang
 
-    def TS_da_janelada(self, sinal, t0, t1, k):
+    def window_ST(self, signal, t0, t1, k):
         '''
-        :param sinal: vetor numpy a ser avaliado
-        :param t0: amostra inicial que marca o começo da janela avaliada no sinal
-        :param t1: amostra final que marca o fim da janela avaliada no sinal
-        :param k: fator de escala
-        :return: st é S-matriz, A é a amplitude de cada amostra da S-matriz e ang é o ângulo de cada amostra da S-matriz
+        :param signal: numpy input vector 
+        :param t0: Initial sample to mark the input of the evaluated window 
+        :param t1: Last sample of the window 
+        :param k: ST scale factor
+        :return: st is the ST output matrix, A is the st amplitude and and is the ST angles at each sample of the window
         '''
         def angle(matrix):
             result = []
@@ -56,38 +65,36 @@ class Stockwell():
                 result.append(aux)
             return result
 
-        x = sinal[t0:t1] #Janelamento do sinal de entrada de acordo com a amostra de início t0 e de fim t1
-        st = self.transformada_de_stockwell(x, k)
+        x = signal[t0:t1] # Windowing of the signals according to the first (t0) and last (1) samples of the window   
+        st = self.stockwell_transform(x, k)
 
-        A = 2*abs(st) #Calcula a amplitude de cada entrada da S-matriz
-        ang=angle(st) #Calcula o ângulo de cada entrada da S-matriz
+        A = 2*abs(st) # Calculate the amplitude of ST output matrix 
+        ang=angle(st) # Calculate the angle of ST output matrix 
         return st, A, ang
 
-    def transformada_de_stockwell(self, sinal, k):
+    def stockwell_transform(self, signal, k):
         '''
-        A função implementa o algoritmo de Dash
-        :param sinal: vetor numpy
-        :param k: fator de escala
-        :return: S-matriz
+        The function implements the Dash ST algorithm
+        :param signal: vetor numpy
+        :param k: ST scale factor
+        :return: S-matrix
         '''
-        N = len(sinal)
+        N = len(signal)
         nhaf = N // 2
         odvn = N%2
 
         f = np.array([i / N for i in range(nhaf + 1)] + [-1 * j / N for j in range(nhaf - 1 + odvn, 0, -1)]) # Vetor com as frequências avaliadas pela TS
-        Hft = np.fft.fft(sinal) #Transformada rápida de Fourier sobre o sinal de entrada
+        Hft = np.fft.fft(signal) # Fourier Transform of the input signal
         invfk = 1 / f[1:nhaf + 1] #
 
         W = np.transpose(2 * np.pi * np.outer(f, invfk))
-        G = np.exp((-k * W ** 2) / 2)  #Montagem das janelas gaussianas
+        G = np.exp((-k * W ** 2) / 2)  # Assembly of the Gaussian windows
 
-
-        HW = toeplitz(Hft, nhaf+1) #Remodelagem do espectro de frequência de um vetor 1XN para um vetor NXN
+        HW = toeplitz(Hft, nhaf+1) # Remodeling the frequency spectra for a NXN vector
         HW = HW[1:nhaf + 1, :]
 
-        ST = np.fft.ifft(HW * G, axis=1) #Aplicação da janela gaussiana
-
-        st0 = np.mean(sinal) * np.ones(N) #Cálculo da componente CC do sinal de entrada
+        ST = np.fft.ifft(HW * G, axis=1) # Applying the Gaussian Window
+        st0 = np.mean(signal) * np.ones(N) # Calculating the input signal DC component
         ST = np.vstack([st0, ST])
 
         return ST
