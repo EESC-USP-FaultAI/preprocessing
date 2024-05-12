@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from functions.SignalGenerator.GeraSinais import GeraSinais
+from functions.SignalGenerator.SignalGenerator import GeraSinais
 
 def STFT(x, fs, frame_size, hop):
   """

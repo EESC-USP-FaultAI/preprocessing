@@ -4,8 +4,8 @@ Código para avaliar o tempo de processamento de sinais
 Será utilizado o sinal gerado com harmônicas
 """
 
-from functions.SignalGenerator.GeraSinais import GeraSinais  # Import the class from the module
-from functions.TF.FFT_function import fast_fourier_transform  # Import the class from the module
+from functions.SignalGenerator.SignalGenerator import Generate_Signals  # Import the class from the module
+from functions.TF.STFT_function import short_time_fourier_transform  # Import the class from the module
 import matplotlib.pyplot as plt
 import numpy as np
 # ADICIONAR AQUI OS PACOTES E FUNCOES DAS OUTRAS TRANSFORMADAS
@@ -26,14 +26,14 @@ involved_phases = 'A'    # Change this to set the involved phase or combination
 # Gerando os sinais com afundamento - com 2048 amostras por ciclo
 samples_per_cycle = 2048
 sampling_frequency = samples_per_cycle*frequency  # Change this to set the sampling frequency
-resulting_voltages_withnoise_highsample = GeraSinais.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'True', 40)
-resulting_voltages_nonoise_highsample = GeraSinais.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'False', 1000)
+resulting_voltages_withnoise_highsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'True', 40)
+resulting_voltages_nonoise_highsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'False', 1000)
 
 # Gerando os sinais com afundamento - com 128 amostras por ciclo
 samples_per_cycle = 128
 sampling_frequency = samples_per_cycle*frequency  # Change this to set the sampling frequency
-resulting_voltages_withnoise_lowsample = GeraSinais.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'True', 40)
-resulting_voltages_nonoise_lowsample = GeraSinais.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'False', 1000)
+resulting_voltages_withnoise_lowsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'True', 40)
+resulting_voltages_nonoise_lowsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'False', 1000)
 
 
 # Test 2 - Short Circuit Current
@@ -49,20 +49,20 @@ duration = 0.5         # Total duration of the waveform (in seconds)
 # high frequency
 samples_per_cycle = 2048 # samples per cycle of the generated signal
 sampling_frequency = samples_per_cycle*frequency
-time1, short_circuit_current_withnoise_highsample = GeraSinais.short_circuit_current(
+time1, short_circuit_current_withnoise_highsample = Generate_Signals.short_circuit_current(
     amplitude, frequency, short_circuit_time, increase_factor, decay_factor, duration, sampling_frequency, 'True', 40
 )
-time2, short_circuit_current_nonoise_highsample = GeraSinais.short_circuit_current(
+time2, short_circuit_current_nonoise_highsample = Generate_Signals.short_circuit_current(
     amplitude, frequency, short_circuit_time, increase_factor, decay_factor, duration, sampling_frequency, 'False', 1000
 )
 
 # low frequency
 samples_per_cycle = 128 # samples per cycle of the generated signal
 sampling_frequency = samples_per_cycle*frequency
-time1, short_circuit_current_withnoise_lowsample = GeraSinais.short_circuit_current(
+time1, short_circuit_current_withnoise_lowsample = Generate_Signals.short_circuit_current(
     amplitude, frequency, short_circuit_time, increase_factor, decay_factor, duration, sampling_frequency, 'True', 40
 )
-time2, short_circuit_current_nonoise_lowsample = GeraSinais.short_circuit_current(
+time2, short_circuit_current_nonoise_lowsample = Generate_Signals.short_circuit_current(
     amplitude, frequency, short_circuit_time, increase_factor, decay_factor, duration, sampling_frequency, 'False', 1000
 )
 
@@ -75,7 +75,7 @@ time2, short_circuit_current_nonoise_lowsample = GeraSinais.short_circuit_curren
 
 # Criar uma instância da classe DFT
 
-FFT_instance = fast_fourier_transform()
+STFT_instance = short_time_fourier_transform()
 
 # Tipos de sinais já carregados no ambiente Python
 resulting_voltages_withnoise_highsample_A = resulting_voltages_withnoise_highsample['A']
@@ -110,27 +110,21 @@ resultados = {}
 
 print("Gerou todos os sinais")
 
-X = fast_fourier_transform.FFT(short_circuit_current_nonoise_lowsample)
+fs = samples_per_cycle/(1/frequency)
+frame_size = 0.05
+hop = 0.025
 
-N = len(X)
-n = np.arange(N)
-T = N/(samples_per_cycle/(1/frequency)) #T = N/taxa_de_amostragem
-freq = n/T
+X = short_time_fourier_transform.STFT(resulting_voltages_withnoise_lowsample['A'], fs, frame_size, hop)
 
-#plotando o espectro de amplitude
+plt.figure(figsize=(20, 15))
 
-n_oneside = N//2
-#pega apenas um lado das frequências
-f_oneside = freq[:n_oneside]
-
-#normaliza a amplitude
-X_oneside =X[:n_oneside]/n_oneside
-
-plt.figure(figsize = (12, 6))
-plt.stem(f_oneside, abs(X_oneside), 'b', \
-         markerfmt=" ", basefmt="-b")
-plt.xlabel('Frequency (Hz)')
-plt.ylabel('FFT Normalized Amplitude |X(freq)|')
-plt.xlim(0, 420)
+ax = plt.subplot(2, 1, 2)
+Fz = int(frame_size * fs * 0.3)
+ax.imshow(np.absolute(X[:,:Fz].T), origin='lower',
+          aspect='auto', interpolation='nearest',extent=[0, 2, 0, 500])
+plt.title('Signal')
+plt.xlabel('Time (seconds)')
+plt.ylabel('Frequency (Hz)')
 plt.show()
-#redução da amplitude de alguns harmonicos?
+
+

@@ -1,11 +1,11 @@
 
 """
-Código de função de gerador de sinais criado por Gabriela Nunes.
-dúvidas: gabrielanuneslopes@usp.br
+Code to generate fault and non-linear signals.
+questions: gabrielanuneslopes@usp.br
 """
 
-
-class GeraSinais:
+# Input Class
+class Generate_Signals:
 
     # Function that generates voltage swells under faults
     @staticmethod
@@ -56,7 +56,7 @@ class GeraSinais:
         # Add noise if specified
         if add_noise:
             for phase in voltage_sag:
-                voltage_sag[phase] = GeraSinais.adicionar_ruido(voltage_sag[phase], SNR)
+                voltage_sag[phase] = Generate_Signals.adicionar_ruido(voltage_sag[phase], SNR)
 
         return voltage_sag
 
@@ -82,32 +82,32 @@ class GeraSinais:
         - signal: An array representing the generated composite signal.
         """
 
-        # Tempo total da forma de onda
+        # Total time of the signal
         total_time = duration
 
-        # Número total de amostras
+        # Total number of samples
         total_samples = int(samples_per_cycle * (total_time * frequency))
 
-        # Tempo por amostra
+        # Time by sample
         sample_time = 1.0 / (samples_per_cycle * frequency)
 
-        # Cria um vetor de tempo
+        #  Create a time vector
         time = np.arange(0, total_time, sample_time)
 
         # Gera a forma de onda inicial apenas com a fundamental
         signal = amplitude_fundamental * np.sin(2 * np.pi * frequency * time)
 
-        # Adiciona harmônicas no tempo correto, se harmonics_start_time for maior que 0
+        # Add the harmonics at the specified time
         if harmonics_start_time > 0:
             start_index = int(harmonics_start_time / sample_time)
             for harmonic, amp in zip(harmonics, amplitudes):
                 signal[start_index:] += amp * np.sin(2 * np.pi * frequency * harmonic * time[start_index:])
 
-        # Se harmonics_start_time for 0, as harmônicas já começam no início
+        # If the harmonics_start_time is 0, the harmonics starts since the beggining 
 
         # Add noise if specified
         if add_noise:
-            signal = GeraSinais.adicionar_ruido(signal, SNR)
+            signal = Generate_Signals.adicionar_ruido(signal, SNR)
 
         return time, signal
 
@@ -145,7 +145,7 @@ class GeraSinais:
 
         # Add noise if specified
         if add_noise:
-            current = GeraSinais.adicionar_ruido(current, SNR)
+            current = Generate_Signals.adicionar_ruido(current, SNR)
 
         return time, current
 

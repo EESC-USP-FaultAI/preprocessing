@@ -1,6 +1,6 @@
 import functions
 from functions.TW import TW_PYWT
-from functions.SignalGenerator.GeraSinais import GeraSinais
+from functions.SignalGenerator.SignalGenerator import GeraSinais
 import matplotlib.pyplot as plt
 import numpy as np
 

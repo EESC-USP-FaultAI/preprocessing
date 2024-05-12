@@ -1,6 +1,6 @@
 from matplotlib import pyplot as plt
 
-from functions.SignalGenerator.GeraSinais import GeraSinais
+from functions.SignalGenerator.SignalGenerator import GeraSinais
 import functions.TW.DTW as mw
 
 #Editado caio 19/01 - editado agora

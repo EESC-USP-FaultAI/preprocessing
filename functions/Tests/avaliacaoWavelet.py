@@ -3,7 +3,7 @@
 Código para avaliar o tempo de processamento de sinais
 """
 
-from functions.SignalGenerator.GeraSinais import GeraSinais
+from functions.SignalGenerator.SignalGenerator import GeraSinais
 from functions.TW.DTW import DWT
 import time
 import matplotlib.pyplot as plt

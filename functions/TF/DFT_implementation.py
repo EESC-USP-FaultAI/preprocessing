@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from functions.SignalGenerator.GeraSinais import GeraSinais
+from functions.SignalGenerator.SignalGenerator import GeraSinais
 
 def DFT(x): #CALCULA A DFT DE UM SINAL REAL DE UMA VARIÁVEL
 

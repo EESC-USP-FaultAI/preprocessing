@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import emd
 
-from functions.SignalGenerator.GeraSinais import GeraSinais # Import the class from the module
+from functions.SignalGenerator.SignalGenerator import GeraSinais # Import the class from the module
 
 
 # Example usage

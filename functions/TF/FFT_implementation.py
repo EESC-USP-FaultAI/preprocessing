@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from functions.SignalGenerator.GeraSinais import GeraSinais
+from functions.SignalGenerator.SignalGenerator import GeraSinais
 
 
 def FFT(x): #FUNÇÃO QUE CALCULA A FFT DE UM SINAL REAL DE UMA VARIÁVEL (TAMANHO 2^n)

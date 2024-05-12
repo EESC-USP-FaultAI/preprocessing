@@ -6,10 +6,15 @@ import pywt
 
 def see_functions():
     """
-    lists available functions in this file
+    Lists available functions in this file
 
-    :return: prints the list of functions present in this files
+    Parameters:
+    - None
+
+    Returns:
+    - prints the list of functions present in this files
     """
+
     print("1 - wavelet_viewer")
     print("2 - evaluate_dwt_single_signal")
     print("3 - dwt_from_csv")
@@ -17,12 +22,30 @@ def see_functions():
 
 
 def list_wavelets():
-    print("Available Wavelet functions:")
+    """
+    Lists available wavelets functions
+
+    Parameters:
+    - None
+
+    Returns:
+    - prints the available wavelet functions
+    """
+    print("Wavelets Available:")
     for wave_name in pywt.wavelist():
         print(wave_name)
 
 
 def list_discrete_wavelets():
+    """
+    Lists available discrete wavelets functions
+
+    Parameters:
+    - None
+
+    Returns:
+    - prints the available discrete wavelet functions
+    """
     print("Discrete Wavelets Available:")
     for wave_name in pywt.wavelist():
         try:
@@ -34,8 +57,13 @@ def list_discrete_wavelets():
 
 def list_continuous_wavelets():
     """
-    Function to list available continuos mother wavelets for applying the CWT.
-    :return:
+    Lists available continuous wavelets functions
+
+    Parameters:
+    - None
+
+    Returns:
+    - prints the available continuous wavelet functions
     """
     print("Continuous Wavelets Available:")
     for wave_name in pywt.wavelist():
@@ -46,6 +74,15 @@ def list_continuous_wavelets():
 
 
 def wavelet_viewer(wave_name):
+    """
+    Plot wavelets function
+
+    Parameters:
+    - wave_name: name of wavelet function
+
+    Returns:
+    - plot wavelet function [CA and CD]
+    """
     wave = pywt.Wavelet(wave_name)
 
     """Wavelet Properties"""
@@ -65,13 +102,18 @@ def wavelet_viewer(wave_name):
 
 def evaluate_dwt_single_phase(data, wavelet_name, mode="symmetric", axis=-1):
     """
-    Evaluate Discrete Wavelet Transform using package PyWavelets.
-    :param data: single-phase signal to perform transform
-    :param wavelet_name: name of mother wavelet
-    :param mode: mode of signal extension (default="symmetric")
-    :param axis: axis of decomposition
-    :return: Approximation and Detail coefficients
+    Plot wavelets function
+
+    Parameters:
+    - data: single-phase signal to perform transform
+    - wavelet_name: name of mother wavelet
+    - mode: mode of signal extension (default="symmetric")
+    - axis: axis of decomposition
+
+    Returns:
+    - Approximation and Detail coefficients
     """
+
     cA, cD = pywt.dwt(data, mode=mode, wavelet=wavelet_name, axis=axis)
 
     return cA, cD
@@ -80,10 +122,16 @@ def evaluate_dwt_single_phase(data, wavelet_name, mode="symmetric", axis=-1):
 def evaluate_dwt_manually_single_phase(data, wavelet_name):
     """
     Evaluate Discrete Wavelet Transform using scientifc package NumPy for convolution.
-    :param data: single-phase signal to perform transform
-    :param wavelet_name: name of mother wavelet
-    :return: Approximation and Detail coefficients
+
+    Parameters:
+    - data: single-phase signal to perform transform
+    - wavelet_name: name of mother wavelet
+    - Approximation and Detail coefficients
+
+    Returns:
+    - Approximation and Detail coefficients
     """
+
     wavelet = pywt.Wavelet(wavelet_name)
     dec_low = wavelet.dec_lo
     dec_high = wavelet.dec_hi
@@ -104,13 +152,17 @@ def evaluate_dwt_manually_single_phase(data, wavelet_name):
 
 
 def dwt_from_signal_generator(signal_data, wavelet_name, level=1, save_to_csv=True):
-
     """
-    :param signal_data: Three-phase signal to apply Discrete Wavelet Transform.
-    :param wavelet_name: Name of mother wavelet to effectuate DWT.
-    :param level: Level of multi-level decomposition of DWT, default=1 to single level decomposition.
-    :param save_to_csv: Save the wavelet coefficients in a csv file. default=True.
-    :return: wavelet_dataframe: DataFrame with wavelet coefficients for each phase signal.
+    Evaluate Discrete Wavelet Transform using scientifc package NumPy for convolution.
+
+    Parameters:
+    - signal_data: Three-phase signal to apply Discrete Wavelet Transform.
+    - wavelet_name: Name of mother wavelet to effectuate DWT.
+    - level: Level of multi-level decomposition of DWT, default=1 to single level decomposition.
+    - save_to_csv: Save the wavelet coefficients in a csv file. default=True.
+
+    Returns:
+    - wavelet_dataframe: DataFrame with wavelet coefficients for each phase signal.
     """
 
     """Apply dwt in each phase of the signal"""
@@ -140,12 +192,15 @@ def dwt_from_csv(csv_path, wavelet_name, level=1):
     """
     Function to evaluate Discrete Wavelet Transform on a dataset in csv file format.
 
-    :param csv_path: Path to dataset csv file with three-phase signals, with tension and current
-    data, on your computer.
-    :param wavelet_name:
-    :param level: Level of decomposition (default=1 single level).
-    :return: Dataframe with wavelet coefficients of the dataset.
+    Parameters:
+    - csv_path: Path to dataset csv file with three-phase signals, with tension and current data, on your computer.
+    - wavelet_name:
+    - level: Level of decomposition (default=1 single level).
+
+    Returns:
+    - wavelet_dataframe: Dataframe with wavelet coefficients of the dataset.
     """
+
     df = pd.read_csv(csv_path)
 
     "Voltage and Current signals"
