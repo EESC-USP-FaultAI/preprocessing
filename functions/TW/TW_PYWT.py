@@ -1,5 +1,5 @@
 '''
-Wavelet Transform (PYWT Module) Functions
+Wavelet Transform (PYWT Module) Functions (:mod:`functions.TW.TW_PYWT`)
 -----------------------------------------
 
 .. autosummary::

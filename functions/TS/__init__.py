@@ -1,5 +1,5 @@
 '''
-Stockwell Transform Functions
+Stockwell Transform Functions (:mod:`functions.TS`)
 =============================
 
 .. autosummary::

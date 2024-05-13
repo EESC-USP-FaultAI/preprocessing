@@ -1,5 +1,5 @@
 '''
-Python Written Discrete Wavelet Transform Functions
+Python Written Discrete Wavelet Transform Functions (:mod:`functions.TW.DTW`)
 ---------------------------------------------------
 
 .. autosummary::
@@ -8,6 +8,7 @@ Python Written Discrete Wavelet Transform Functions
     transform
     name
     plot
+
 '''
 
 from ._DTW import name, plot, transform
