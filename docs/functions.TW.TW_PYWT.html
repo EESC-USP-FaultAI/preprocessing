@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Wavelet Transform (PYWT Module) Functions &#8212; Pre-Processing Functions Manual</title>
+    <title>Wavelet Transform (PYWT Module) Functions (functions.TW.TW_PYWT) &#8212; Pre-Processing Functions Manual</title>
   
   
   
@@ -186,10 +186,6 @@ document.write(`
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
-      <span class="fa-solid fa-outdent"></span>
-    </label>
-  
 </div>
 
     </header>
@@ -269,33 +265,27 @@ document.write(`
   <div class="bd-toc-item navbar-nav">
     <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pre-Processing Methods:</span></p>
 <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="functions.TF.html">Fourier Transform</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="functions.TW.html">Discrete Wavelet Transform</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="functions.TW.DTW.html">Python Written Discrete Wavelet Transform Functions</a></li>
-
-
-
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Wavelet Transform (PYWT Module) Functions</a></li>
-
-
-
-
-
-
-
-
-
+<li class="toctree-l2"><a class="reference internal" href="functions.TW.DTW.html">Python Implemented DTW</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">PyWaveletes Implemented DTW</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/functions.TW.TW_PYWT.evaluate_dwt_manually_single_phase.html">functions.TW.TW_PYWT.evaluate_dwt_manually_single_phase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/functions.TW.TW_PYWT.evaluate_dwt_single_phase.html">functions.TW.TW_PYWT.evaluate_dwt_single_phase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/functions.TW.TW_PYWT.dwt_from_csv.html">functions.TW.TW_PYWT.dwt_from_csv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/functions.TW.TW_PYWT.dwt_from_signal_generator.html">functions.TW.TW_PYWT.dwt_from_signal_generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/functions.TW.TW_PYWT.list_continuous_wavelets.html">functions.TW.TW_PYWT.list_continuous_wavelets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/functions.TW.TW_PYWT.list_discrete_wavelets.html">functions.TW.TW_PYWT.list_discrete_wavelets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/functions.TW.TW_PYWT.wavelet_viewer.html">functions.TW.TW_PYWT.wavelet_viewer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/functions.TW.TW_PYWT.list_wavelets.html">functions.TW.TW_PYWT.list_wavelets</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TS.html">Stockwell Transform Functions</a></li>
-
-
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="functions.TS.html">Stockwell Transform</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities:</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="functions.SignalGenerator.html">Fault Signal Conditions Generator Package</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="functions.SignalGenerator.html">Fault Signal Generator</a></li>
 </ul>
 
   </div>
@@ -338,7 +328,7 @@ document.write(`
     <li class="breadcrumb-item"><a href="methods.html" class="nav-link">Modules</a></li>
     
     
-    <li class="breadcrumb-item"><a href="functions.TW.html" class="nav-link">Discrete Wavelet Transform (DWT) Functions</a></li>
+    <li class="breadcrumb-item"><a href="functions.TW.html" class="nav-link">Discrete Wavelet Transform (DWT) Functions (<code class="xref py py-mod docutils literal notranslate"><span class="pre">functions.TW</span></code>)</a></li>
     
     <li class="breadcrumb-item active" aria-current="page">Wavelet...</li>
   </ul>
@@ -357,8 +347,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="wavelet-transform-pywt-module-functions">
-<span id="module-functions.TW.TW_PYWT"></span><h1>Wavelet Transform (PYWT Module) Functions<a class="headerlink" href="#wavelet-transform-pywt-module-functions" title="Link to this heading">#</a></h1>
+  <section id="wavelet-transform-pywt-module-functions-functions-tw-tw-pywt">
+<span id="module-functions.TW.TW_PYWT"></span><h1>Wavelet Transform (PYWT Module) Functions (<a class="reference internal" href="#module-functions.TW.TW_PYWT" title="functions.TW.TW_PYWT"><code class="xref py py-mod docutils literal notranslate"><span class="pre">functions.TW.TW_PYWT</span></code></a>)<a class="headerlink" href="#wavelet-transform-pywt-module-functions-functions-tw-tw-pywt" title="Link to this heading">#</a></h1>
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/functions.TW.TW_PYWT.evaluate_dwt_manually_single_phase.html#functions.TW.TW_PYWT.evaluate_dwt_manually_single_phase" title="functions.TW.TW_PYWT.evaluate_dwt_manually_single_phase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate_dwt_manually_single_phase</span></code></a>(data, ...)</p></td>
@@ -388,257 +378,6 @@ document.write(`
 </tbody>
 </table>
 </section>
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.TW.TW_PYWT.dwt_from_csv">
-<span class="sig-prename descclassname"><span class="pre">functions.TW.TW_PYWT.</span></span><span class="sig-name descname"><span class="pre">dwt_from_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelet_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.TW.TW_PYWT.dwt_from_csv" title="Link to this definition">#</a></dt>
-<dd><p>Function to evaluate Discrete Wavelet Transform on a dataset in csv file format.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>csv_path</strong><span class="classifier">str</span></dt><dd><p>path to dataset csv file with three-phase signals, with tension and current data, on your computer</p>
-</dd>
-<dt><strong>wavelet_name</strong><span class="classifier">str</span></dt><dd><p>name of mother wavelet</p>
-</dd>
-<dt><strong>level</strong><span class="classifier">int, optional</span></dt><dd><p>level of decomposition (default=1)</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>wavelet_dataframe</strong><span class="classifier">DataFrame</span></dt><dd><p>DataFrame with wavelet coefficients of the dataset</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">functions.TW</span> <span class="k">as</span> <span class="nn">TW</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">wavelet_dataframe</span> <span class="o">=</span> <span class="n">TW</span><span class="o">.</span><span class="n">TW_PYWT</span><span class="o">.</span><span class="n">dwt_from_csv</span><span class="p">(</span><span class="s2">&quot;dataset.csv&quot;</span><span class="p">,</span> <span class="s1">&#39;db4&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.TW.TW_PYWT.dwt_from_signal_generator">
-<span class="sig-prename descclassname"><span class="pre">functions.TW.TW_PYWT.</span></span><span class="sig-name descname"><span class="pre">dwt_from_signal_generator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelet_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_to_csv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.TW.TW_PYWT.dwt_from_signal_generator" title="Link to this definition">#</a></dt>
-<dd><p>Evaluate Discrete Wavelet Transform using scientifc package NumPy for convolution.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>signal_data</strong><span class="classifier">dict</span></dt><dd><p>dictionary with three-phase signal to perform transform</p>
-</dd>
-<dt><strong>wavelet_name</strong><span class="classifier">str</span></dt><dd><p>name of mother wavelet</p>
-</dd>
-<dt><strong>level</strong><span class="classifier">int, optional</span></dt><dd><p>level of decomposition (default=1)</p>
-</dd>
-<dt><strong>save_to_csv</strong><span class="classifier">bool, optional</span></dt><dd><p>save the wavelet coefficients in a csv file (default=True)</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>wavelet_dataframe</strong><span class="classifier">DataFrame</span></dt><dd><p>DataFrame with wavelet coefficients for each phase signal</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">functions.TW</span> <span class="k">as</span> <span class="nn">TW</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">signal_data</span> <span class="o">=</span> <span class="p">{</span>
-<span class="gp">... </span>    <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)),</span>
-<span class="gp">... </span>    <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)),</span>
-<span class="gp">... </span>    <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
-<span class="gp">... </span><span class="p">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">wavelet_dataframe</span> <span class="o">=</span> <span class="n">TW</span><span class="o">.</span><span class="n">TW_PYWT</span><span class="o">.</span><span class="n">dwt_from_signal_generator</span><span class="p">(</span><span class="n">signal_data</span><span class="p">,</span> <span class="s1">&#39;db4&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wavelet_dataframe</span><span class="p">[</span><span class="s2">&quot;phaseA_cA&quot;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Approximation&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wavelet_dataframe</span><span class="p">[</span><span class="s2">&quot;phaseA_cD&quot;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Detail&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="_images/functions-TW-TW_PYWT-1.png" class="plot-directive" src="_images/functions-TW-TW_PYWT-1.png" />
-</figure>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.TW.TW_PYWT.evaluate_dwt_manually_single_phase">
-<span class="sig-prename descclassname"><span class="pre">functions.TW.TW_PYWT.</span></span><span class="sig-name descname"><span class="pre">evaluate_dwt_manually_single_phase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelet_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.TW.TW_PYWT.evaluate_dwt_manually_single_phase" title="Link to this definition">#</a></dt>
-<dd><p>Evaluate Discrete Wavelet Transform using scientifc package NumPy for convolution.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>data</strong><span class="classifier">array-like</span></dt><dd><p>single-phase signal to perform transform</p>
-</dd>
-<dt><strong>wavelet_name</strong><span class="classifier">str</span></dt><dd><p>name of mother wavelet</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>CA, CD</strong><span class="classifier">array-like</span></dt><dd><p>Approximation and Detail coefficients</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">functions.TW</span> <span class="k">as</span> <span class="nn">TW</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">:]</span> <span class="o">*=</span> <span class="mi">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">coefs</span> <span class="o">=</span> <span class="n">TW</span><span class="o">.</span><span class="n">TW_PYWT</span><span class="o">.</span><span class="n">evaluate_dwt_manually_single_phase</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;db4&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">coefs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Approximation&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">coefs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Detail&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="_images/functions-TW-TW_PYWT-2.png" class="plot-directive" src="_images/functions-TW-TW_PYWT-2.png" />
-</figure>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.TW.TW_PYWT.evaluate_dwt_single_phase">
-<span class="sig-prename descclassname"><span class="pre">functions.TW.TW_PYWT.</span></span><span class="sig-name descname"><span class="pre">evaluate_dwt_single_phase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelet_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'symmetric'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.TW.TW_PYWT.evaluate_dwt_single_phase" title="Link to this definition">#</a></dt>
-<dd><p>Evaluate Discrete Wavelet Transform using PYWT package.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>data</strong><span class="classifier">array-like</span></dt><dd><p>single-phase signal to perform transform</p>
-</dd>
-<dt><strong>wavelet_name</strong><span class="classifier">str</span></dt><dd><p>name of mother wavelet</p>
-</dd>
-<dt><strong>mode</strong><span class="classifier">str, optional</span></dt><dd><p>mode of signal extension (default=”symmetric”)</p>
-</dd>
-<dt><strong>axis</strong><span class="classifier">int, optional</span></dt><dd><p>axis to perform transform (default=-1)</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>CA, CD</strong><span class="classifier">array-like</span></dt><dd><p>Approximation and Detail coefficients</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">functions.TW</span> <span class="k">as</span> <span class="nn">TW</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">:]</span> <span class="o">*=</span> <span class="mi">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">coefs</span> <span class="o">=</span> <span class="n">TW</span><span class="o">.</span><span class="n">TW_PYWT</span><span class="o">.</span><span class="n">evaluate_dwt_single_phase</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;db4&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">coefs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Approximation&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">coefs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Detail&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="_images/functions-TW-TW_PYWT-3.png" class="plot-directive" src="_images/functions-TW-TW_PYWT-3.png" />
-</figure>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.TW.TW_PYWT.list_continuous_wavelets">
-<span class="sig-prename descclassname"><span class="pre">functions.TW.TW_PYWT.</span></span><span class="sig-name descname"><span class="pre">list_continuous_wavelets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#functions.TW.TW_PYWT.list_continuous_wavelets" title="Link to this definition">#</a></dt>
-<dd><p>Lists available continuous wavelets functions</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt>prints the available continuous wavelet functions</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list_continuous_wavelets</span><span class="p">()</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.TW.TW_PYWT.list_discrete_wavelets">
-<span class="sig-prename descclassname"><span class="pre">functions.TW.TW_PYWT.</span></span><span class="sig-name descname"><span class="pre">list_discrete_wavelets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#functions.TW.TW_PYWT.list_discrete_wavelets" title="Link to this definition">#</a></dt>
-<dd><p>Lists available discrete wavelets functions</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt>prints the available discrete wavelet functions</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list_discrete_wavelets</span><span class="p">()</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.TW.TW_PYWT.list_wavelets">
-<span class="sig-prename descclassname"><span class="pre">functions.TW.TW_PYWT.</span></span><span class="sig-name descname"><span class="pre">list_wavelets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#functions.TW.TW_PYWT.list_wavelets" title="Link to this definition">#</a></dt>
-<dd><p>Lists available wavelets functions</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt>prints the available wavelet functions</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list_wavelets</span><span class="p">()</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.TW.TW_PYWT.see_functions">
-<span class="sig-prename descclassname"><span class="pre">functions.TW.TW_PYWT.</span></span><span class="sig-name descname"><span class="pre">see_functions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#functions.TW.TW_PYWT.see_functions" title="Link to this definition">#</a></dt>
-<dd><p>Lists available functions in this file</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt>prints the list of functions present in this files</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">see_functions</span><span class="p">()</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.TW.TW_PYWT.wavelet_viewer">
-<span class="sig-prename descclassname"><span class="pre">functions.TW.TW_PYWT.</span></span><span class="sig-name descname"><span class="pre">wavelet_viewer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wave_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.TW.TW_PYWT.wavelet_viewer" title="Link to this definition">#</a></dt>
-<dd><p>Plot wavelets function for a given wavelet function</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>wave_name</strong><span class="classifier">str</span></dt><dd><p>name of wavelet function</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt>plot the wavelet function [CA and CD]</dt><dd></dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wavelet_viewer</span><span class="p">(</span><span class="s2">&quot;db2&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
 
 
                 </article>
@@ -651,32 +390,7 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Wavelet Transform (PYWT Module) Functions</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TW.TW_PYWT.dwt_from_csv"><code class="docutils literal notranslate"><span class="pre">dwt_from_csv</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TW.TW_PYWT.dwt_from_signal_generator"><code class="docutils literal notranslate"><span class="pre">dwt_from_signal_generator</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TW.TW_PYWT.evaluate_dwt_manually_single_phase"><code class="docutils literal notranslate"><span class="pre">evaluate_dwt_manually_single_phase</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TW.TW_PYWT.evaluate_dwt_single_phase"><code class="docutils literal notranslate"><span class="pre">evaluate_dwt_single_phase</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TW.TW_PYWT.list_continuous_wavelets"><code class="docutils literal notranslate"><span class="pre">list_continuous_wavelets</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TW.TW_PYWT.list_discrete_wavelets"><code class="docutils literal notranslate"><span class="pre">list_discrete_wavelets</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TW.TW_PYWT.list_wavelets"><code class="docutils literal notranslate"><span class="pre">list_wavelets</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TW.TW_PYWT.see_functions"><code class="docutils literal notranslate"><span class="pre">see_functions</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TW.TW_PYWT.wavelet_viewer"><code class="docutils literal notranslate"><span class="pre">wavelet_viewer</span></code></a></li>
-</ul>
-
-  </nav></div>
-
-</div></div>
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>

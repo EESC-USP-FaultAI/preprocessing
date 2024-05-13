@@ -48,7 +48,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'generated/functions.TW.DTW.plot';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Wavelet Transform (PYWT Module) Functions" href="../functions.TW.TW_PYWT.html" />
+    <link rel="next" title="Wavelet Transform (PYWT Module) Functions (functions.TW.TW_PYWT)" href="../functions.TW.TW_PYWT.html" />
     <link rel="prev" title="functions.TW.DTW.name" href="functions.TW.DTW.name.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -269,33 +269,22 @@ document.write(`
   <div class="bd-toc-item navbar-nav">
     <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pre-Processing Methods:</span></p>
 <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../functions.TF.html">Fourier Transform</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../functions.TW.html">Discrete Wavelet Transform</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="reference internal" href="../functions.TW.DTW.html">Python Written Discrete Wavelet Transform Functions</a></li>
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../functions.TW.TW_PYWT.html">Wavelet Transform (PYWT Module) Functions</a></li>
-
-
-
-
-
-
-
-
-
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../functions.TW.DTW.html">Python Implemented DTW</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="functions.TW.DTW.transform.html">functions.TW.DTW.transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="functions.TW.DTW.name.html">functions.TW.DTW.name</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">functions.TW.DTW.plot</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../functions.TS.html">Stockwell Transform Functions</a></li>
-
-
+<li class="toctree-l2"><a class="reference internal" href="../functions.TW.TW_PYWT.html">PyWaveletes Implemented DTW</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.TS.html">Stockwell Transform</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities:</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../functions.SignalGenerator.html">Fault Signal Conditions Generator Package</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="../functions.SignalGenerator.html">Fault Signal Generator</a></li>
 </ul>
 
   </div>
@@ -343,7 +332,7 @@ document.write(`
     <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
     
     
-    <li class="breadcrumb-item"><a href="../functions.TW.DTW.html" class="nav-link">Python Written Discrete Wavelet Transform Functions</a></li>
+    <li class="breadcrumb-item"><a href="../functions.TW.DTW.html" class="nav-link">Python Written Discrete Wavelet Transform Functions (<code class="xref py py-mod docutils literal notranslate"><span class="pre">functions.TW.DTW</span></code>)</a></li>
     
     <li class="breadcrumb-item active" aria-current="page">functions.TW...</li>
   </ul>
@@ -366,7 +355,7 @@ document.write(`
 <h1>functions.TW.DTW.plot<a class="headerlink" href="#functions-tw-dtw-plot" title="Link to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="functions.TW.DTW.plot">
-<span class="sig-prename descclassname"><span class="pre">functions.TW.DTW.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ca</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1.dev0)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1.dev0)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#functions.TW.DTW.plot" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">functions.TW.DTW.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ca</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.TW.DTW.plot" title="Link to this definition">#</a></dt>
 <dd><p>Plots the approximation (ca) and detail (cd) coefficients.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

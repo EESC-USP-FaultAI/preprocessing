@@ -48,7 +48,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'methods';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Discrete Wavelet Transform (DWT) Functions" href="functions.TW.html" />
+    <link rel="next" title="Fourier Transform Functions (functions.TF)" href="functions.TF.html" />
     <link rel="prev" title="PreProcessing Tools for Fault Detection and Localization" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -186,6 +186,10 @@ document.write(`
   
 
   
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
 </div>
 
     </header>
@@ -265,17 +269,13 @@ document.write(`
   <div class="bd-toc-item navbar-nav">
     <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pre-Processing Methods:</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="functions.TF.html">Fourier Transform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="functions.TW.html">Discrete Wavelet Transform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TS.html">Stockwell Transform Functions</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="functions.TS.html">Stockwell Transform</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities:</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="functions.SignalGenerator.html">Fault Signal Conditions Generator Package</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="functions.SignalGenerator.html">Fault Signal Generator</a></li>
 </ul>
 
   </div>
@@ -333,24 +333,31 @@ document.write(`
                   
   <section id="modules">
 <h1>Modules<a class="headerlink" href="#modules" title="Link to this heading">#</a></h1>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pre-Processing Methods:</span></p>
+<section id="pre-processing-methods">
+<h2>Pre-Processing Methods<a class="headerlink" href="#pre-processing-methods" title="Link to this heading">#</a></h2>
+<p>Methods Listed Belowe were implemented to be used as pre-processing methods for the fault detection algorithms.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="functions.TF.html#module-functions.TF" title="functions.TF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Fourier</span> <span class="pre">Transform</span> <span class="pre">(TF)</span></code></a></p></li>
+<li><p><a class="reference internal" href="functions.TW.html#module-functions.TW" title="functions.TW"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Discrete</span> <span class="pre">Wavelet</span> <span class="pre">Transform</span> <span class="pre">(TW)</span></code></a></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="functions.TW.html">Discrete Wavelet Transform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TS.html">Stockwell Transform Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TS.html#functions.TS.calculate_ST_of_the_signal"><code class="docutils literal notranslate"><span class="pre">calculate_ST_of_the_signal</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TS.html#functions.TS.stockwell_transform"><code class="docutils literal notranslate"><span class="pre">stockwell_transform</span></code></a></li>
+<li><p><a class="reference internal" href="functions.TW.DTW.html#module-functions.TW.DTW" title="functions.TW.DTW"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Python</span> <span class="pre">Implemented</span> <span class="pre">DWT</span> <span class="pre">(DTW)</span></code></a></p></li>
+<li><p><a class="reference internal" href="functions.TW.TW_PYWT.html#module-functions.TW.TW_PYWT" title="functions.TW.TW_PYWT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyWavelets</span> <span class="pre">Implemented</span> <span class="pre">DWT</span> <span class="pre">(TW_PYWT)</span></code></a></p></li>
 </ul>
+</li>
+<li><p><a class="reference internal" href="functions.TS.html#module-functions.TS" title="functions.TS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Stockwell</span> <span class="pre">Transform</span> <span class="pre">(TS)</span></code></a></p></li>
+</ul>
+</section>
+<section id="utilities">
+<h2>Utilities<a class="headerlink" href="#utilities" title="Link to this heading">#</a></h2>
+<p>The methods listed below are utilities that can be used to generate synthetic data for testing the fault detection algorithms.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="functions.SignalGenerator.html#module-functions.SignalGenerator" title="functions.SignalGenerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Fault</span> <span class="pre">Signal</span> <span class="pre">Generator</span> <span class="pre">(SignalGenerator)</span></code></a></p></li>
+</ul>
+<div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="functions.SignalGenerator.html">Fault Signal Conditions Generator Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.SignalGenerator.html#functions.SignalGenerator.GenerateSignalWithHarmonics"><code class="docutils literal notranslate"><span class="pre">GenerateSignalWithHarmonics</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.SignalGenerator.html#functions.SignalGenerator.short_circuit_current"><code class="docutils literal notranslate"><span class="pre">short_circuit_current</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.SignalGenerator.html#functions.SignalGenerator.voltage_sag_short_circuit"><code class="docutils literal notranslate"><span class="pre">voltage_sag_short_circuit</span></code></a></li>
-</ul>
 </div>
+</section>
 </section>
 
 
@@ -364,7 +371,25 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-processing-methods">Pre-Processing Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utilities">Utilities</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

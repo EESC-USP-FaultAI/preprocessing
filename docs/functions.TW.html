@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Discrete Wavelet Transform (DWT) Functions &#8212; Pre-Processing Functions Manual</title>
+    <title>Discrete Wavelet Transform (DWT) Functions (functions.TW) &#8212; Pre-Processing Functions Manual</title>
   
   
   
@@ -48,8 +48,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'functions.TW';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Python Written Discrete Wavelet Transform Functions" href="functions.TW.DTW.html" />
-    <link rel="prev" title="Modules" href="methods.html" />
+    <link rel="next" title="Python Written Discrete Wavelet Transform Functions (functions.TW.DTW)" href="functions.TW.DTW.html" />
+    <link rel="prev" title="functions.TF.STFT" href="functions.TF/functions.TF.STFT.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
     <meta name="docbuild:last-update" content="May 13, 2024"/>
@@ -265,33 +265,17 @@ document.write(`
   <div class="bd-toc-item navbar-nav">
     <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pre-Processing Methods:</span></p>
 <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="functions.TF.html">Fourier Transform</a></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Discrete Wavelet Transform</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="functions.TW.DTW.html">Python Written Discrete Wavelet Transform Functions</a></li>
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="functions.TW.TW_PYWT.html">Wavelet Transform (PYWT Module) Functions</a></li>
-
-
-
-
-
-
-
-
-
+<li class="toctree-l2"><a class="reference internal" href="functions.TW.DTW.html">Python Implemented DTW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.TW.TW_PYWT.html">PyWaveletes Implemented DTW</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TS.html">Stockwell Transform Functions</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="functions.TS.html">Stockwell Transform</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities:</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="functions.SignalGenerator.html">Fault Signal Conditions Generator Package</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="functions.SignalGenerator.html">Fault Signal Generator</a></li>
 </ul>
 
   </div>
@@ -350,25 +334,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="discrete-wavelet-transform-dwt-functions">
-<span id="module-functions.TW"></span><h1>Discrete Wavelet Transform (DWT) Functions<a class="headerlink" href="#discrete-wavelet-transform-dwt-functions" title="Link to this heading">#</a></h1>
+  <section id="discrete-wavelet-transform-dwt-functions-functions-tw">
+<span id="module-functions.TW"></span><h1>Discrete Wavelet Transform (DWT) Functions (<a class="reference internal" href="#module-functions.TW" title="functions.TW"><code class="xref py py-mod docutils literal notranslate"><span class="pre">functions.TW</span></code></a>)<a class="headerlink" href="#discrete-wavelet-transform-dwt-functions-functions-tw" title="Link to this heading">#</a></h1>
 <p>This module contains the pre-processing functions for the Discrete Wavelet Transform (DWT) method.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="functions.TW.DTW.html">Python Written Discrete Wavelet Transform Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TW.DTW.html#functions.TW.DTW.name"><code class="docutils literal notranslate"><span class="pre">name</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TW.DTW.html#functions.TW.DTW.plot"><code class="docutils literal notranslate"><span class="pre">plot</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TW.DTW.html#functions.TW.DTW.transform"><code class="docutils literal notranslate"><span class="pre">transform</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TW.TW_PYWT.html">Wavelet Transform (PYWT Module) Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.dwt_from_csv"><code class="docutils literal notranslate"><span class="pre">dwt_from_csv</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.dwt_from_signal_generator"><code class="docutils literal notranslate"><span class="pre">dwt_from_signal_generator</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.evaluate_dwt_manually_single_phase"><code class="docutils literal notranslate"><span class="pre">evaluate_dwt_manually_single_phase</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.evaluate_dwt_single_phase"><code class="docutils literal notranslate"><span class="pre">evaluate_dwt_single_phase</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.list_continuous_wavelets"><code class="docutils literal notranslate"><span class="pre">list_continuous_wavelets</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.list_discrete_wavelets"><code class="docutils literal notranslate"><span class="pre">list_discrete_wavelets</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.list_wavelets"><code class="docutils literal notranslate"><span class="pre">list_wavelets</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.see_functions"><code class="docutils literal notranslate"><span class="pre">see_functions</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.wavelet_viewer"><code class="docutils literal notranslate"><span class="pre">wavelet_viewer</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.TW.DTW.html">Python Implemented DTW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.TW.TW_PYWT.html">PyWaveletes Implemented DTW</a></li>
 </ul>
 </div>
 </section>

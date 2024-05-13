@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>functions.TF package &#8212; Pre-Processing Functions Manual</title>
+    <title>Fourier Transform Functions (functions.TF) &#8212; Pre-Processing Functions Manual</title>
   
   
   
@@ -48,6 +48,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'functions.TF';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="functions.TF.DFT" href="functions.TF/functions.TF.DFT.html" />
+    <link rel="prev" title="Modules" href="methods.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
     <meta name="docbuild:last-update" content="May 13, 2024"/>
@@ -143,7 +145,7 @@
 <nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
+                    <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="methods.html">
                         Modules
                       </a>
@@ -184,10 +186,6 @@ document.write(`
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
-      <span class="fa-solid fa-outdent"></span>
-    </label>
-  
 </div>
 
     </header>
@@ -197,8 +195,6 @@ document.write(`
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -213,7 +209,7 @@ document.write(`
 <nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
+                    <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="methods.html">
                         Modules
                       </a>
@@ -263,6 +259,28 @@ document.write(`
    </button>
  `);
  </script></div>
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links" aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav">
+    <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pre-Processing Methods:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Fourier Transform</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions.TF/functions.TF.DFT.html">functions.TF.DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.TF/functions.TF.FFT.html">functions.TF.FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.TF/functions.TF.STFT.html">functions.TF.STFT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="functions.TW.html">Discrete Wavelet Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.TS.html">Stockwell Transform</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="functions.SignalGenerator.html">Fault Signal Generator</a></li>
+</ul>
+
+  </div>
+</nav></div>
     </div>
   
   
@@ -297,7 +315,10 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">functions.TF package</li>
+    
+    <li class="breadcrumb-item"><a href="methods.html" class="nav-link">Modules</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Fourier...</li>
   </ul>
 </nav>
 </div>
@@ -314,99 +335,24 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="functions-tf-package">
-<h1>functions.TF package<a class="headerlink" href="#functions-tf-package" title="Link to this heading">#</a></h1>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
-</section>
-<section id="module-functions.TF.DFT_function">
-<span id="functions-tf-dft-function-module"></span><h2>functions.TF.DFT_function module<a class="headerlink" href="#module-functions.TF.DFT_function" title="Link to this heading">#</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="functions.TF.DFT_function.discrete_fourier_transform">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">functions.TF.DFT_function.</span></span><span class="sig-name descname"><span class="pre">discrete_fourier_transform</span></span><a class="headerlink" href="#functions.TF.DFT_function.discrete_fourier_transform" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table class="table">
-<tbody>
-<tr class="row-odd"><td><p><strong>DFT</strong></p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<dl class="py method">
-<dt class="sig sig-object py" id="functions.TF.DFT_function.discrete_fourier_transform.DFT">
-<span class="sig-name descname"><span class="pre">DFT</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#functions.TF.DFT_function.discrete_fourier_transform.DFT" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="functions-tf-dft-implementation-module">
-<h2>functions.TF.DFT_implementation module<a class="headerlink" href="#functions-tf-dft-implementation-module" title="Link to this heading">#</a></h2>
-</section>
-<section id="module-functions.TF.FFT_function">
-<span id="functions-tf-fft-function-module"></span><h2>functions.TF.FFT_function module<a class="headerlink" href="#module-functions.TF.FFT_function" title="Link to this heading">#</a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.TF.FFT_function.FFT">
-<span class="sig-prename descclassname"><span class="pre">functions.TF.FFT_function.</span></span><span class="sig-name descname"><span class="pre">FFT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.TF.FFT_function.FFT" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="functions.TF.FFT_function.fast_fourier_transform">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">functions.TF.FFT_function.</span></span><span class="sig-name descname"><span class="pre">fast_fourier_transform</span></span><a class="headerlink" href="#functions.TF.FFT_function.fast_fourier_transform" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table class="table">
-<tbody>
-<tr class="row-odd"><td><p><strong>FFT</strong></p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<dl class="py method">
-<dt class="sig sig-object py" id="functions.TF.FFT_function.fast_fourier_transform.FFT">
-<span class="sig-name descname"><span class="pre">FFT</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#functions.TF.FFT_function.fast_fourier_transform.FFT" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="functions-tf-fft-implementation-module">
-<h2>functions.TF.FFT_implementation module<a class="headerlink" href="#functions-tf-fft-implementation-module" title="Link to this heading">#</a></h2>
-</section>
-<section id="module-functions.TF.STFT_function">
-<span id="functions-tf-stft-function-module"></span><h2>functions.TF.STFT_function module<a class="headerlink" href="#module-functions.TF.STFT_function" title="Link to this heading">#</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="functions.TF.STFT_function.short_time_fourier_transform">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">functions.TF.STFT_function.</span></span><span class="sig-name descname"><span class="pre">short_time_fourier_transform</span></span><a class="headerlink" href="#functions.TF.STFT_function.short_time_fourier_transform" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
+  <section id="fourier-transform-functions-functions-tf">
+<span id="module-functions.TF"></span><h1>Fourier Transform Functions (<a class="reference internal" href="#module-functions.TF" title="functions.TF"><code class="xref py py-mod docutils literal notranslate"><span class="pre">functions.TF</span></code></a>)<a class="headerlink" href="#fourier-transform-functions-functions-tf" title="Link to this heading">#</a></h1>
+<p>This module contains the Fourier Transform methods for Pre-Processing signals.</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#functions.TF.STFT_function.short_time_fourier_transform.STFT" title="functions.TF.STFT_function.short_time_fourier_transform.STFT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STFT</span></code></a>(fs, frame_size, hop)</p></td>
-<td><p>Perform STFT (Short-Time Fourier Transform).</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/functions.TF.DFT.html#functions.TF.DFT" title="functions.TF.DFT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DFT</span></code></a>(x)</p></td>
+<td><p>Evaluate the Discrete Fourier Transform of a one dimentional input signal</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/functions.TF.FFT.html#functions.TF.FFT" title="functions.TF.FFT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FFT</span></code></a>(x)</p></td>
+<td><p>Function that calculates the Fast Fourier Transform (FFT) of a input signal (2^n).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/functions.TF.STFT.html#functions.TF.STFT" title="functions.TF.STFT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STFT</span></code></a>(x, fs, frame_size, hop)</p></td>
+<td><p>Perform the Short-Time Fourier Transform (STFT).</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py method">
-<dt class="sig sig-object py" id="functions.TF.STFT_function.short_time_fourier_transform.STFT">
-<span class="sig-name descname"><span class="pre">STFT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.TF.STFT_function.short_time_fourier_transform.STFT" title="Link to this definition">#</a></dt>
-<dd><p>Perform STFT (Short-Time Fourier Transform).</p>
-<p>x: Input data.
-fs: Sampling rate.
-frame_size: Frame size.
-hop: Hop size</p>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="functions-tf-stft-implementation-module">
-<h2>functions.TF.STFT_implementation module<a class="headerlink" href="#functions-tf-stft-implementation-module" title="Link to this heading">#</a></h2>
-</section>
-<section id="module-functions.TF">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-functions.TF" title="Link to this heading">#</a></h2>
-</section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
 
@@ -420,48 +366,7 @@ hop: Hop size</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions.TF.DFT_function">functions.TF.DFT_function module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TF.DFT_function.discrete_fourier_transform"><code class="docutils literal notranslate"><span class="pre">discrete_fourier_transform</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TF.DFT_function.discrete_fourier_transform.DFT"><code class="docutils literal notranslate"><span class="pre">discrete_fourier_transform.DFT</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-tf-dft-implementation-module">functions.TF.DFT_implementation module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions.TF.FFT_function">functions.TF.FFT_function module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TF.FFT_function.FFT"><code class="docutils literal notranslate"><span class="pre">FFT</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TF.FFT_function.fast_fourier_transform"><code class="docutils literal notranslate"><span class="pre">fast_fourier_transform</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TF.FFT_function.fast_fourier_transform.FFT"><code class="docutils literal notranslate"><span class="pre">fast_fourier_transform.FFT</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-tf-fft-implementation-module">functions.TF.FFT_implementation module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions.TF.STFT_function">functions.TF.STFT_function module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TF.STFT_function.short_time_fourier_transform"><code class="docutils literal notranslate"><span class="pre">short_time_fourier_transform</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TF.STFT_function.short_time_fourier_transform.STFT"><code class="docutils literal notranslate"><span class="pre">short_time_fourier_transform.STFT</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-tf-stft-implementation-module">functions.TF.STFT_implementation module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions.TF">Module contents</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>

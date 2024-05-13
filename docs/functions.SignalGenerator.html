@@ -186,10 +186,6 @@ document.write(`
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
-      <span class="fa-solid fa-outdent"></span>
-    </label>
-  
 </div>
 
     </header>
@@ -269,22 +265,18 @@ document.write(`
   <div class="bd-toc-item navbar-nav">
     <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pre-Processing Methods:</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="functions.TF.html">Fourier Transform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="functions.TW.html">Discrete Wavelet Transform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TS.html">Stockwell Transform Functions</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="functions.TS.html">Stockwell Transform</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities:</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Fault Signal Conditions Generator Package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Fault Signal Generator</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="generated/functions.SignalGenerator.voltage_sag_short_circuit.html">functions.SignalGenerator.voltage_sag_short_circuit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/functions.SignalGenerator.short_circuit_current.html">functions.SignalGenerator.short_circuit_current</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/functions.SignalGenerator.GenerateSignalWithHarmonics.html">functions.SignalGenerator.GenerateSignalWithHarmonics</a></li>
 </ul>
 </li>
-
-
-
 </ul>
 
   </div>
@@ -361,146 +353,6 @@ document.write(`
 </table>
 <p>questions: <a class="reference external" href="mailto:gabrielanuneslopes&#37;&#52;&#48;usp&#46;br">gabrielanuneslopes<span>&#64;</span>usp<span>&#46;</span>br</a></p>
 </section>
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.SignalGenerator.GenerateSignalWithHarmonics">
-<span class="sig-prename descclassname"><span class="pre">functions.SignalGenerator.</span></span><span class="sig-name descname"><span class="pre">GenerateSignalWithHarmonics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amplitude_fundamental</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples_per_cycle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">harmonics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitudes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">harmonics_start_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SNR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.SignalGenerator.GenerateSignalWithHarmonics" title="Link to this definition">#</a></dt>
-<dd><p>Generate a composite signal with fundamental and harmonic components.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>amplitude_fundamental</strong><span class="classifier">float</span></dt><dd><p>The amplitude of the fundamental sinusoidal waveform.</p>
-</dd>
-<dt><strong>samples_per_cycle</strong><span class="classifier">int</span></dt><dd><p>The number of samples per cycle of the fundamental waveform.</p>
-</dd>
-<dt><strong>frequency</strong><span class="classifier">float</span></dt><dd><p>The frequency of the fundamental waveform in hertz.</p>
-</dd>
-<dt><strong>harmonics</strong><span class="classifier">list[int]</span></dt><dd><p>A list of integers representing the harmonics to be added to the fundamental waveform.</p>
-</dd>
-<dt><strong>amplitudes</strong><span class="classifier">list[float]</span></dt><dd><p>A list of amplitudes corresponding to each harmonic in the harmonics list.</p>
-</dd>
-<dt><strong>duration</strong><span class="classifier">float</span></dt><dd><p>The total duration of the generated signal in seconds.</p>
-</dd>
-<dt><strong>harmonics_start_time</strong><span class="classifier">float</span></dt><dd><p>The time at which to start adding harmonics (if greater than 0).</p>
-</dd>
-<dt><strong>add_noise</strong><span class="classifier">bool</span></dt><dd><p>Boolean flag indicating whether to add noise to the signal.</p>
-</dd>
-<dt><strong>SNR</strong><span class="classifier">float</span></dt><dd><p>Desired signal-to-noise ratio in decibels.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>time</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>An array representing the time vector for the generated signal.</p>
-</dd>
-<dt><strong>signal</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>An array representing the generated composite signal.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">functions.SignalGenerator</span> <span class="k">as</span> <span class="nn">sg</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="p">,</span> <span class="n">signal</span> <span class="o">=</span> <span class="n">sg</span><span class="o">.</span><span class="n">GenerateSignalWithHarmonics</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">add_noise</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">SNR</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">signal</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="_images/functions-SignalGenerator-1.png" class="plot-directive" src="_images/functions-SignalGenerator-1.png" />
-</figure>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.SignalGenerator.short_circuit_current">
-<span class="sig-prename descclassname"><span class="pre">functions.SignalGenerator.</span></span><span class="sig-name descname"><span class="pre">short_circuit_current</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">short_circuit_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">increase_factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay_factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SNR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.SignalGenerator.short_circuit_current" title="Link to this definition">#</a></dt>
-<dd><p>Generate short circuit current waveform.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>amplitude</strong><span class="classifier">float</span></dt><dd><p>Initial amplitude of the current waveform.</p>
-</dd>
-<dt><strong>frequency</strong><span class="classifier">float</span></dt><dd><p>Frequency of the sinusoidal component.</p>
-</dd>
-<dt><strong>short_circuit_time</strong><span class="classifier">float</span></dt><dd><p>Time at which the short circuit occurs.</p>
-</dd>
-<dt><strong>increase_factor</strong><span class="classifier">float</span></dt><dd><p>Factor determining the increase in current during short circuit.</p>
-</dd>
-<dt><strong>decay_factor</strong><span class="classifier">float</span></dt><dd><p>Exponential decay factor after the increase.</p>
-</dd>
-<dt><strong>duration</strong><span class="classifier">float</span></dt><dd><p>Total duration of the waveform.</p>
-</dd>
-<dt><strong>fs</strong><span class="classifier">int</span></dt><dd><p>Sampling frequency.</p>
-</dd>
-<dt><strong>add_noise</strong><span class="classifier">bool</span></dt><dd><p>Boolean flag indicating whether to add noise to the signal.</p>
-</dd>
-<dt><strong>SNR</strong><span class="classifier">float</span></dt><dd><p>Desired signal-to-noise ratio in decibels.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>time</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>Time vector.</p>
-</dd>
-<dt><strong>current</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>Short circuit current waveform.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">functions.SignalGenerator</span> <span class="k">as</span> <span class="nn">sg</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="p">,</span> <span class="n">current</span> <span class="o">=</span> <span class="n">sg</span><span class="o">.</span><span class="n">short_circuit_current</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="n">add_noise</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">SNR</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">current</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="_images/functions-SignalGenerator-2.png" class="plot-directive" src="_images/functions-SignalGenerator-2.png" />
-</figure>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.SignalGenerator.voltage_sag_short_circuit">
-<span class="sig-prename descclassname"><span class="pre">functions.SignalGenerator.</span></span><span class="sig-name descname"><span class="pre">voltage_sag_short_circuit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">t1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">t2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">phases</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SNR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.SignalGenerator.voltage_sag_short_circuit" title="Link to this definition">#</a></dt>
-<dd><p>Generate three-phase voltage sag caused by a short circuit.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>s</strong><span class="classifier">float</span></dt><dd><p>Sag magnitude in per unit (pu).</p>
-</dd>
-<dt><strong>t1</strong><span class="classifier">float</span></dt><dd><p>Start time of the voltage sag in seconds.</p>
-</dd>
-<dt><strong>t2</strong><span class="classifier">float</span></dt><dd><p>End time of the voltage sag in seconds.</p>
-</dd>
-<dt><strong>duration</strong><span class="classifier">float</span></dt><dd><p>Total duration of the simulation in seconds.</p>
-</dd>
-<dt><strong>fs</strong><span class="classifier">int</span></dt><dd><p>Sampling frequency in Hertz.</p>
-</dd>
-<dt><strong>phases</strong><span class="classifier">str</span></dt><dd><p>String indicating the involved phases (‘A’, ‘B’, ‘C’, ‘AB’, ‘AC’, ‘BC’, ‘ABC’, etc.).</p>
-</dd>
-<dt><strong>add_noise</strong><span class="classifier">bool</span></dt><dd><p>Boolean flag indicating whether to add noise to the signal.</p>
-</dd>
-<dt><strong>SNR</strong><span class="classifier">float</span></dt><dd><p>Desired signal-to-noise ratio in decibels.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>voltage_sag</strong><span class="classifier">dict</span></dt><dd><p>Dictionary containing three-phase voltage signals during the specified duration.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">functions.SignalGenerator</span> <span class="k">as</span> <span class="nn">sg</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">V</span> <span class="o">=</span> <span class="n">sg</span><span class="o">.</span><span class="n">voltage_sag_short_circuit</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="s1">&#39;ABC&#39;</span><span class="p">,</span> <span class="n">add_noise</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">SNR</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="_images/functions-SignalGenerator-3.png" class="plot-directive" src="_images/functions-SignalGenerator-3.png" />
-</figure>
-</dd></dl>
-
 
 
                 </article>
@@ -513,26 +365,7 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Fault Signal Conditions Generator Package</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.SignalGenerator.GenerateSignalWithHarmonics"><code class="docutils literal notranslate"><span class="pre">GenerateSignalWithHarmonics</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.SignalGenerator.short_circuit_current"><code class="docutils literal notranslate"><span class="pre">short_circuit_current</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.SignalGenerator.voltage_sag_short_circuit"><code class="docutils literal notranslate"><span class="pre">voltage_sag_short_circuit</span></code></a></li>
-</ul>
-
-  </nav></div>
-
-</div></div>
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>

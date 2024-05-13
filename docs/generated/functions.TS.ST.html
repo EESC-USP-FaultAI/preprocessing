@@ -184,6 +184,10 @@ document.write(`
   
 
   
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
 </div>
 
     </header>
@@ -315,16 +319,16 @@ document.write(`
 <p class="rubric">Functions</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_ST_of_the_signal</span></code>(signal, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#functions.TS.ST.calculate_ST_of_the_signal" title="functions.TS.ST.calculate_ST_of_the_signal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_ST_of_the_signal</span></code></a>(signal, ...)</p></td>
 <td><p>Calculate the Stockwell Transform of the input signal on a window basis</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">stockwell_transform</span></code>(signal, k)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#functions.TS.ST.stockwell_transform" title="functions.TS.ST.stockwell_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stockwell_transform</span></code></a>(signal, k)</p></td>
 <td><p>Calculate the Stockwell Transform of the input signal</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">toeplitz</span></code>(vetor, tam)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">window_ST</span></code>(signal, t0, t1, k)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#functions.TS.ST.window_ST" title="functions.TS.ST.window_ST"><code class="xref py py-obj docutils literal notranslate"><span class="pre">window_ST</span></code></a>(signal, t0, t1, k)</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">param signal<span class="colon">:</span></dt>
 <dd class="field-odd"><p>numpy input vector</p>
@@ -334,6 +338,87 @@ document.write(`
 </tr>
 </tbody>
 </table>
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.TS.ST.calculate_ST_of_the_signal">
+<span class="sig-prename descclassname"><span class="pre">functions.TS.ST.</span></span><span class="sig-name descname"><span class="pre">calculate_ST_of_the_signal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.TS.ST.calculate_ST_of_the_signal" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the Stockwell Transform of the input signal on a window basis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>signal</strong><span class="classifier">numpy array</span></dt><dd><p>Input signal.</p>
+</dd>
+<dt><strong>window_size</strong><span class="classifier">int</span></dt><dd><p>Window size.</p>
+</dd>
+<dt><strong>k</strong><span class="classifier">int</span></dt><dd><p>ST scale factor.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>amp</strong><span class="classifier">numpy array</span></dt><dd><p>Matrix “amp” with the amplitude of each sample of the ST-output matrix.</p>
+</dd>
+<dt><strong>ang</strong><span class="classifier">numpy array</span></dt><dd><p>Matrix “ang” with the angle of each sample of the ST-output matrix.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">functions.TS</span> <span class="k">as</span> <span class="nn">TS</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span> <span class="mi">8192</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">60</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">180</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">signal_ST</span> <span class="o">=</span> <span class="n">TS</span><span class="o">.</span><span class="n">calculate_ST_of_the_signal</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="mi">8192</span><span class="o">//</span><span class="mi">16</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal_ST</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">,</span> <span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Harm </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">º&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/functions-TS-ST-1.png" class="plot-directive" src="../_images/functions-TS-ST-1.png" />
+</figure>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.TS.ST.stockwell_transform">
+<span class="sig-prename descclassname"><span class="pre">functions.TS.ST.</span></span><span class="sig-name descname"><span class="pre">stockwell_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.TS.ST.stockwell_transform" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the Stockwell Transform of the input signal</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>signal</strong><span class="classifier">numpy array</span></dt><dd><p>Input signal.</p>
+</dd>
+<dt><strong>k</strong><span class="classifier">int</span></dt><dd><p>ST scale factor.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>ST</strong><span class="classifier">numpy array</span></dt><dd><p>ST output matrix.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.TS.ST.window_ST">
+<span class="sig-prename descclassname"><span class="pre">functions.TS.ST.</span></span><span class="sig-name descname"><span class="pre">window_ST</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.TS.ST.window_ST" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>signal</strong> – numpy input vector</p></li>
+<li><p><strong>t0</strong> – Initial sample to mark the input of the evaluated window</p></li>
+<li><p><strong>t1</strong> – Last sample of the window</p></li>
+<li><p><strong>k</strong> – ST scale factor</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>st is the ST output matrix, A is the st amplitude and and is the ST angles at each sample of the window</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -347,7 +432,24 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TS.ST.calculate_ST_of_the_signal"><code class="docutils literal notranslate"><span class="pre">calculate_ST_of_the_signal</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TS.ST.stockwell_transform"><code class="docutils literal notranslate"><span class="pre">stockwell_transform</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TS.ST.window_ST"><code class="docutils literal notranslate"><span class="pre">window_ST</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
