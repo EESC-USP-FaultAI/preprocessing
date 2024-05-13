@@ -1,12 +1,12 @@
 import numpy as np
 class discrete_fourier_transform():
-    def DFT(x): #CALCULA A DFT DE UM SINAL REAL DE UMA VARIÁVEL
+    def DFT(x): #EVALUATE THE DFT OF A ONE DIMENTIONAL INPUT SIGNAL
 
-        N = len(x) #lê o tamanho do vetor x e atribui para N
-        n = np.arange(N) #cria um vetor (matriz linha) com N-1 elementos espaçados de 1 em 1
-        k = n.reshape((N, 1)) #altera o formato para uma matriz coluna
+        N = len(x) #reads the size of vector x and assigns it to N
+        n = np.arange(N) #creates a vector (row matrix) with N-1 elements spaced 1 by 1
+        k = n.reshape((N, 1)) #changes the format to a column matrix
         e = np.exp(-2j * np.pi * k * n / N)
 
-        X = np.dot(e, x) #calcula o produto matricial (produto ponto a ponto)
+        X = np.dot(e, x) #perform the DFT calculating the matrix product (point-to-point product)
 
         return X
