@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; Pre-Processing Functions Manual</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css?v=7f9a90b1" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyterlite_sphinx.css?v=ca70e7f1" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/lsee.css?v=8cf2be1e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=7f41d439"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jupyterlite_sphinx.js?v=d6bdf5f8"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="May 13, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.svg" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="_static/logo.svg" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">LSEE</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="methods.html">
+                        Modules
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="methods.html">
+                        Modules
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ 
+</div>
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.TS.html#functions.TS.calculate_ST_of_the_signal">calculate_ST_of_the_signal() (in module functions.TS)</a>, <a href="generated/functions.TS.calculate_ST_of_the_signal.html#functions.TS.calculate_ST_of_the_signal">[1]</a>
+</li>
+      <li><a href="functions.CSVProcessing.html#functions.CSVProcessing.Dunno.case_selection">case_selection() (in module functions.CSVProcessing.Dunno)</a>
+</li>
+      <li><a href="functions.TT.html#functions.TT.clarke.clarke_AB0toABC">clarke_AB0toABC() (in module functions.TT.clarke)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.TT.html#functions.TT.clarke.clarke_ABCtoAB0">clarke_ABCtoAB0() (in module functions.TT.clarke)</a>
+</li>
+      <li><a href="functions.TT.html#functions.TT.componentes_simetricas.comp_sim_012toABC">comp_sim_012toABC() (in module functions.TT.componentes_simetricas)</a>
+</li>
+      <li><a href="functions.TT.html#functions.TT.componentes_simetricas.comp_sim_ABCto012">comp_sim_ABCto012() (in module functions.TT.componentes_simetricas)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.CSVProcessing.html#functions.CSVProcessing.Dunno.data_selection">data_selection() (in module functions.CSVProcessing.Dunno)</a>
+</li>
+      <li><a href="functions.TF.html#functions.TF.DFT_function.discrete_fourier_transform.DFT">DFT() (functions.TF.DFT_function.discrete_fourier_transform method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.TF.html#functions.TF.DFT_function.discrete_fourier_transform">discrete_fourier_transform (class in functions.TF.DFT_function)</a>
+</li>
+      <li><a href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.dwt_from_csv">dwt_from_csv() (in module functions.TW.TW_PYWT)</a>, <a href="generated/functions.TW.TW_PYWT.dwt_from_csv.html#functions.TW.TW_PYWT.dwt_from_csv">[1]</a>
+</li>
+      <li><a href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.dwt_from_signal_generator">dwt_from_signal_generator() (in module functions.TW.TW_PYWT)</a>, <a href="generated/functions.TW.TW_PYWT.dwt_from_signal_generator.html#functions.TW.TW_PYWT.dwt_from_signal_generator">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.PreProcessingMetrics.html#functions.PreProcessingMetrics.MetricsCalculator.energy_autocorrelation">energy_autocorrelation() (in module functions.PreProcessingMetrics.MetricsCalculator)</a>
+</li>
+      <li><a href="functions.PreProcessingMetrics.html#functions.PreProcessingMetrics.MetricsCalculator.energy_mean_power">energy_mean_power() (in module functions.PreProcessingMetrics.MetricsCalculator)</a>
+</li>
+      <li><a href="functions.PreProcessingMetrics.html#functions.PreProcessingMetrics.MetricsCalculator.energy_parseval">energy_parseval() (in module functions.PreProcessingMetrics.MetricsCalculator)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.PreProcessingMetrics.html#functions.PreProcessingMetrics.MetricsCalculator.energy_sum_of_squares">energy_sum_of_squares() (in module functions.PreProcessingMetrics.MetricsCalculator)</a>
+</li>
+      <li><a href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.evaluate_dwt_manually_single_phase">evaluate_dwt_manually_single_phase() (in module functions.TW.TW_PYWT)</a>, <a href="generated/functions.TW.TW_PYWT.evaluate_dwt_manually_single_phase.html#functions.TW.TW_PYWT.evaluate_dwt_manually_single_phase">[1]</a>
+</li>
+      <li><a href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.evaluate_dwt_single_phase">evaluate_dwt_single_phase() (in module functions.TW.TW_PYWT)</a>, <a href="generated/functions.TW.TW_PYWT.evaluate_dwt_single_phase.html#functions.TW.TW_PYWT.evaluate_dwt_single_phase">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.TF.html#functions.TF.FFT_function.fast_fourier_transform">fast_fourier_transform (class in functions.TF.FFT_function)</a>
+</li>
+      <li><a href="functions.TF.html#functions.TF.FFT_function.fast_fourier_transform.FFT">FFT() (functions.TF.FFT_function.fast_fourier_transform method)</a>
+
+      <ul>
+        <li><a href="functions.TF.html#functions.TF.FFT_function.FFT">(in module functions.TF.FFT_function)</a>
+</li>
+      </ul></li>
+      <li>
+    functions
+
+      <ul>
+        <li><a href="functions.html#module-functions">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.CSVProcessing
+
+      <ul>
+        <li><a href="functions.CSVProcessing.html#module-functions.CSVProcessing">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.CSVProcessing.Dunno
+
+      <ul>
+        <li><a href="functions.CSVProcessing.html#module-functions.CSVProcessing.Dunno">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.EMD
+
+      <ul>
+        <li><a href="functions.EMD.html#module-functions.EMD">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.PreProcessingAnalysis
+
+      <ul>
+        <li><a href="functions.PreProcessingAnalysis.html#module-functions.PreProcessingAnalysis">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.PreProcessingAnalysis.AnalysisInWindPark
+
+      <ul>
+        <li><a href="functions.PreProcessingAnalysis.AnalysisInWindPark.html#module-functions.PreProcessingAnalysis.AnalysisInWindPark">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.PreProcessingAnalysis.plotST
+
+      <ul>
+        <li><a href="functions.PreProcessingAnalysis.html#module-functions.PreProcessingAnalysis.plotST">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.PreProcessingAnalysis.plotTT
+
+      <ul>
+        <li><a href="functions.PreProcessingAnalysis.html#module-functions.PreProcessingAnalysis.plotTT">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.PreProcessingMetrics
+
+      <ul>
+        <li><a href="functions.PreProcessingMetrics.html#module-functions.PreProcessingMetrics">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.PreProcessingMetrics.MetricsCalculator
+
+      <ul>
+        <li><a href="functions.PreProcessingMetrics.html#module-functions.PreProcessingMetrics.MetricsCalculator">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.SignalGenerator
+
+      <ul>
+        <li><a href="functions.SignalGenerator.html#module-functions.SignalGenerator">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.Tests
+
+      <ul>
+        <li><a href="functions.Tests.html#module-functions.Tests">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    functions.TF
+
+      <ul>
+        <li><a href="functions.TF.html#module-functions.TF">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.TF.DFT_function
+
+      <ul>
+        <li><a href="functions.TF.html#module-functions.TF.DFT_function">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.TF.FFT_function
+
+      <ul>
+        <li><a href="functions.TF.html#module-functions.TF.FFT_function">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.TF.STFT_function
+
+      <ul>
+        <li><a href="functions.TF.html#module-functions.TF.STFT_function">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.TS
+
+      <ul>
+        <li><a href="functions.TS.html#module-functions.TS">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.TS.ST
+
+      <ul>
+        <li><a href="generated/functions.TS.ST.html#module-functions.TS.ST">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.TT
+
+      <ul>
+        <li><a href="functions.TT.html#module-functions.TT">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.TT.clarke
+
+      <ul>
+        <li><a href="functions.TT.html#module-functions.TT.clarke">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.TT.componentes_simetricas
+
+      <ul>
+        <li><a href="functions.TT.html#module-functions.TT.componentes_simetricas">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.TT.park
+
+      <ul>
+        <li><a href="functions.TT.html#module-functions.TT.park">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.TW
+
+      <ul>
+        <li><a href="functions.TW.html#module-functions.TW">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.TW.DTW
+
+      <ul>
+        <li><a href="functions.TW.DTW.html#module-functions.TW.DTW">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.TW.TW_PYWT
+
+      <ul>
+        <li><a href="functions.TW.TW_PYWT.html#module-functions.TW.TW_PYWT">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.VMD
+
+      <ul>
+        <li><a href="functions.VMD.html#module-functions.VMD">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.SignalGenerator.html#functions.SignalGenerator.GenerateSignalWithHarmonics">GenerateSignalWithHarmonics() (in module functions.SignalGenerator)</a>, <a href="generated/functions.SignalGenerator.GenerateSignalWithHarmonics.html#functions.SignalGenerator.GenerateSignalWithHarmonics">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.PreProcessingMetrics.html#functions.PreProcessingMetrics.MetricsCalculator.kurtosis">kurtosis() (in module functions.PreProcessingMetrics.MetricsCalculator)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.list_continuous_wavelets">list_continuous_wavelets() (in module functions.TW.TW_PYWT)</a>, <a href="generated/functions.TW.TW_PYWT.list_continuous_wavelets.html#functions.TW.TW_PYWT.list_continuous_wavelets">[1]</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.list_discrete_wavelets">list_discrete_wavelets() (in module functions.TW.TW_PYWT)</a>, <a href="generated/functions.TW.TW_PYWT.list_discrete_wavelets.html#functions.TW.TW_PYWT.list_discrete_wavelets">[1]</a>
+</li>
+      <li><a href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.list_wavelets">list_wavelets() (in module functions.TW.TW_PYWT)</a>, <a href="generated/functions.TW.TW_PYWT.list_wavelets.html#functions.TW.TW_PYWT.list_wavelets">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.PreProcessingMetrics.html#functions.PreProcessingMetrics.MetricsCalculator.mean">mean() (in module functions.PreProcessingMetrics.MetricsCalculator)</a>
+</li>
+      <li><a href="functions.PreProcessingMetrics.html#functions.PreProcessingMetrics.MetricsCalculator.median">median() (in module functions.PreProcessingMetrics.MetricsCalculator)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="functions.html#module-functions">functions</a>
+</li>
+        <li><a href="functions.CSVProcessing.html#module-functions.CSVProcessing">functions.CSVProcessing</a>
+</li>
+        <li><a href="functions.CSVProcessing.html#module-functions.CSVProcessing.Dunno">functions.CSVProcessing.Dunno</a>
+</li>
+        <li><a href="functions.EMD.html#module-functions.EMD">functions.EMD</a>
+</li>
+        <li><a href="functions.PreProcessingAnalysis.html#module-functions.PreProcessingAnalysis">functions.PreProcessingAnalysis</a>
+</li>
+        <li><a href="functions.PreProcessingAnalysis.AnalysisInWindPark.html#module-functions.PreProcessingAnalysis.AnalysisInWindPark">functions.PreProcessingAnalysis.AnalysisInWindPark</a>
+</li>
+        <li><a href="functions.PreProcessingAnalysis.html#module-functions.PreProcessingAnalysis.plotST">functions.PreProcessingAnalysis.plotST</a>
+</li>
+        <li><a href="functions.PreProcessingAnalysis.html#module-functions.PreProcessingAnalysis.plotTT">functions.PreProcessingAnalysis.plotTT</a>
+</li>
+        <li><a href="functions.PreProcessingMetrics.html#module-functions.PreProcessingMetrics">functions.PreProcessingMetrics</a>
+</li>
+        <li><a href="functions.PreProcessingMetrics.html#module-functions.PreProcessingMetrics.MetricsCalculator">functions.PreProcessingMetrics.MetricsCalculator</a>
+</li>
+        <li><a href="functions.SignalGenerator.html#module-functions.SignalGenerator">functions.SignalGenerator</a>
+</li>
+        <li><a href="functions.Tests.html#module-functions.Tests">functions.Tests</a>
+</li>
+        <li><a href="functions.TF.html#module-functions.TF">functions.TF</a>
+</li>
+        <li><a href="functions.TF.html#module-functions.TF.DFT_function">functions.TF.DFT_function</a>
+</li>
+        <li><a href="functions.TF.html#module-functions.TF.FFT_function">functions.TF.FFT_function</a>
+</li>
+        <li><a href="functions.TF.html#module-functions.TF.STFT_function">functions.TF.STFT_function</a>
+</li>
+        <li><a href="functions.TS.html#module-functions.TS">functions.TS</a>
+</li>
+        <li><a href="generated/functions.TS.ST.html#module-functions.TS.ST">functions.TS.ST</a>
+</li>
+        <li><a href="functions.TT.html#module-functions.TT">functions.TT</a>
+</li>
+        <li><a href="functions.TT.html#module-functions.TT.clarke">functions.TT.clarke</a>
+</li>
+        <li><a href="functions.TT.html#module-functions.TT.componentes_simetricas">functions.TT.componentes_simetricas</a>
+</li>
+        <li><a href="functions.TT.html#module-functions.TT.park">functions.TT.park</a>
+</li>
+        <li><a href="functions.TW.html#module-functions.TW">functions.TW</a>
+</li>
+        <li><a href="functions.TW.DTW.html#module-functions.TW.DTW">functions.TW.DTW</a>
+</li>
+        <li><a href="functions.TW.TW_PYWT.html#module-functions.TW.TW_PYWT">functions.TW.TW_PYWT</a>
+</li>
+        <li><a href="functions.VMD.html#module-functions.VMD">functions.VMD</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.TW.DTW.html#functions.TW.DTW.name">name() (in module functions.TW.DTW)</a>, <a href="generated/functions.TW.DTW.name.html#functions.TW.DTW.name">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.TT.html#functions.TT.park.park_ABCtoDQ">park_ABCtoDQ() (in module functions.TT.park)</a>
+</li>
+      <li><a href="functions.TT.html#functions.TT.park.park_DQtoABC">park_DQtoABC() (in module functions.TT.park)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.TW.DTW.html#functions.TW.DTW.plot">plot() (in module functions.TW.DTW)</a>, <a href="generated/functions.TW.DTW.plot.html#functions.TW.DTW.plot">[1]</a>
+</li>
+      <li><a href="functions.PreProcessingAnalysis.html#functions.PreProcessingAnalysis.plotST.plotST">plotST() (in module functions.PreProcessingAnalysis.plotST)</a>
+</li>
+      <li><a href="functions.PreProcessingAnalysis.html#functions.PreProcessingAnalysis.plotTT.plotTT">plotTT() (in module functions.PreProcessingAnalysis.plotTT)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.see_functions">see_functions() (in module functions.TW.TW_PYWT)</a>
+</li>
+      <li><a href="functions.PreProcessingMetrics.html#functions.PreProcessingMetrics.MetricsCalculator.shannon_entropy">shannon_entropy() (in module functions.PreProcessingMetrics.MetricsCalculator)</a>
+</li>
+      <li><a href="functions.SignalGenerator.html#functions.SignalGenerator.short_circuit_current">short_circuit_current() (in module functions.SignalGenerator)</a>, <a href="generated/functions.SignalGenerator.short_circuit_current.html#functions.SignalGenerator.short_circuit_current">[1]</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.TF.html#functions.TF.STFT_function.short_time_fourier_transform">short_time_fourier_transform (class in functions.TF.STFT_function)</a>
+</li>
+      <li><a href="functions.PreProcessingMetrics.html#functions.PreProcessingMetrics.MetricsCalculator.standard_deviation">standard_deviation() (in module functions.PreProcessingMetrics.MetricsCalculator)</a>
+</li>
+      <li><a href="functions.TF.html#functions.TF.STFT_function.short_time_fourier_transform.STFT">STFT() (functions.TF.STFT_function.short_time_fourier_transform method)</a>
+</li>
+      <li><a href="functions.TS.html#functions.TS.stockwell_transform">stockwell_transform() (in module functions.TS)</a>, <a href="generated/functions.TS.stockwell_transform.html#functions.TS.stockwell_transform">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.TW.DTW.html#functions.TW.DTW.transform">transform() (in module functions.TW.DTW)</a>, <a href="generated/functions.TW.DTW.transform.html#functions.TW.DTW.transform">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.PreProcessingMetrics.html#functions.PreProcessingMetrics.MetricsCalculator.variance">variance() (in module functions.PreProcessingMetrics.MetricsCalculator)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.SignalGenerator.html#functions.SignalGenerator.voltage_sag_short_circuit">voltage_sag_short_circuit() (in module functions.SignalGenerator)</a>, <a href="generated/functions.SignalGenerator.voltage_sag_short_circuit.html#functions.SignalGenerator.voltage_sag_short_circuit">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.TW.TW_PYWT.html#functions.TW.TW_PYWT.wavelet_viewer">wavelet_viewer() (in module functions.TW.TW_PYWT)</a>, <a href="generated/functions.TW.TW_PYWT.wavelet_viewer.html#functions.TW.TW_PYWT.wavelet_viewer">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, LSEE.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
