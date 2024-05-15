@@ -8,17 +8,9 @@ This module contains the Fourier Transform methods for Pre-Processing signals.
 .. autosummary::
     :toctree: functions.TF/
     
-    
     DFT
     FFT
     STFT
-
-.. toctree::
-    :maxdepth: 1
-
-    DFT <functions.TF.DFT>
-    FFT <functions.TF.FFT>
-    STFT <functions.TF.STFT>
 
 """
 

@@ -105,7 +105,6 @@ def stockwell_transform(signal, k):
 
     return ST
 
-
 def window_ST(signal, t0, t1, k):
     '''
     :param signal: numpy input vector 
