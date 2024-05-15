@@ -2,12 +2,12 @@ import numpy as np
 
 def park_ABCtoDQ(Xa, Xb, Xc, teta, AmpIn=True):
     '''
-    :param Xa: Fasor da fase A
-    :param Xb: Fasor da fase B
-    :param Xc: Fasor da fase C
-    :param teta: Ângulo entre o rotor da máquina e a fase A
-    :param AmpIn: Booleno - Se True as constantes são para amplitude invariável, potência invariável caso contrário
-    :return: vetor com os fasores no domínio de Park
+    :param Xa: Phasor of phase A
+    :param Xb: Phasor of phase B
+    :param Xc: Phasor of phase C
+    :param teta: Angle between the machine rotor and phase A [radians]
+    :param AmpIn: Booleno - f True the constants are for invariable amplitude, invariable power otherwise
+    :return: 1−D array with Park’s phasors
     '''
     vetABC = [Xa, Xb, Xc]
 
@@ -21,21 +21,21 @@ def park_ABCtoDQ(Xa, Xb, Xc, teta, AmpIn=True):
          [const * np.sin(teta), const * np.sin(teta - 2 * np.pi / 3), const * np.sin(teta - 4 * np.pi / 3)]]
 
     vetDQ = []
-    for linha in A:
+    for row in A:
         aux=0
-        for i in range(len(linha)):
-            aux+=linha[i]*vetABC[i]
+        for i in range(len(row)):
+            aux+=row[i]*vetABC[i]
         vetDQ.append(aux)
 
     return vetDQ
 
 def park_DQtoABC(X0, Xd, Xq, teta, AmpIn=True):
     '''
-    :param Xd: Fasor da componente de eixo direto no domínio de Park
-    :param Xq: Fasor da componente de eixo em quadratura no domínio de Park
-    :param teta: Ângulo entre o rotor da máquina e a fase A
-    :param AmpIn: Booleno - Se True as constantes são para amplitude invariável, potência invariável caso contrário
-    :return: Vetor com os fasores no domínio ABC
+    :param Xd: Phasor of the direct axis component in the Park domain
+    :param Xq: Phasor of the quadrature axis component in the Park domain
+    :param teta: ngle between the machine rotor and phase A [radians]
+    :param AmpIn: Booleno -  True the constants are for invariable amplitude, invariable power otherwise
+    :return: 1−D array with ABC’s phasors
     '''
     vetDQ = [X0, Xd, Xq]
     if AmpIn:
@@ -48,10 +48,10 @@ def park_DQtoABC(X0, Xd, Xq, teta, AmpIn=True):
          [const, const * np.cos(teta - 4 * np.pi / 3), const * np.sin(teta - 4 * np.pi / 3)]]
 
     vetABC = []
-    for linha in A:
+    for row in A:
         aux = 0
-        for i in range(len(linha)):
-            aux += linha[i] * vetDQ[i]
+        for i in range(len(row)):
+            aux += row[i] * vetDQ[i]
         vetABC.append(aux)
 
     return vetABC
