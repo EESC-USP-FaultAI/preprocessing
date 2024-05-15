@@ -227,7 +227,7 @@ def short_circuit_current(amplitude, frequency, short_circuit_time, increase_fac
     if not (isinstance(fs, int)): raise TypeError('fs must be an integer')
     if not (isinstance(add_noise, bool)): raise TypeError('add_noise must be a boolean')
     if not (isinstance(SNR, (float, int, type(None)))): raise TypeError('SNR must be a float or None')
-    if not (amplitude > 0): raise ValueError('amplitude must be greater than 0')
+    if not (amplitude >= 0): raise ValueError('amplitude must be greater than 0')
     if not (frequency > 0): raise ValueError('frequency must be greater than 0')
     if not (short_circuit_time >= 0): raise ValueError('short_circuit_time must be greater than or equal to 0')
     if not (increase_factor > 0): raise ValueError('increase_factor must be greater than 0')
