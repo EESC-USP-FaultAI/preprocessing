@@ -29,8 +29,6 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/plot_directive.css?v=7f9a90b1" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
-    <link rel="stylesheet" type="text/css" href="_static/jupyterlite_sphinx.css?v=ca70e7f1" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="_static/lsee.css?v=8cf2be1e" />
   
@@ -42,14 +40,14 @@
     <script src="_static/documentation_options.js?v=7f41d439"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/jupyterlite_sphinx.js?v=d6bdf5f8"></script>
     <script src="_static/design-tabs.js?v=36754332"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="May 13, 2024"/>
+    <meta name="docbuild:last-update" content="May 15, 2024"/>
   </head>
   
   
@@ -297,6 +295,7 @@ document.write(`
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
  | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
  | <a href="#V"><strong>V</strong></a>
@@ -312,7 +311,7 @@ document.write(`
         <li><a href="generated/functions.TS.ST.html#functions.TS.ST.calculate_ST_of_the_signal">(in module functions.TS.ST)</a>
 </li>
       </ul></li>
-      <li><a href="functions.CSVProcessing.html#functions.CSVProcessing.Dunno.case_selection">case_selection() (in module functions.CSVProcessing.Dunno)</a>
+      <li><a href="functions.TF/functions.CSVProcessing.case_selection.html#functions.CSVProcessing.case_selection">case_selection() (in module functions.CSVProcessing)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -330,7 +329,7 @@ document.write(`
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="functions.CSVProcessing.html#functions.CSVProcessing.Dunno.data_selection">data_selection() (in module functions.CSVProcessing.Dunno)</a>
+      <li><a href="functions.TF/functions.CSVProcessing.data_selection.html#functions.CSVProcessing.data_selection">data_selection() (in module functions.CSVProcessing)</a>
 </li>
       <li><a href="functions.TF/functions.TF.DFT.html#functions.TF.DFT">DFT() (in module functions.TF)</a>, <a href="generated/functions.TF.DFT.html#functions.TF.DFT">[1]</a>
 </li>
@@ -380,13 +379,6 @@ document.write(`
 
       <ul>
         <li><a href="functions.CSVProcessing.html#module-functions.CSVProcessing">module</a>
-</li>
-      </ul></li>
-      <li>
-    functions.CSVProcessing.Dunno
-
-      <ul>
-        <li><a href="functions.CSVProcessing.html#module-functions.CSVProcessing.Dunno">module</a>
 </li>
       </ul></li>
       <li>
@@ -445,8 +437,6 @@ document.write(`
         <li><a href="functions.SignalGenerator.html#module-functions.SignalGenerator">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     functions.Tests
 
@@ -454,6 +444,8 @@ document.write(`
         <li><a href="functions.Tests.html#module-functions.Tests">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     functions.TF
 
@@ -579,8 +571,6 @@ document.write(`
 </li>
         <li><a href="functions.CSVProcessing.html#module-functions.CSVProcessing">functions.CSVProcessing</a>
 </li>
-        <li><a href="functions.CSVProcessing.html#module-functions.CSVProcessing.Dunno">functions.CSVProcessing.Dunno</a>
-</li>
         <li><a href="functions.EMD.html#module-functions.EMD">functions.EMD</a>
 </li>
         <li><a href="functions.PreProcessingAnalysis.html#module-functions.PreProcessingAnalysis">functions.PreProcessingAnalysis</a>
@@ -621,6 +611,8 @@ document.write(`
 </li>
         <li><a href="functions.VMD.html#module-functions.VMD">functions.VMD</a>
 </li>
+        <li><a href="rotinas.html#module-rotinas">rotinas</a>
+</li>
       </ul></li>
   </ul></td>
 </tr></table>
@@ -648,6 +640,19 @@ document.write(`
 </li>
       <li><a href="functions.PreProcessingAnalysis.html#functions.PreProcessingAnalysis.plotTT.plotTT">plotTT() (in module functions.PreProcessingAnalysis.plotTT)</a>
 </li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    rotinas
+
+      <ul>
+        <li><a href="rotinas.html#module-rotinas">module</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -688,6 +693,8 @@ document.write(`
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="functions.TF/functions.VMD.vmd.html#functions.VMD.vmd">vmd() (in module functions.VMD)</a>
+</li>
       <li><a href="generated/functions.SignalGenerator.voltage_sag_short_circuit.html#functions.SignalGenerator.voltage_sag_short_circuit">voltage_sag_short_circuit() (in module functions.SignalGenerator)</a>
 </li>
   </ul></td>

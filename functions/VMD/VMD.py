@@ -27,7 +27,7 @@ def vmd(X, alpha=200, tau=0.1, K=10, tol=1e-7, max_iter=500):
         Decomposed modes.
 
     Examples
-    -------
+    --------
     >>> import numpy as np
     >>> import matplotlib.pyplot as plt
     >>> from functions.VMD import vmd
@@ -40,7 +40,7 @@ def vmd(X, alpha=200, tau=0.1, K=10, tol=1e-7, max_iter=500):
     K = min(K, N // 2)  # Ensure K is not greater than half of the signal length
 
     # Initialization
-    u = np.zeros((N, K))  # Initialize the modes matrix
+    u = np.zeros((N, K), dtype=np.complex128)  # Initialize the modes matrix
     omega = np.zeros((N, K))  # Initialize the center frequencies matrix
     alpha_k = alpha * np.ones((N, K))  # Initialize the regularization parameters matrix
 

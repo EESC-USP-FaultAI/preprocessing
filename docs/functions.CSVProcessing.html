@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>functions.CSVProcessing package &#8212; Pre-Processing Functions Manual</title>
+    <title>CSV Processing (functions.CSVProcessing) &#8212; Pre-Processing Functions Manual</title>
   
   
   
@@ -30,8 +30,6 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/plot_directive.css?v=7f9a90b1" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
-    <link rel="stylesheet" type="text/css" href="_static/jupyterlite_sphinx.css?v=ca70e7f1" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="_static/lsee.css?v=8cf2be1e" />
   
@@ -43,14 +41,16 @@
     <script src="_static/documentation_options.js?v=7f41d439"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/jupyterlite_sphinx.js?v=d6bdf5f8"></script>
     <script src="_static/design-tabs.js?v=36754332"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'functions.CSVProcessing';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="functions.CSVProcessing.data_selection" href="functions.TF/functions.CSVProcessing.data_selection.html" />
+    <link rel="prev" title="functions.SignalGenerator.GenerateSignalWithHarmonics" href="generated/functions.SignalGenerator.GenerateSignalWithHarmonics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="May 13, 2024"/>
+    <meta name="docbuild:last-update" content="May 15, 2024"/>
   </head>
   
   
@@ -143,7 +143,7 @@
 <nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
+                    <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="methods.html">
                         Modules
                       </a>
@@ -184,10 +184,6 @@ document.write(`
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
-      <span class="fa-solid fa-outdent"></span>
-    </label>
-  
 </div>
 
     </header>
@@ -197,8 +193,6 @@ document.write(`
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -213,7 +207,7 @@ document.write(`
 <nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
+                    <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="methods.html">
                         Modules
                       </a>
@@ -263,6 +257,29 @@ document.write(`
    </button>
  `);
  </script></div>
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links" aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav">
+    <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pre-Processing Methods:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="functions.TF.html">Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.TW.html">Discrete Wavelet Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.TS.html">Stockwell Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.VMD.html">Variational mode decomposition</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="functions.SignalGenerator.html">Fault Signal Generator</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">CSV Processing</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions.TF/functions.CSVProcessing.data_selection.html">functions.CSVProcessing.data_selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.TF/functions.CSVProcessing.case_selection.html">functions.CSVProcessing.case_selection</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</nav></div>
     </div>
   
   
@@ -297,7 +314,10 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">functions.CS...</li>
+    
+    <li class="breadcrumb-item"><a href="methods.html" class="nav-link">Modules</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">CSV...</li>
   </ul>
 </nav>
 </div>
@@ -314,56 +334,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="functions-csvprocessing-package">
-<h1>functions.CSVProcessing package<a class="headerlink" href="#functions-csvprocessing-package" title="Link to this heading">#</a></h1>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
-</section>
-<section id="module-functions.CSVProcessing.Dunno">
-<span id="functions-csvprocessing-dunno-module"></span><h2>functions.CSVProcessing.Dunno module<a class="headerlink" href="#module-functions.CSVProcessing.Dunno" title="Link to this heading">#</a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.CSVProcessing.Dunno.case_selection">
-<span class="sig-prename descclassname"><span class="pre">functions.CSVProcessing.Dunno.</span></span><span class="sig-name descname"><span class="pre">case_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_folder_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Vmed_B1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meas_file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'medicoes.csv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">single_phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenarios_file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Cenarios_inic.csv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resistence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fault_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.CSVProcessing.Dunno.case_selection" title="Link to this definition">#</a></dt>
-<dd><p>Select the voltage/current data given the scenario parameters.</p>
-<p>Parameters:
-- data_folder_path: Path to folder with csv files of voltage and current data
-- meas: measurement name based on “medicoes.csv” file.
-- meas_file_path: Path to csv file “medicoes.csv” in your computer.
-- single_phase: select the phase (A, B or C) to extract single phase data. If None returns three-phase data (default=None).
-- scenarios_file_path: Path to csv file “Cenarios_inic.csv” in your computer
-- resistence: Desired value of resistence evaluated in the scenario.
-- fault_type: Desired fault_type evaluated in the scenario.
-- angle:Desired value of incidence angle evaluated in the scenario.
-- local:Desired local evaluated in the scenario.</p>
-<p>Returns:
-- Return voltage/current data as an 2D/3D array where first dimension is respective for each scenario.
-- Returns zeros for each scenario in which an error occurred.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.CSVProcessing.Dunno.data_selection">
-<span class="sig-prename descclassname"><span class="pre">functions.CSVProcessing.Dunno.</span></span><span class="sig-name descname"><span class="pre">data_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meas_file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'medicoes.csv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">single_phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.CSVProcessing.Dunno.data_selection" title="Link to this definition">#</a></dt>
-<dd><p>Select the voltage/current data given its name on file “medicoes.csv”.</p>
-<p>Parameters:
-- data_file_path: Path to csv with voltage and current data
-- meas: measurement name based on “medicoes.csv” file.
-- meas_file_path: Path to csv file “medicoes.csv” in your computer.
-- single_phase: select the phase (A, B or C) to extract single phase data. If None returns three-phase data (default=None).</p>
-<p>Returns:
-- Return voltage/current data as an 1D/2D array. Returns zeros if an error occurred.</p>
-<dl>
-<dt>Example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data_selection</span><span class="p">(</span><span class="n">data_file_path</span><span class="o">=</span><span class="s2">&quot;caso_1_.csv&quot;</span><span class="p">,</span> <span class="n">meas</span><span class="o">=</span><span class="s2">&quot;Vmed_B1&quot;</span><span class="p">,</span> <span class="n">meas_file_path</span><span class="o">=</span><span class="s2">&quot;medicoes.csv&quot;</span><span class="p">,</span> <span class="n">single_phase</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
-<span class="go">returns Voltage Bus 1 data from &quot;caso_1_.csv&quot; file for single phase &quot;A&quot;.</span>
-</pre></div>
+  <section id="csv-processing-functions-csvprocessing">
+<span id="module-functions.CSVProcessing"></span><h1>CSV Processing (<a class="reference internal" href="#module-functions.CSVProcessing" title="functions.CSVProcessing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">functions.CSVProcessing</span></code></a>)<a class="headerlink" href="#csv-processing-functions-csvprocessing" title="Link to this heading">#</a></h1>
+<p>This module is used to process the CSV files. It contains two functions:</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="functions.TF/functions.CSVProcessing.data_selection.html#functions.CSVProcessing.data_selection" title="functions.CSVProcessing.data_selection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_selection</span></code></a>(data_file_path, meas[, ...])</p></td>
+<td><p>Select the voltage/current data given its name on file &quot;medicoes.csv&quot;.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="functions.TF/functions.CSVProcessing.case_selection.html#functions.CSVProcessing.case_selection" title="functions.CSVProcessing.case_selection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">case_selection</span></code></a>(data_folder_path[, meas, ...])</p></td>
+<td><p>Select the voltage/current data given the scenario parameters.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
 </div>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="module-functions.CSVProcessing">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-functions.CSVProcessing" title="Link to this heading">#</a></h2>
-</section>
 </section>
 
 
@@ -377,28 +362,7 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions.CSVProcessing.Dunno">functions.CSVProcessing.Dunno module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.CSVProcessing.Dunno.case_selection"><code class="docutils literal notranslate"><span class="pre">case_selection</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.CSVProcessing.Dunno.data_selection"><code class="docutils literal notranslate"><span class="pre">data_selection</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions.CSVProcessing">Module contents</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>
