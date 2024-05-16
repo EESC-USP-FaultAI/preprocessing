@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>functions.TT package &#8212; Pre-Processing Functions Manual</title>
+    <title>Three-Phase Transform Functions (functions.TT) &#8212; Pre-Processing Functions Manual</title>
   
   
   
@@ -46,9 +46,11 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'functions.TT';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="functions.TT.clarke_ABCtoAB0" href="generated/functions.TT.clarke_ABCtoAB0.html" />
+    <link rel="prev" title="functions.TS.stockwell_transform" href="generated/functions.TS.stockwell_transform.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="May 15, 2024"/>
+    <meta name="docbuild:last-update" content="May 16, 2024"/>
   </head>
   
   
@@ -141,7 +143,7 @@
 <nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
+                    <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="methods.html">
                         Modules
                       </a>
@@ -182,10 +184,6 @@ document.write(`
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
-      <span class="fa-solid fa-outdent"></span>
-    </label>
-  
 </div>
 
     </header>
@@ -195,8 +193,6 @@ document.write(`
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -211,7 +207,7 @@ document.write(`
 <nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
+                    <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="methods.html">
                         Modules
                       </a>
@@ -261,6 +257,34 @@ document.write(`
    </button>
  `);
  </script></div>
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links" aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav">
+    <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pre-Processing Methods:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="functions.TF.html">Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.TW.html">Discrete Wavelet Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.TS.html">Stockwell Transform</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Three-Phase Transform</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/functions.TT.clarke_ABCtoAB0.html">functions.TT.clarke_ABCtoAB0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/functions.TT.clarke_AB0toABC.html">functions.TT.clarke_AB0toABC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/functions.TT.park_ABCtoDQ.html">functions.TT.park_ABCtoDQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/functions.TT.park_DQtoABC.html">functions.TT.park_DQtoABC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/functions.TT.comp_sim_ABCto012.html">functions.TT.comp_sim_ABCto012</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/functions.TT.comp_sim_012toABC.html">functions.TT.comp_sim_012toABC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="functions.VMD.html">Variational mode decomposition</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="functions.SignalGenerator.html">Fault Signal Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.CSVProcessing.html">CSV Processing</a></li>
+</ul>
+
+  </div>
+</nav></div>
     </div>
   
   
@@ -295,7 +319,10 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">functions.TT package</li>
+    
+    <li class="breadcrumb-item"><a href="methods.html" class="nav-link">Modules</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Three-Phase...</li>
   </ul>
 </nav>
 </div>
@@ -312,133 +339,30 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="functions-tt-package">
-<h1>functions.TT package<a class="headerlink" href="#functions-tt-package" title="Link to this heading">#</a></h1>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
-</section>
-<section id="module-functions.TT.clarke">
-<span id="functions-tt-clarke-module"></span><h2>functions.TT.clarke module<a class="headerlink" href="#module-functions.TT.clarke" title="Link to this heading">#</a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.TT.clarke.clarke_AB0toABC">
-<span class="sig-prename descclassname"><span class="pre">functions.TT.clarke.</span></span><span class="sig-name descname"><span class="pre">clarke_AB0toABC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Xa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Xb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AmpIn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.TT.clarke.clarke_AB0toABC" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>X0</strong> – Componente 0 de Clarke</p></li>
-<li><p><strong>Xa</strong> – Componente alfa de Clarke</p></li>
-<li><p><strong>Xb</strong> – Componente beta de Clarke</p></li>
-<li><p><strong>AmpIn</strong> – Booleno - Se True as constantes são para amplitude invariável, potência invariável caso contrário</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>vetor com os fasores no domínio ABC</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.TT.clarke.clarke_ABCtoAB0">
-<span class="sig-prename descclassname"><span class="pre">functions.TT.clarke.</span></span><span class="sig-name descname"><span class="pre">clarke_ABCtoAB0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Xa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Xb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Xc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AmpIn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.TT.clarke.clarke_ABCtoAB0" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>Xa</strong> – Fasor da fase A</p></li>
-<li><p><strong>Xb</strong> – Fasor da fase B</p></li>
-<li><p><strong>Xc</strong> – Fasor da fase C</p></li>
-<li><p><strong>AmpIn</strong> – Booleno - Se True as constantes são para amplitude invariável, potência invariável caso contrário</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>vetor com os fasores no domínio de Clarke</p>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="module-functions.TT.componentes_simetricas">
-<span id="functions-tt-componentes-simetricas-module"></span><h2>functions.TT.componentes_simetricas module<a class="headerlink" href="#module-functions.TT.componentes_simetricas" title="Link to this heading">#</a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.TT.componentes_simetricas.comp_sim_012toABC">
-<span class="sig-prename descclassname"><span class="pre">functions.TT.componentes_simetricas.</span></span><span class="sig-name descname"><span class="pre">comp_sim_012toABC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.TT.componentes_simetricas.comp_sim_012toABC" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>X0</strong> – Fasor da componente de sequência 0</p></li>
-<li><p><strong>X1</strong> – Fasor da componente de sequência positiva</p></li>
-<li><p><strong>X2</strong> – Fasor da componente de sequência negativa</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>vetor com os fasores no domínio ABC</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.TT.componentes_simetricas.comp_sim_ABCto012">
-<span class="sig-prename descclassname"><span class="pre">functions.TT.componentes_simetricas.</span></span><span class="sig-name descname"><span class="pre">comp_sim_ABCto012</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Xa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Xb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Xc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.TT.componentes_simetricas.comp_sim_ABCto012" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>Xa</strong> – Fasor da fase A</p></li>
-<li><p><strong>Xb</strong> – Fasor da fase B</p></li>
-<li><p><strong>Xc</strong> – Fasor da fase C</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>vetor com os fasores no domínio das componenetes simétricas</p>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="functions-tt-main-module">
-<h2>functions.TT.main module<a class="headerlink" href="#functions-tt-main-module" title="Link to this heading">#</a></h2>
-</section>
-<section id="module-functions.TT.park">
-<span id="functions-tt-park-module"></span><h2>functions.TT.park module<a class="headerlink" href="#module-functions.TT.park" title="Link to this heading">#</a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.TT.park.park_ABCtoDQ">
-<span class="sig-prename descclassname"><span class="pre">functions.TT.park.</span></span><span class="sig-name descname"><span class="pre">park_ABCtoDQ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Xa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Xb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Xc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">teta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AmpIn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.TT.park.park_ABCtoDQ" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>Xa</strong> – Fasor da fase A</p></li>
-<li><p><strong>Xb</strong> – Fasor da fase B</p></li>
-<li><p><strong>Xc</strong> – Fasor da fase C</p></li>
-<li><p><strong>teta</strong> – Ângulo entre o rotor da máquina e a fase A</p></li>
-<li><p><strong>AmpIn</strong> – Booleno - Se True as constantes são para amplitude invariável, potência invariável caso contrário</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>vetor com os fasores no domínio de Park</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="functions.TT.park.park_DQtoABC">
-<span class="sig-prename descclassname"><span class="pre">functions.TT.park.</span></span><span class="sig-name descname"><span class="pre">park_DQtoABC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Xd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Xq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">teta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AmpIn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.TT.park.park_DQtoABC" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>Xd</strong> – Fasor da componente de eixo direto no domínio de Park</p></li>
-<li><p><strong>Xq</strong> – Fasor da componente de eixo em quadratura no domínio de Park</p></li>
-<li><p><strong>teta</strong> – Ângulo entre o rotor da máquina e a fase A</p></li>
-<li><p><strong>AmpIn</strong> – Booleno - Se True as constantes são para amplitude invariável, potência invariável caso contrário</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Vetor com os fasores no domínio ABC</p>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="module-functions.TT">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-functions.TT" title="Link to this heading">#</a></h2>
-</section>
+  <section id="three-phase-transform-functions-functions-tt">
+<span id="module-functions.TT"></span><h1>Three-Phase Transform Functions (<a class="reference internal" href="#module-functions.TT" title="functions.TT"><code class="xref py py-mod docutils literal notranslate"><span class="pre">functions.TT</span></code></a>)<a class="headerlink" href="#three-phase-transform-functions-functions-tt" title="Link to this heading">#</a></h1>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/functions.TT.clarke_ABCtoAB0.html#functions.TT.clarke_ABCtoAB0" title="functions.TT.clarke_ABCtoAB0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clarke_ABCtoAB0</span></code></a>(Xa, Xb, Xc[, AmpIn])</p></td>
+<td><p>Function to convert the phasors from ABC to αβ0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/functions.TT.clarke_AB0toABC.html#functions.TT.clarke_AB0toABC" title="functions.TT.clarke_AB0toABC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clarke_AB0toABC</span></code></a>(X0, Xa, Xb[, AmpIn])</p></td>
+<td><p>Function to convert the phasors from αβ0 to ABC</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/functions.TT.park_ABCtoDQ.html#functions.TT.park_ABCtoDQ" title="functions.TT.park_ABCtoDQ"><code class="xref py py-obj docutils literal notranslate"><span class="pre">park_ABCtoDQ</span></code></a>(Xa, Xb, Xc, teta[, AmpIn])</p></td>
+<td><p>Function to convert the phasors from ABC to Park</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/functions.TT.park_DQtoABC.html#functions.TT.park_DQtoABC" title="functions.TT.park_DQtoABC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">park_DQtoABC</span></code></a>(X0, Xd, Xq, teta[, AmpIn])</p></td>
+<td><p>Function to convert the phasors from Park to ABC</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/functions.TT.comp_sim_ABCto012.html#functions.TT.comp_sim_ABCto012" title="functions.TT.comp_sim_ABCto012"><code class="xref py py-obj docutils literal notranslate"><span class="pre">comp_sim_ABCto012</span></code></a>(Xa, Xb, Xc)</p></td>
+<td><p>Function to convert the phasors from ABC to symmetrical components</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/functions.TT.comp_sim_012toABC.html#functions.TT.comp_sim_012toABC" title="functions.TT.comp_sim_012toABC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">comp_sim_012toABC</span></code></a>(X0, X1, X2)</p></td>
+<td><p>Function to convert the phasors from symmetrical components to ABC</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 
 
@@ -452,39 +376,7 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions.TT.clarke">functions.TT.clarke module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TT.clarke.clarke_AB0toABC"><code class="docutils literal notranslate"><span class="pre">clarke_AB0toABC</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TT.clarke.clarke_ABCtoAB0"><code class="docutils literal notranslate"><span class="pre">clarke_ABCtoAB0</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions.TT.componentes_simetricas">functions.TT.componentes_simetricas module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TT.componentes_simetricas.comp_sim_012toABC"><code class="docutils literal notranslate"><span class="pre">comp_sim_012toABC</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TT.componentes_simetricas.comp_sim_ABCto012"><code class="docutils literal notranslate"><span class="pre">comp_sim_ABCto012</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-tt-main-module">functions.TT.main module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions.TT.park">functions.TT.park module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TT.park.park_ABCtoDQ"><code class="docutils literal notranslate"><span class="pre">park_ABCtoDQ</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.TT.park.park_DQtoABC"><code class="docutils literal notranslate"><span class="pre">park_DQtoABC</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions.TT">Module contents</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>
