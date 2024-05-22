@@ -48,7 +48,7 @@
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="May 16, 2024"/>
+    <meta name="docbuild:last-update" content="May 22, 2024"/>
   </head>
   
   
@@ -330,20 +330,91 @@ document.write(`
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
 </section>
-<section id="functions-preprocessinganalysis-avalia-processamente-vmd-module">
-<h2>functions.PreProcessingAnalysis.Avalia_Processamente_VMD module<a class="headerlink" href="#functions-preprocessinganalysis-avalia-processamente-vmd-module" title="Link to this heading">#</a></h2>
+<section id="module-functions.PreProcessingAnalysis.Avalia_Processamente_VMD">
+<span id="functions-preprocessinganalysis-avalia-processamente-vmd-module"></span><h2>functions.PreProcessingAnalysis.Avalia_Processamente_VMD module<a class="headerlink" href="#module-functions.PreProcessingAnalysis.Avalia_Processamente_VMD" title="Link to this heading">#</a></h2>
+<p>Código para avaliar o tempo de processamento de sinais
+Será utilizado o sinal gerado com harmônicas</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="functions.PreProcessingAnalysis.Avalia_Processamente_VMD.short_circuit_current_nonoise_lowsample">
+<span class="sig-prename descclassname"><span class="pre">functions.PreProcessingAnalysis.Avalia_Processamente_VMD.</span></span><span class="sig-name descname"><span class="pre">short_circuit_current_nonoise_lowsample</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([</span> <span class="pre">0.</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">,</span>&#160; <span class="pre">0.04906767,</span>&#160; <span class="pre">0.09801714,</span> <span class="pre">...,</span> <span class="pre">-0.13927643,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.09297723,</span> <span class="pre">-0.04651439])</span></em><a class="headerlink" href="#functions.PreProcessingAnalysis.Avalia_Processamente_VMD.short_circuit_current_nonoise_lowsample" title="Link to this definition">#</a></dt>
+<dd><p>Parte 2 - Analisa a Técnica de Processamento de Sinais</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="functions.PreProcessingAnalysis.Avalia_Processamente_VMD.time2">
+<span class="sig-prename descclassname"><span class="pre">functions.PreProcessingAnalysis.Avalia_Processamente_VMD.</span></span><span class="sig-name descname"><span class="pre">time2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([0.00000000e+00,</span> <span class="pre">1.30208333e-04,</span> <span class="pre">2.60416667e-04,</span> <span class="pre">...,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">4.99609375e-01,</span> <span class="pre">4.99739583e-01,</span> <span class="pre">4.99869792e-01])</span></em><a class="headerlink" href="#functions.PreProcessingAnalysis.Avalia_Processamente_VMD.time2" title="Link to this definition">#</a></dt>
+<dd><p>Parte 2 - Analisa a Técnica de Processamento de Sinais</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.PreProcessingAnalysis.Avalia_Processamente_VMD.vmd">
+<span class="sig-prename descclassname"><span class="pre">functions.PreProcessingAnalysis.Avalia_Processamente_VMD.</span></span><span class="sig-name descname"><span class="pre">vmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-07</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.PreProcessingAnalysis.Avalia_Processamente_VMD.vmd" title="Link to this definition">#</a></dt>
+<dd><p>Variational Mode Decomposition (VMD) algorithm.</p>
+<p>Parameters:
+- X: Input signal (1D array)
+- alpha: Regularization parameter
+- tau: Center frequency parameter
+- K: Number of modes
+- tol: Tolerance for stopping criteria
+- max_iter: Maximum number of iterations</p>
+<p>Returns:
+- Modes: Decomposed modes</p>
+</dd></dl>
+
 </section>
-<section id="functions-preprocessinganalysis-avalia-processamento-emd-module">
-<h2>functions.PreProcessingAnalysis.Avalia_Processamento_EMD module<a class="headerlink" href="#functions-preprocessinganalysis-avalia-processamento-emd-module" title="Link to this heading">#</a></h2>
+<section id="module-functions.PreProcessingAnalysis.Avalia_Processamento_EMD">
+<span id="functions-preprocessinganalysis-avalia-processamento-emd-module"></span><h2>functions.PreProcessingAnalysis.Avalia_Processamento_EMD module<a class="headerlink" href="#module-functions.PreProcessingAnalysis.Avalia_Processamento_EMD" title="Link to this heading">#</a></h2>
+<p>Código para avaliar o tempo de processamento de sinais
+Será utilizado o sinal gerado com harmônicas</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="functions.PreProcessingAnalysis.Avalia_Processamento_EMD.short_circuit_current_nonoise_lowsample">
+<span class="sig-prename descclassname"><span class="pre">functions.PreProcessingAnalysis.Avalia_Processamento_EMD.</span></span><span class="sig-name descname"><span class="pre">short_circuit_current_nonoise_lowsample</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([</span> <span class="pre">0.</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">,</span>&#160; <span class="pre">0.04906767,</span>&#160; <span class="pre">0.09801714,</span> <span class="pre">...,</span> <span class="pre">-0.13927643,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.09297723,</span> <span class="pre">-0.04651439])</span></em><a class="headerlink" href="#functions.PreProcessingAnalysis.Avalia_Processamento_EMD.short_circuit_current_nonoise_lowsample" title="Link to this definition">#</a></dt>
+<dd><p>Parte 2 - Analisa a Técnica de Processamento de Sinais</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="functions.PreProcessingAnalysis.Avalia_Processamento_EMD.time2">
+<span class="sig-prename descclassname"><span class="pre">functions.PreProcessingAnalysis.Avalia_Processamento_EMD.</span></span><span class="sig-name descname"><span class="pre">time2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([0.00000000e+00,</span> <span class="pre">1.30208333e-04,</span> <span class="pre">2.60416667e-04,</span> <span class="pre">...,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">4.99609375e-01,</span> <span class="pre">4.99739583e-01,</span> <span class="pre">4.99869792e-01])</span></em><a class="headerlink" href="#functions.PreProcessingAnalysis.Avalia_Processamento_EMD.time2" title="Link to this definition">#</a></dt>
+<dd><p>Parte 2 - Analisa a Técnica de Processamento de Sinais</p>
+</dd></dl>
+
 </section>
-<section id="functions-preprocessinganalysis-avalia-processamento-fourier-dft-module">
-<h2>functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_DFT module<a class="headerlink" href="#functions-preprocessinganalysis-avalia-processamento-fourier-dft-module" title="Link to this heading">#</a></h2>
+<section id="module-functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_DFT">
+<span id="functions-preprocessinganalysis-avalia-processamento-fourier-dft-module"></span><h2>functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_DFT module<a class="headerlink" href="#module-functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_DFT" title="Link to this heading">#</a></h2>
+<p>Código para avaliar o tempo de processamento de sinais
+Será utilizado o sinal gerado com harmônicas</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_DFT.short_circuit_current_nonoise_lowsample">
+<span class="sig-prename descclassname"><span class="pre">functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_DFT.</span></span><span class="sig-name descname"><span class="pre">short_circuit_current_nonoise_lowsample</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([</span> <span class="pre">0.</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">,</span>&#160; <span class="pre">0.04906767,</span>&#160; <span class="pre">0.09801714,</span> <span class="pre">...,</span> <span class="pre">-0.13927643,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.09297723,</span> <span class="pre">-0.04651439])</span></em><a class="headerlink" href="#functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_DFT.short_circuit_current_nonoise_lowsample" title="Link to this definition">#</a></dt>
+<dd><p>Parte 2 - Analisa a Técnica de Processamento de Sinais</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_DFT.time2">
+<span class="sig-prename descclassname"><span class="pre">functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_DFT.</span></span><span class="sig-name descname"><span class="pre">time2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([0.00000000e+00,</span> <span class="pre">1.30208333e-04,</span> <span class="pre">2.60416667e-04,</span> <span class="pre">...,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">4.99609375e-01,</span> <span class="pre">4.99739583e-01,</span> <span class="pre">4.99869792e-01])</span></em><a class="headerlink" href="#functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_DFT.time2" title="Link to this definition">#</a></dt>
+<dd><p>Parte 2 - Analisa a Técnica de Processamento de Sinais</p>
+</dd></dl>
+
 </section>
 <section id="functions-preprocessinganalysis-avalia-processamento-fourier-fft-module">
 <h2>functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_FFT module<a class="headerlink" href="#functions-preprocessinganalysis-avalia-processamento-fourier-fft-module" title="Link to this heading">#</a></h2>
 </section>
-<section id="functions-preprocessinganalysis-avalia-processamento-fourier-stft-module">
-<h2>functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_STFT module<a class="headerlink" href="#functions-preprocessinganalysis-avalia-processamento-fourier-stft-module" title="Link to this heading">#</a></h2>
+<section id="module-functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_STFT">
+<span id="functions-preprocessinganalysis-avalia-processamento-fourier-stft-module"></span><h2>functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_STFT module<a class="headerlink" href="#module-functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_STFT" title="Link to this heading">#</a></h2>
+<p>Código para avaliar o tempo de processamento de sinais
+Será utilizado o sinal gerado com harmônicas</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_STFT.short_circuit_current_nonoise_lowsample">
+<span class="sig-prename descclassname"><span class="pre">functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_STFT.</span></span><span class="sig-name descname"><span class="pre">short_circuit_current_nonoise_lowsample</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([</span> <span class="pre">0.</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">,</span>&#160; <span class="pre">0.04906767,</span>&#160; <span class="pre">0.09801714,</span> <span class="pre">...,</span> <span class="pre">-0.13927643,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.09297723,</span> <span class="pre">-0.04651439])</span></em><a class="headerlink" href="#functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_STFT.short_circuit_current_nonoise_lowsample" title="Link to this definition">#</a></dt>
+<dd><p>Parte 2 - Analisa a Técnica de Processamento de Sinais</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_STFT.time2">
+<span class="sig-prename descclassname"><span class="pre">functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_STFT.</span></span><span class="sig-name descname"><span class="pre">time2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([0.00000000e+00,</span> <span class="pre">1.30208333e-04,</span> <span class="pre">2.60416667e-04,</span> <span class="pre">...,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">4.99609375e-01,</span> <span class="pre">4.99739583e-01,</span> <span class="pre">4.99869792e-01])</span></em><a class="headerlink" href="#functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_STFT.time2" title="Link to this definition">#</a></dt>
+<dd><p>Parte 2 - Analisa a Técnica de Processamento de Sinais</p>
+</dd></dl>
+
 </section>
 <section id="functions-preprocessinganalysis-avalia-processamento-stockwell-module">
 <h2>functions.PreProcessingAnalysis.Avalia_Processamento_Stockwell module<a class="headerlink" href="#functions-preprocessinganalysis-avalia-processamento-stockwell-module" title="Link to this heading">#</a></h2>
@@ -351,8 +422,27 @@ document.write(`
 <section id="functions-preprocessinganalysis-avalia-processamento-tt-module">
 <h2>functions.PreProcessingAnalysis.Avalia_Processamento_TT module<a class="headerlink" href="#functions-preprocessinganalysis-avalia-processamento-tt-module" title="Link to this heading">#</a></h2>
 </section>
-<section id="functions-preprocessinganalysis-wavelettransformanalysis-module">
-<h2>functions.PreProcessingAnalysis.WaveletTransformAnalysis module<a class="headerlink" href="#functions-preprocessinganalysis-wavelettransformanalysis-module" title="Link to this heading">#</a></h2>
+<section id="module-functions.PreProcessingAnalysis.WaveletTransformAnalysis">
+<span id="functions-preprocessinganalysis-wavelettransformanalysis-module"></span><h2>functions.PreProcessingAnalysis.WaveletTransformAnalysis module<a class="headerlink" href="#module-functions.PreProcessingAnalysis.WaveletTransformAnalysis" title="Link to this heading">#</a></h2>
+<p>Código para avaliar o tempo de processamento de sinais
+Será utilizado o sinal gerado com harmônicas</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.PreProcessingAnalysis.WaveletTransformAnalysis.scientific_formatter">
+<span class="sig-prename descclassname"><span class="pre">functions.PreProcessingAnalysis.WaveletTransformAnalysis.</span></span><span class="sig-name descname"><span class="pre">scientific_formatter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.PreProcessingAnalysis.WaveletTransformAnalysis.scientific_formatter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="functions.PreProcessingAnalysis.WaveletTransformAnalysis.short_circuit_current_nonoise_lowsample">
+<span class="sig-prename descclassname"><span class="pre">functions.PreProcessingAnalysis.WaveletTransformAnalysis.</span></span><span class="sig-name descname"><span class="pre">short_circuit_current_nonoise_lowsample</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([</span> <span class="pre">0.</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">,</span>&#160; <span class="pre">0.04906767,</span>&#160; <span class="pre">0.09801714,</span> <span class="pre">...,</span> <span class="pre">-0.13927643,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.09297723,</span> <span class="pre">-0.04651439])</span></em><a class="headerlink" href="#functions.PreProcessingAnalysis.WaveletTransformAnalysis.short_circuit_current_nonoise_lowsample" title="Link to this definition">#</a></dt>
+<dd><p>Parte 2 - Analisa a Técnica de Processamento de Sinais</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="functions.PreProcessingAnalysis.WaveletTransformAnalysis.time2">
+<span class="sig-prename descclassname"><span class="pre">functions.PreProcessingAnalysis.WaveletTransformAnalysis.</span></span><span class="sig-name descname"><span class="pre">time2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([0.00000000e+00,</span> <span class="pre">1.30208333e-04,</span> <span class="pre">2.60416667e-04,</span> <span class="pre">...,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">4.99609375e-01,</span> <span class="pre">4.99739583e-01,</span> <span class="pre">4.99869792e-01])</span></em><a class="headerlink" href="#functions.PreProcessingAnalysis.WaveletTransformAnalysis.time2" title="Link to this definition">#</a></dt>
+<dd><p>Parte 2 - Analisa a Técnica de Processamento de Sinais</p>
+</dd></dl>
+
 </section>
 <section id="module-functions.PreProcessingAnalysis.plotST">
 <span id="functions-preprocessinganalysis-plotst-module"></span><h2>functions.PreProcessingAnalysis.plotST module<a class="headerlink" href="#module-functions.PreProcessingAnalysis.plotST" title="Link to this heading">#</a></h2>
@@ -399,14 +489,36 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-preprocessinganalysis-avalia-processamente-vmd-module">functions.PreProcessingAnalysis.Avalia_Processamente_VMD module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-preprocessinganalysis-avalia-processamento-emd-module">functions.PreProcessingAnalysis.Avalia_Processamento_EMD module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-preprocessinganalysis-avalia-processamento-fourier-dft-module">functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_DFT module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions.PreProcessingAnalysis.Avalia_Processamente_VMD">functions.PreProcessingAnalysis.Avalia_Processamente_VMD module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.PreProcessingAnalysis.Avalia_Processamente_VMD.short_circuit_current_nonoise_lowsample"><code class="docutils literal notranslate"><span class="pre">short_circuit_current_nonoise_lowsample</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.PreProcessingAnalysis.Avalia_Processamente_VMD.time2"><code class="docutils literal notranslate"><span class="pre">time2</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.PreProcessingAnalysis.Avalia_Processamente_VMD.vmd"><code class="docutils literal notranslate"><span class="pre">vmd</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions.PreProcessingAnalysis.Avalia_Processamento_EMD">functions.PreProcessingAnalysis.Avalia_Processamento_EMD module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.PreProcessingAnalysis.Avalia_Processamento_EMD.short_circuit_current_nonoise_lowsample"><code class="docutils literal notranslate"><span class="pre">short_circuit_current_nonoise_lowsample</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.PreProcessingAnalysis.Avalia_Processamento_EMD.time2"><code class="docutils literal notranslate"><span class="pre">time2</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_DFT">functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_DFT module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_DFT.short_circuit_current_nonoise_lowsample"><code class="docutils literal notranslate"><span class="pre">short_circuit_current_nonoise_lowsample</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_DFT.time2"><code class="docutils literal notranslate"><span class="pre">time2</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-preprocessinganalysis-avalia-processamento-fourier-fft-module">functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_FFT module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-preprocessinganalysis-avalia-processamento-fourier-stft-module">functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_STFT module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_STFT">functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_STFT module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_STFT.short_circuit_current_nonoise_lowsample"><code class="docutils literal notranslate"><span class="pre">short_circuit_current_nonoise_lowsample</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.PreProcessingAnalysis.Avalia_Processamento_Fourier_STFT.time2"><code class="docutils literal notranslate"><span class="pre">time2</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-preprocessinganalysis-avalia-processamento-stockwell-module">functions.PreProcessingAnalysis.Avalia_Processamento_Stockwell module</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-preprocessinganalysis-avalia-processamento-tt-module">functions.PreProcessingAnalysis.Avalia_Processamento_TT module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-preprocessinganalysis-wavelettransformanalysis-module">functions.PreProcessingAnalysis.WaveletTransformAnalysis module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions.PreProcessingAnalysis.WaveletTransformAnalysis">functions.PreProcessingAnalysis.WaveletTransformAnalysis module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.PreProcessingAnalysis.WaveletTransformAnalysis.scientific_formatter"><code class="docutils literal notranslate"><span class="pre">scientific_formatter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.PreProcessingAnalysis.WaveletTransformAnalysis.short_circuit_current_nonoise_lowsample"><code class="docutils literal notranslate"><span class="pre">short_circuit_current_nonoise_lowsample</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.PreProcessingAnalysis.WaveletTransformAnalysis.time2"><code class="docutils literal notranslate"><span class="pre">time2</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions.PreProcessingAnalysis.plotST">functions.PreProcessingAnalysis.plotST module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions.PreProcessingAnalysis.plotST.plotST"><code class="docutils literal notranslate"><span class="pre">plotST</span></code></a></li>
 </ul>
