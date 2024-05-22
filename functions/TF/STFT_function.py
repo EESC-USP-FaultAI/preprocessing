@@ -34,7 +34,7 @@ def STFT(x, fs, frame_size, hop):
     """
 
     if not isinstance(x, (np.ndarray, list, tuple)): raise ValueError('Input signal must be an array-like object.')
-    if not isinstance(fs, int): raise ValueError('Sampling frequency must be an integer.')
+    if not isinstance(fs, (float, int)): raise ValueError('Sampling frequency must be an number.')
     if not isinstance(frame_size, (float, int)): raise ValueError('Frame size must be a number.')
     if not isinstance(hop, (float, int)): raise ValueError('Hop size must be a number.')
 

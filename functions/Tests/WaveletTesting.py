@@ -1,6 +1,10 @@
+import sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+
 import functions
-from functions.TW import TW_PYWT
-from functions.SignalGenerator.SignalGenerator import GeraSinais
+import functions.SignalGenerator as GeraSinais
+import functions.TW.TW_PYWT as TW_PYWT
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -40,8 +44,11 @@ if __name__ == '__main__':
     functions.TW.TW_PYWT.list_wavelets()  # Showing wavelets available.
     wave_name = input("Write the name of the wavelet you wanna choose: (db4)")  # User chooses the wavelet they want.
     mode = input("Write the mode of signal extension: (symmetric)")
+    if wave_name == "": wave_name = "db4"
+    if mode == "": mode = "symmetric"
     print(f"You choose {wave_name} wavelet")
     print(f"You choose {mode} signal extension mode")
+    
     # PyWaveletScripts.wavelet_viewer(wave_name)  # Showing chosen wavelet properties.
     cA1, cD1 = functions.TW.TW_PYWT.evaluate_dwt_single_phase(short_circuit_current, wave_name, mode=mode)  # Evaluating DWT
     cA2, cD2 = functions.TW.TW_PYWT.evaluate_dwt_manually_single_phase(short_circuit_current, wave_name)

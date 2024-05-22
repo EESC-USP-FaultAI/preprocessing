@@ -3,8 +3,11 @@
 Código para avaliar o tempo de processamento de sinais
 """
 
-from functions.SignalGenerator.SignalGenerator import GeraSinais
-from functions.TW.DTW import DWT
+import sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+import functions.SignalGenerator as GeraSinais
+import functions.TW.DTW as DWT
+
 import time
 import matplotlib.pyplot as plt
 import numpy as np
@@ -28,11 +31,10 @@ if __name__ == '__main__':
 
     # Passo 2: Avalia o tempo de processamrnto do sinal
     # Criar uma instância da classe Wavelet
-    wavelet_instance = DWT()
     # Chamar o método calcula_DWT_do_sinal da instância DWT_instance
 
     start_time = time.time()
-    ca, cd = wavelet_instance.transform(signal, 'db4')
+    ca, cd = DWT.transform(signal, 'db4')
     end_time = time.time()
 
     tempo_execucao_milissegundos = (end_time - start_time)
