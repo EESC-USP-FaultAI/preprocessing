@@ -6,8 +6,10 @@ Será utilizado o sinal gerado com harmônicas
 
 from matplotlib.ticker import ScalarFormatter
 
-from functions.SignalGenerator.SignalGenerator import Generate_Signals  # Import the class from the module
-from functions.TW.DTW import DWT  # Import the class from the module
+import os, sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+import functions.SignalGenerator as Generate_Signals
+import functions.TW.DTW as DWT
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -26,14 +28,14 @@ involved_phases = 'A'    # Change this to set the involved phase or combination
 # Gerando os sinais com afundamento - com 2048 amostras por ciclo
 samples_per_cycle = 2048
 sampling_frequency = samples_per_cycle*frequency  # Change this to set the sampling frequency
-resulting_voltages_withnoise_highsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'True', 40)
-resulting_voltages_nonoise_highsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'False', 1000)
+resulting_voltages_withnoise_highsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, True, 40)
+resulting_voltages_nonoise_highsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, False, 1000)
 
 # Gerando os sinais com afundamento - com 128 amostras por ciclo
 samples_per_cycle = 128
 sampling_frequency = samples_per_cycle*frequency  # Change this to set the sampling frequency
-resulting_voltages_withnoise_lowsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'True', 40)
-resulting_voltages_nonoise_lowsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'False', 1000)
+resulting_voltages_withnoise_lowsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, True, 40)
+resulting_voltages_nonoise_lowsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, False, 1000)
 
 
 # Test 2 - Short Circuit Current
@@ -50,20 +52,20 @@ duration = 0.5         # Total duration of the waveform (in seconds)
 samples_per_cycle = 2048 # samples per cycle of the generated signal
 sampling_frequency = samples_per_cycle*frequency
 time1, short_circuit_current_withnoise_highsample = Generate_Signals.short_circuit_current(
-    amplitude, frequency, short_circuit_time, increase_factor, decay_factor, duration, sampling_frequency, 'True', 40
+    amplitude, frequency, short_circuit_time, increase_factor, decay_factor, duration, sampling_frequency, True, 40
 )
 time2, short_circuit_current_nonoise_highsample = Generate_Signals.short_circuit_current(
-    amplitude, frequency, short_circuit_time, increase_factor, decay_factor, duration, sampling_frequency, 'False', 1000
+    amplitude, frequency, short_circuit_time, increase_factor, decay_factor, duration, sampling_frequency, False, 1000
 )
 
 # low frequency
 samples_per_cycle = 128 # samples per cycle of the generated signal
 sampling_frequency = samples_per_cycle*frequency
 time1, short_circuit_current_withnoise_lowsample = Generate_Signals.short_circuit_current(
-    amplitude, frequency, short_circuit_time, increase_factor, decay_factor, duration, sampling_frequency, 'True', 40
+    amplitude, frequency, short_circuit_time, increase_factor, decay_factor, duration, sampling_frequency, True, 40
 )
 time2, short_circuit_current_nonoise_lowsample = Generate_Signals.short_circuit_current(
-    amplitude, frequency, short_circuit_time, increase_factor, decay_factor, duration, sampling_frequency, 'False', 1000
+    amplitude, frequency, short_circuit_time, increase_factor, decay_factor, duration, sampling_frequency, False, 1000
 )
 
 
@@ -74,7 +76,6 @@ time2, short_circuit_current_nonoise_lowsample = Generate_Signals.short_circuit_
 
 
 # Criar uma instância da classe Wavelet
-wavelet_instance = DWT()
 
 # Tipos de sinais já carregados no ambiente Python
 resulting_voltages_withnoise_highsample_A = resulting_voltages_withnoise_highsample['A']
@@ -142,7 +143,7 @@ for signal_name, signal_values in zip(nome_sinais, vetor_sinais):
         duration = 0.5
 
     # Apply Discrete Wavelet Transform (DWT) to the signal
-    ca, cd = wavelet_instance.transform(signal_values, 'db4')
+    ca, cd = DWT.transform(signal_values, 'db4')
 
     # Generate time arrays for the signal and its DWT
     signal_time = np.linspace(0, duration, len(signal_values))
