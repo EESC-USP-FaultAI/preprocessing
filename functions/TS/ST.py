@@ -1,6 +1,8 @@
 
 
 import numpy as np
+import warnings
+warnings.simplefilter("ignore", np.ComplexWarning)
 
 # function
 def toeplitz(vetor, tam):
@@ -89,7 +91,12 @@ def stockwell_transform(signal, k):
     nhaf = N // 2
     odvn = N%2
 
-    f = np.array([i / N for i in range(nhaf + 1)] + [-1 * j / N for j in range(nhaf - 1 + odvn, 0, -1)]) # Vetor com as frequências avaliadas pela TS
+    # f = np.array([i / N for i in range(nhaf + 1)] + [-1 * j / N for j in range(nhaf - 1 + odvn, 0, -1)]) # Vetor com as frequências avaliadas pela TS
+    f = np.concatenate([
+        np.arange(nhaf + 1) / N,
+        -1 * np.arange(nhaf - 1 + odvn, 0, -1) / N
+    ])
+
     Hft = np.fft.fft(signal) # Fourier Transform of the input signal
     invfk = 1 / f[1:nhaf + 1] #
 
@@ -105,6 +112,25 @@ def stockwell_transform(signal, k):
 
     return ST
 
+def angle(matrix):
+    result = []
+    for line in matrix:
+        aux = []
+        for i in line:
+            if abs(i) < 0.0001:
+                ang = 0
+            else:
+                ang = i.real / abs(i)
+
+            aux.append(np.arccos(ang))
+        result.append(aux)
+    return result
+
+def angle_vectorized(matrix):
+    divisors = np.divide(matrix.real, np.abs(matrix), out=np.zeros_like(matrix), where=np.abs(matrix) > 0.0001)
+    angles_rad = np.arccos(divisors.real)
+    return angles_rad
+
 def window_ST(signal, t0, t1, k):
     '''
     :param signal: numpy input vector 
@@ -113,25 +139,13 @@ def window_ST(signal, t0, t1, k):
     :param k: ST scale factor
     :return: st is the ST output matrix, A is the st amplitude and and is the ST angles at each sample of the window
     '''
-    def angle(matrix):
-        result = []
-        for line in matrix:
-            aux = []
-            for i in line:
-                if abs(i) < 0.0001:
-                    ang = 0
-                else:
-                    ang = i.real / abs(i)
-
-                aux.append(np.arccos(ang))
-            result.append(aux)
-        return result
 
     x = signal[t0:t1] # Windowing of the signals according to the first (t0) and last (1) samples of the window   
     st = stockwell_transform(x, k)
 
     A = 2*abs(st) # Calculate the amplitude of ST output matrix 
-    ang=angle(st) # Calculate the angle of ST output matrix 
+    # ang=angle(st) # Calculate the angle of ST output matrix 
+    ang = angle_vectorized(st) # Calculate the angle of ST output matrix 
     return st, A, ang
 
 

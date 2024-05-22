@@ -149,7 +149,7 @@ def evaluate_dwt_single_phase(data, wavelet_name, mode="symmetric", axis=-1):
     >>> plt.title('Detail')
     """
 
-    if not isinstance(data, np.ndarray, list, tuple): raise ValueError("data must be a array-like")
+    if not isinstance(data, (np.ndarray, list, tuple)): raise ValueError("data must be a array-like")
     if not isinstance(wavelet_name, str): raise ValueError("wavelet_name must be a string")
 
     cA, cD = pywt.dwt(data, mode=mode, wavelet=wavelet_name, axis=axis)
