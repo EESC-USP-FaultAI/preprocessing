@@ -2,10 +2,29 @@ import numpy as np
 
 def comp_sim_ABCto012(Xa, Xb, Xc):
     '''
-    :param Xa: Phasor of phase A
-    :param Xb: Phasor of phase B
-    :param Xc: Phasor of phase C
-    :return: 1−D array with symmetrical components phasors
+    Function to convert the phasors from ABC to symmetrical components
+
+    Parameters
+    ----------
+    Xa : complex
+        Phasor of phase A
+    Xb : complex
+        Phasor of phase B
+    Xc : complex
+        Phasor of phase C
+
+    Returns
+    -------
+    vet012 : list
+        1-D array with symmetrical components phasors
+
+    Examples
+    --------
+    >>> import functions.TT as tt
+    >>> import numpy as np
+    >>> abc = [1, 1*np.exp(1j*2*np.pi/3), 1*np.exp(-1j*2*np.pi/3)]
+    >>> v012 = tt.comp_sim_ABCto012(abc[0], abc[1], abc[2])
+    >>> print(v012)
     '''
     vetABC = [ Xa, Xb, Xc ]
     i = complex(0, 1)
@@ -23,11 +42,31 @@ def comp_sim_ABCto012(Xa, Xb, Xc):
    
 def comp_sim_012toABC(X0, X1, X2):
     '''
-    :param X0: Zero sequence
-    :param X1: Positive sequence
-    :param X2: Negative sequence
-    :return: 1−D array with ABC phasors
+    Function to convert the phasors from symmetrical components to ABC
+
+    Parameters
+    ----------
+    X0 : complex
+        Zero sequence
+    X1 : complex
+        Positive sequence
+    X2 : complex
+        Negative sequence
+
+    Returns
+    -------
+    vetABC : list
+        1-D array with ABC phasors
+
+    Examples
+    --------
+    >>> import functions.TT as tt
+    >>> import numpy as np
+    >>> v012 = [0, 1, 0]
+    >>> abc = tt.comp_sim_012toABC(v012[0], v012[1], v012[2])
+    >>> print(abc)
     '''
+    
     vet012 = [ X0, X1, X2 ]
     i = complex(0, 1)
     alfa = np.e**( i * (2*np.pi)/3 )

@@ -183,27 +183,28 @@ def energy_autocorrelation(coef):
     energy = sum(abs(ac) for ac in autocorr)
     return energy
 
+if __name__ == "__main__":
 
-""" Quick Test """
-a = [1, 2, 3, 4, 5, 6, 7, 10, 12, 53, 60, 12, 45, 214]
-a = np.array(a)
+    """ Quick Test """
+    a = [1, 2, 3, 4, 5, 6, 7, 10, 12, 53, 60, 12, 45, 214]
+    a = np.array(a)
 
-print("Array a:", a)
-# Mean
-print("Mean using numpy: %.4f" % (np.mean(a)))
-print("Mean using function: %.4f" % (mean(a)))
-# Median
-print("Median using numpy: %.4f" % (np.median(a)))
-print("Median using function: %.4f" % (median(a)))
-# Variance
-print("Variance using numpy: %.4f" % (np.var(a, ddof=1)))
-print("Variance using function: %.4f" % (variance(a, ddof=1)))
-# Standard Deviation
-print("Variance using numpy: %.4f" % (np.std(a, ddof=1)))
-print("Variance using function: %.4f" % (standard_deviation(a, ddof=1)))
-# Kurtosis
-print("Kurtosis using scipy: %.4f" % (sc.stats.kurtosis(a)))
-print("Kurtosis using function: %.4f" % (kurtosis(a)))
-# Shannon Entropy
-print("Shannon Entropy using scipy: %.4f" % (sc.stats.entropy(a, base=2)))
-print("Shannon Entropy using function: %.4f" % (shannon_entropy(a, base=2)))
+    print("Array a:", a)
+    # Mean
+    print("Mean using numpy: %.4f" % (np.mean(a)))
+    print("Mean using function: %.4f" % (mean(a)))
+    # Median
+    print("Median using numpy: %.4f" % (np.median(a)))
+    print("Median using function: %.4f" % (median(a)))
+    # Variance
+    print("Variance using numpy: %.4f" % (np.var(a, ddof=1)))
+    print("Variance using function: %.4f" % (variance(a, ddof=1)))
+    # Standard Deviation
+    print("Variance using numpy: %.4f" % (np.std(a, ddof=1)))
+    print("Variance using function: %.4f" % (standard_deviation(a, ddof=1)))
+    # Kurtosis
+    print("Kurtosis using scipy: %.4f" % (sc.stats.kurtosis(a)))
+    print("Kurtosis using function: %.4f" % (kurtosis(a)))
+    # Shannon Entropy
+    print("Shannon Entropy using scipy: %.4f" % (sc.stats.entropy(a, base=2)))
+    print("Shannon Entropy using function: %.4f" % (shannon_entropy(a, base=2)))

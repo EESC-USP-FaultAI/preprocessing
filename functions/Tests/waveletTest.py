@@ -1,7 +1,9 @@
 from matplotlib import pyplot as plt
 
-from functions.SignalGenerator.SignalGenerator import GeraSinais
-import functions.TW.DTW as mw
+import sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+import functions.SignalGenerator as GeraSinais
+import functions.TW.DTW as DWT
 
 #Editado caio 19/01 - editado agora
 def main():
@@ -12,8 +14,7 @@ def main():
     time, fault_signals = GeraSinais.short_circuit_current(100, 60, 0.0125, 7, 0.5, 0.016, 256 * 60, True, 30)
 
     # Apply wavelet transform
-    wavelet_instance = mw.DWT
-    ca, cd = wavelet_instance.transform(fault_signals, 'db4')
+    ca, cd = DWT.transform(fault_signals, 'db4')
 
     # Plotting generated signal
     plt.plot(time, fault_signals)
@@ -25,7 +26,7 @@ def main():
 
 
     # Plot the results
-    wavelet_instance.plot(ca, cd)
+    DWT.plot(ca, cd)
 
     # Display coefficients
     print(f"\nCoeficientes de Aproximação: {ca}")

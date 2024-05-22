@@ -3,10 +3,12 @@
 Código para avaliar o tempo de processamento de sinais
 Será utilizado o sinal gerado com harmônicas
 """
-from functions.SignalGenerator.SignalGenerator import Generate_Signals  # Import the class from the module
-from functions.TT import componentes_simetricas as cs
-from functions.TT import clarke
-from functions.TT import park
+
+import os, sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+import functions.SignalGenerator as Generate_Signals
+from functions.TT import *
+
 from plotTT import plotTT
 import numpy as np
 # ADICIONAR AQUI OS PACOTES E FUNCOES DAS OUTRAS TRANSFORMADAS
@@ -27,14 +29,14 @@ involved_phases = 'A'    # Change this to set the involved phase or combination
 # Gerando os sinais com afundamento - com 2048 amostras por ciclo
 samples_per_cycle = 2048
 sampling_frequency = samples_per_cycle*frequency  # Change this to set the sampling frequency
-resulting_voltages_withnoise_highsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'True', 40)
-resulting_voltages_nonoise_highsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'False', 1000)
+resulting_voltages_withnoise_highsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, True, 40)
+resulting_voltages_nonoise_highsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, False, 1000)
 
 # Gerando os sinais com afundamento - com 128 amostras por ciclo
 samples_per_cycle = 128
 sampling_frequency = samples_per_cycle*frequency  # Change this to set the sampling frequency
-resulting_voltages_withnoise_lowsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'True', 40)
-resulting_voltages_nonoise_lowsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, 'False', 1000)
+resulting_voltages_withnoise_lowsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, True, 40)
+resulting_voltages_nonoise_lowsample = Generate_Signals.voltage_sag_short_circuit(sag_magnitude, start_time, end_time, duration, sampling_frequency, involved_phases, False, 1000)
 
 
 ''' Parte 2 - Analisa a Técnica de Processamento de Sinais'''
@@ -111,20 +113,20 @@ for nome_sinal, signal_values in zip(nome_sinais, vetor_sinais):
             B = DFT(Vb[i:i + samples_per_cycle], samples_per_cycle)
             C = DFT(Vc[i:i + samples_per_cycle], samples_per_cycle)
             # Componentes simétricas
-            vetAB0 = cs.comp_sim_ABCto012(A, B, C)
+            vetAB0 = comp_sim_ABCto012(A, B, C)
             Vpos.append(vetAB0[1])
             Vneg.append(vetAB0[2])
             Vzero.append(vetAB0[0])
 
             # Clarke
-            vetAB0 = clarke.clarke_ABCtoAB0(A, B, C, True)
+            vetAB0 = clarke_ABCtoAB0(A, B, C, True)
             Valfa.append(vetAB0[1])
             Vbeta.append(vetAB0[2])
             Vzer0.append(vetAB0[0])
 
             # Parke
             comp = 0  # i*2*np.pi/amostras
-            vetAB0 = park.park_ABCtoDQ(A, B, C, comp, True)
+            vetAB0 = park_ABCtoDQ(A, B, C, comp, True)
             v0.append(vetAB0[0])
             vD.append(vetAB0[1])
             vQ.append(vetAB0[2])
