@@ -7,8 +7,6 @@ import os, sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import functions.TF as tf
 
-# Comparative Analysis of DFT - Based Synchrophasor Estimators
-    # Comparison of diferent DFT variants for synchrophasor estimation
     
 sym_matrix = np.array([
     [1.0/3.0, 1.0/3.0, 1.0/3.0],
@@ -155,8 +153,6 @@ def dft_features(data, fs:int, base_freq:int=60):
     else:
         F3 = np.zeros((1,))
     F4 = statistical_values(data_fft)
-
-
     return np.concatenate([F1,F2,F3,F4])
 
 
@@ -171,24 +167,5 @@ if __name__ == '__main__':
     features = dft_features(signal, 30720, 60)
 
     print(features)
-
-    # x = First_Featured_Based_Paper(signal[:,:3].T, 30720, 60)
-
-    # plt.subplot(311)
-    # plt.plot(signal[:,0])
-    # plt.subplot(312)
-    # plt.plot(signal[:,1])
-    # plt.subplot(313)
-    # plt.plot(signal[:,2])
-    # plt.show()
-
-    # plt.subplot(311)
-    # plt.plot(np.abs(x[0,:]))
-    # plt.subplot(312)
-    # plt.plot(np.abs(x[1,:]))
-    # plt.subplot(313)
-    # plt.plot(np.abs(x[2,:]))
-    # plt.show()
-
 
 
