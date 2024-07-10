@@ -127,7 +127,7 @@ def dft_features(data, fs:int, base_freq:int=60):
     Parameters
     ----------
     data : array-like
-        Input data
+        Input data, 3 phase current and 3 phase voltage
     fs : int
         Sampling frequency
     base_freq : int, optional
@@ -157,11 +157,10 @@ def dft_features(data, fs:int, base_freq:int=60):
         # The Paper uses Symetrical Components, it needs the value of the 3 phase current
         # I'm supposing that the 3 phase current is the first 3 channels
         F1 = first_paper_features(data_fft[:3])
+        F2 = second_paper_feature(data_fft[:3])
     else: 
         F1 = np.zeros((1,))
-
-    F2 = second_paper_feature(data_fft)
-
+        F2 = np.zeros((1,))
     if len(data.shape) == 6:
         # The Paper uses the maximum voltage and it's angle
         # I'm supposing that the voltage is the last 3 channels
