@@ -90,6 +90,17 @@ def fourth_paper_feature(data_fft):
     beta = (data_fft[:, 1:, 0] - data_fft[:, :-1, 0]) / (data_fft[:, 1:, 0] + data_fft[:, :-1, 0])
 
 def statistical_values(data):
+    """
+    Calculate statistical values from the input data.
+
+    Parameters:
+    data: numpy.ndarray
+        Input data
+
+    Returns:
+    numpy.ndarray
+        Statistical values (centroid, variance, skewness, kurtosis)
+    """
 
     if len(data.shape) < 3:
         while len(data.shape) < 3:
@@ -111,18 +122,23 @@ def statistical_values(data):
 
 def dft_features(data, fs:int, base_freq:int=60):
     """
-    Calculate DFT features of the input data.
-    Parameters:
-    data: numpy.ndarray
-        Input data. Shape: (n_channels, n_samples)
-    fs: int
+    Calculate the DFT features from the input data.
+
+    Parameters
+    ----------
+    data : array-like
+        Input data
+    fs : int
         Sampling frequency
-    base_freq: int
-        Base frequency of the input data. Default: 60
-    Returns:
-    numpy.ndarray
-        DFT features of the input data
+    base_freq : int, optional
+        Base frequency, by default 60
+
+    Returns
+    -------
+    array
+        DFT features
     """
+    if not isinstance(data, np.ndarray): data = np.array(data)
     if len(data.shape) == 1:
         data = data[np.newaxis, :]
     
@@ -157,6 +173,17 @@ def dft_features(data, fs:int, base_freq:int=60):
 
 
 if __name__ == '__main__':
+    # Case 1
+    df = pd.read_csv(r'C:\Users\alail\Downloads\dados_testes\configuracao_1\corrente\dados_cru_corrente_config_1.csv', skiprows=1)
+    signal = df.to_numpy()
+    signal = signal[:, 1:4].T
+    df = pd.read_csv(r'C:\Users\alail\Downloads\dados_testes\configuracao_1\tensao\dados_cru_tensao_config_1.csv', skiprows=1)
+    signal2 = df.to_numpy()
+    signal2 = signal2[:, 1:4].T
+    signal = np.concatenate([signal, signal2], axis=0)
+    case_1_features = dft_features(signal, 30720, 60)
+
+    # Case 2
     df = pd.read_csv(r'C:\Users\alail\Downloads\dados_testes\configuracao_2\corrente\dados_cru_corrente_config_2.csv', skiprows=1)
     signal = df.to_numpy()
     signal = signal[:, 1:4].T
@@ -164,8 +191,10 @@ if __name__ == '__main__':
     signal2 = df.to_numpy()
     signal2 = signal2[:, 1:4].T
     signal = np.concatenate([signal, signal2], axis=0)
-    features = dft_features(signal, 30720, 60)
+    case_2_features = dft_features(signal, 30720, 60)
 
-    print(features)
+    features = np.vstack([case_1_features, case_2_features])
+    df = pd.DataFrame(features.T, columns=['Case 1', 'Case 2'])
+    print(df)
 
 
