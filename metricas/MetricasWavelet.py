@@ -38,6 +38,10 @@ Based on the article: One-Ended Fault Location Method Based on Machine Learning 
 
 
 def energy_of_signal(s):
+
+    sinal_janelado = split_signal(s)
+    s = sinal_janelado[2]
+
     # The Clarke transformation is applied to the signal, which is a transformation used to convert a three-phase
     # system into a two-phase system.
     clark = clark_zero_transform(s)
@@ -74,45 +78,14 @@ def calculate_metrics(s, level, wavelet):
     # Perform the DWT on the signal for the given number of levels
     for _ in range(level):
         cA_temp, cD_temp = TW.TW_PYWT.evaluate_dwt_single_phase(cA_temp, wavelet)
-        cD.clear()
-        cD.append(cD_temp)
+        cD = cD_temp  # Atualiza a lista cD
 
     # Calculate the metrics for the detail coefficients
-    metrics = [[func(coeff) for coeff in cD] for func in
+    metrics = [func(cD) for func in
                [skewness, mean, energy_sum_of_squares, entropy, standard_deviation, kurtosis]]
     return metrics
 
-
-def metricas_yordanos(s, wavelet='db4'):
-    """
-    This function calculates several statistical measures for each phase of the signal. The signal is first
-    decomposed using the Discrete Wavelet Transform (DWT). Then, several statistical measures are calculated for each
-    set of coefficients.
-
-    Parameters: - signal (array-like): The signal to be analyzed. It is assumed to be a multiphase signal,
-    with each phase being a column in the array. - wavelet (str): The name of the wavelet to be used in the DWT.
-    Default is 'db4'.
-
-    Returns:
-    - list: A list containing the calculated metrics for each phase of the signal.
-    """
-
-    data_phases = []
-    for i in range(s.shape[1]):
-        cA_temp = s[:, i]
-        coeffs = [cA_temp]
-
-        for _ in range(7):
-            cA_temp, cD_temp = TW.TW_PYWT.evaluate_dwt_single_phase(cA_temp, wavelet)
-            coeffs.append(cD_temp)
-
-        metrics = [[func(coeff) for coeff in coeffs] for func in
-                   [skewness, mean, energy_sum_of_squares, entropy, standard_deviation, kurtosis]]
-        data_phases.append(np.array(metrics))
-
-    return data_phases
-
-def metricas_yordanos_single(s, level=1, wavelet='db4'):
+def metricas_yordanos(s, level=1, wavelet='db4', phase=1):
     """
     This function calculates several statistical measures for a given signal. The signal is first decomposed using the
     Discrete Wavelet Transform (DWT).
@@ -132,6 +105,9 @@ def metricas_yordanos_single(s, level=1, wavelet='db4'):
         - F6: Kurtosis of the signal.
     """
 
+    sinal_janelado = split_signal(s)
+    s = sinal_janelado[2]
+
     data_phases = []
     dim = s.ndim
     if dim == 1:
@@ -142,7 +118,7 @@ def metricas_yordanos_single(s, level=1, wavelet='db4'):
             metrics = calculate_metrics(s[:, i], level, wavelet)
             data_phases.append(metrics)
 
-    return data_phases
+    return data_phases[phase-1]
 
 
 # Implementação manual de skewness
@@ -254,9 +230,8 @@ def clark_zero_transform(s):
     return result
 
 
-sinal_janelado = split_signal(signal)
-janela_falta = sinal_janelado[2]
-fase_a = janela_falta[:,1]
+f1, f2, f3, f4, f5, f6 = metricas_yordanos(signal, 1, 'db4', 1)
+print(f2)
 
-metricas = metricas_yordanos_single(fase_a)
-print(metricas)
+energia, std = energy_of_signal(signal)
+print(energia)
