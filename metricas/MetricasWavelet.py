@@ -2,14 +2,6 @@ import numpy as np
 import functions.TW as TW
 import pandas as pd
 
-# Load the signal
-df = pd.read_csv('C:\\Users\\caio\\Desktop\\dados_testes\\configuracao_2\\corrente\\'
-                 'dados_cru_corrente_config_2.csv', skiprows=1)
-# Convert signal to matrix and remove the timestamp
-signal = df.to_numpy()
-signal = signal[:, 1:4]
-
-
 # Função para dividir o sinal em janelas de um tamanho dado (amostras/ciclo)
 def split_signal(s, window_size=512):
     """
@@ -230,8 +222,16 @@ def clark_zero_transform(s):
     return result
 
 
-f1, f2, f3, f4, f5, f6 = metricas_yordanos(signal, 1, 'db4', 1)
-print(f2)
+if __name__ == '__main__':
+    # Load the signal
+    df = pd.read_csv('C:\\Users\\caio\\Desktop\\dados_testes\\configuracao_2\\corrente\\'
+                    'dados_cru_corrente_config_2.csv', skiprows=1)
+    # Convert signal to matrix and remove the timestamp
+    signal = df.to_numpy()
+    signal = signal[:, 1:4]
 
-energia, std = energy_of_signal(signal)
-print(energia)
+    f1, f2, f3, f4, f5, f6 = metricas_yordanos(signal, 1, 'db4', 1)
+    print(f2)
+
+    energia, std = energy_of_signal(signal)
+    print(energia)
