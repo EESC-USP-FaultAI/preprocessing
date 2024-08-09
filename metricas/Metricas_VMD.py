@@ -21,38 +21,45 @@ def extract_signals(df, posi_falta):
 
 
 def apply_vmd(signal, alpha=2000, tau=0, K=3, DC=0, init=1, tol=1e-7):
-    T = len(signal)
-    t = np.arange(1, T + 1) / T
+    """
+    Variational Mode Decomposition (VMD) algorithm.
 
-    u = np.zeros((K, T))
-    u_hat = np.zeros((K, T), dtype=complex)
-    omega = np.zeros((K,))
+    Parameters:
+    - X: Input signal (1D array)
+    - alpha: Regularization parameter
+    - tau: Center frequency parameter
+    - K: Number of modes
+    - tol: Tolerance for stopping criteria
+    - max_iter: Maximum number of iterations
 
-    f_hat = np.fft.fftshift(np.fft.fft(signal))
-    f_hat_plus = f_hat.copy()
-    f_hat_plus[:T // 2] = 0
+    Returns:
+    - Modes: Decomposed modes
+    """
+    N = len(signal)
+    K = min(K, N // 2)  # Ensure K is not greater than half of the signal length
 
-    u_hat_plus = np.zeros((K, T), dtype=complex)
-    lambda_hat = np.zeros((T,), dtype=complex)
+    # Initialization
+    u = np.zeros((N, K), dtype=np.complex128)
+    omega = np.zeros((N, K))
+    alpha_k = alpha * np.ones((N, K))
 
-    for n in range(1000):
-        u_hat_prev = u_hat.copy()
-
+    for iteration in range(1000):
+        # Update modes
         for k in range(K):
-            sum_uk = np.sum(u_hat_plus, axis=0) - u_hat_plus[k]
-            u_hat_plus[k] = (f_hat_plus - sum_uk - lambda_hat / 2) / (1 + alpha * (t - omega[k]) ** 2)
-            u_hat[k] = u_hat_plus[k] + np.conj(u_hat_plus[k])
+            u[:, k] = np.fft.ifft(np.fft.fft(signal) / (alpha_k[:, k] + 1j * omega[:, k]))
 
-        omega = np.angle(np.dot(u_hat, np.exp(-1j * 2 * np.pi * t)))
-        omega = np.mean(omega)
+        # Update omegas
+        for k in range(K - 1):
+            omega[:, k] = np.angle(np.fft.fft(u[:, k + 1] - u[:, k]))
 
-        lambda_hat = lambda_hat + tau * (np.sum(u_hat_plus, axis=0) - f_hat_plus)
+        omega[:, -1] = np.angle(np.fft.fft(signal - u[:, -1]))
 
-        if np.linalg.norm(u_hat - u_hat_prev) < tol:
+        # Update alphas
+        alpha_k = alpha_k - tau * (np.sum(np.diff(omega, axis=1), axis=1, keepdims=True) - alpha_k * omega)
+
+        # Stopping criteria
+        if np.linalg.norm(signal - np.sum(u, axis=1)) / np.linalg.norm(signal) < tol:
             break
-
-    for k in range(K):
-        u[k, :] = np.real(np.fft.ifft(np.fft.ifftshift(u_hat[k])))
 
     return u
 
