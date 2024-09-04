@@ -127,7 +127,7 @@ def angle(matrix):
     return result
 
 def angle_vectorized(matrix):
-    divisors = np.divide(matrix.real, np.abs(matrix), out=np.zeros_like(matrix), where=np.abs(matrix) > 0.0001)
+    divisors = np.divide(matrix, np.abs(matrix), out=np.zeros_like(matrix, dtype=complex), where=np.abs(matrix) > 0.0001)
     angles_rad = np.arccos(divisors.real)
     return angles_rad
 
