@@ -156,21 +156,27 @@ def dft_features(data, fs:int, base_freq:int=60):
     if data.shape[0] > 3:
         # The Paper uses Symetrical Components, it needs the value of the 3 phase current
         # I'm supposing that the 3 phase current is the first 3 channels
-        F1 = first_paper_features(data_fft[:3])
+        # F1 = first_paper_features(data_fft[:3])
         F2 = second_paper_feature(data_fft[:3])
+    elif data.shape[0] == 2:
+        # F1 = first_paper_features(data_fft[:2])
+        F2 = second_paper_feature(data_fft[:2])
     else: 
-        F1 = np.zeros((1,))
+        # F1 = np.zeros((1,))
         F2 = np.zeros((1,))
         assert False, "The input data must have at least 3 channels"
+
     if data.shape[0] == 6:
         # The Paper uses the maximum voltage and its angle
         # I'm supposing that the voltage is the last 3 channels
         F3 = third_paper_feature(data_fft[3:], data_fft_angle[3:], 0)
+    elif data.shape[0] == 2:
+        F3 = third_paper_feature(data_fft[1:], data_fft_angle[1:], 0)
     else:
         F3 = np.zeros((1,))
         assert False, "The input data must have at least 3 channels"
     F4 = statistical_values(data_fft)
-    return np.concatenate([F1,F2,F3,F4])
+    return np.concatenate([F2,F3,F4])
 
 
 if __name__ == '__main__':

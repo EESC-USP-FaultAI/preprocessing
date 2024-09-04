@@ -16,8 +16,12 @@ def split_signal(s, window_size=512):
     """
 
     windows = []
-    for i in range(0, len(s[:, 1]), window_size):
-        windows.append(s[i:i + window_size, :])
+    if s.ndim == 1:
+        for i in range(0, len(s), window_size):
+            windows.append(s[i:i + window_size])
+    else:
+        for i in range(0, len(s[:, 1]), window_size):
+            windows.append(s[i:i + window_size, :])
     return windows
 
 
@@ -103,6 +107,7 @@ def metricas_yordanos(s, level=1, wavelet='db4', phase=1):
     data_phases = []
     dim = s.ndim
     if dim == 1:
+        
         metrics = calculate_metrics(s, level, wavelet)
         data_phases.append(metrics)
     else:
