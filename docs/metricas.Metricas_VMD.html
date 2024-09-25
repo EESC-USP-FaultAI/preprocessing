@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Variational mode decomposition (functions.VMD) &#8212; Pre-Processing Functions Manual</title>
+    <title>&lt;no title&gt; &#8212; Pre-Processing Functions Manual</title>
   
   
   
@@ -43,11 +43,9 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/design-tabs.js?v=36754332"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'functions.VMD';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'metricas.Metricas_VMD';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="functions.VMD.vmd" href="functions.TF/functions.VMD.vmd.html" />
-    <link rel="prev" title="functions.TT.comp_sim_012toABC" href="generated/functions.TT.comp_sim_012toABC.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
     <meta name="docbuild:last-update" content="Sep 25, 2024"/>
@@ -143,7 +141,7 @@
 <nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item current active">
+                    <li class="nav-item">
                       <a class="nav-link nav-internal" href="methods.html">
                         Modules
                       </a>
@@ -191,6 +189,10 @@ document.write(`
   
 
   
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
 </div>
 
     </header>
@@ -200,6 +202,8 @@ document.write(`
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -214,7 +218,7 @@ document.write(`
 <nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item current active">
+                    <li class="nav-item">
                       <a class="nav-link nav-internal" href="methods.html">
                         Modules
                       </a>
@@ -271,29 +275,6 @@ document.write(`
    </button>
  `);
  </script></div>
-        <div class="sidebar-primary-item">
-<nav class="bd-docs-nav bd-links" aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav">
-    <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pre-Processing Methods:</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="functions.TF.html">Fourier Transform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TW.html">Discrete Wavelet Transform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TS.html">Stockwell Transform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.TT.html">Three-Phase Transform</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Variational mode decomposition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="functions.TF/functions.VMD.vmd.html">functions.VMD.vmd</a></li>
-</ul>
-</li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities:</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="functions.SignalGenerator.html">Fault Signal Generator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.CSVProcessing.html">CSV Processing</a></li>
-</ul>
-
-  </div>
-</nav></div>
     </div>
   
   
@@ -328,10 +309,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    
-    <li class="breadcrumb-item"><a href="methods.html" class="nav-link">Modules</a></li>
-    
-    <li class="breadcrumb-item active" aria-current="page">Variational...</li>
+    <li class="breadcrumb-item active" aria-current="page">&lt;no title&gt;</li>
   </ul>
 </nav>
 </div>
@@ -348,19 +326,41 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="variational-mode-decomposition-functions-vmd">
-<span id="module-functions.VMD"></span><h1>Variational mode decomposition (<a class="reference internal" href="#module-functions.VMD" title="functions.VMD"><code class="xref py py-mod docutils literal notranslate"><span class="pre">functions.VMD</span></code></a>)<a class="headerlink" href="#variational-mode-decomposition-functions-vmd" title="Link to this heading">#</a></h1>
-<p>This module contains the implementation of the variational mode decomposition (VMD) algorithm.</p>
-<table class="autosummary longtable table autosummary">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="functions.TF/functions.VMD.vmd.html#functions.VMD.vmd" title="functions.VMD.vmd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vmd</span></code></a>(X[, alpha, tau, K, tol, max_iter])</p></td>
-<td><p>Variational Mode Decomposition (VMD) algorithm.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="toctree-wrapper compound">
-</div>
-</section>
+  <span class="target" id="module-metricas.Metricas_VMD"></span><dl class="py function">
+<dt class="sig sig-object py" id="metricas.Metricas_VMD.apply_vmd">
+<span class="sig-prename descclassname"><span class="pre">metricas.Metricas_VMD.</span></span><span class="sig-name descname"><span class="pre">apply_vmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DC</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-07</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.Metricas_VMD.apply_vmd" title="Link to this definition">#</a></dt>
+<dd><p>Variational Mode Decomposition (VMD) algorithm.</p>
+<p>Parameters:
+- X: Input signal (1D array)
+- alpha: Regularization parameter
+- tau: Center frequency parameter
+- K: Number of modes
+- tol: Tolerance for stopping criteria
+- max_iter: Maximum number of iterations</p>
+<p>Returns:
+- Modes: Decomposed modes</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metricas.Metricas_VMD.extract_signals">
+<span class="sig-prename descclassname"><span class="pre">metricas.Metricas_VMD.</span></span><span class="sig-name descname"><span class="pre">extract_signals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">posi_falta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.Metricas_VMD.extract_signals" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metricas.Metricas_VMD.main">
+<span class="sig-prename descclassname"><span class="pre">metricas.Metricas_VMD.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#metricas.Metricas_VMD.main" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metricas.Metricas_VMD.process_signals">
+<span class="sig-prename descclassname"><span class="pre">metricas.Metricas_VMD.</span></span><span class="sig-name descname"><span class="pre">process_signals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">posi_falta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.Metricas_VMD.process_signals" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metricas.Metricas_VMD.read_signals">
+<span class="sig-prename descclassname"><span class="pre">metricas.Metricas_VMD.</span></span><span class="sig-name descname"><span class="pre">read_signals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.Metricas_VMD.read_signals" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 
 
                 </article>
@@ -373,7 +373,27 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><code class="docutils literal notranslate"><span class="pre">apply_vmd</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.Metricas_VMD.extract_signals"><code class="docutils literal notranslate"><span class="pre">extract_signals</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.Metricas_VMD.main"><code class="docutils literal notranslate"><span class="pre">main</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.Metricas_VMD.process_signals"><code class="docutils literal notranslate"><span class="pre">process_signals</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.Metricas_VMD.read_signals"><code class="docutils literal notranslate"><span class="pre">read_signals</span></code></a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
