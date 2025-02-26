@@ -4,7 +4,7 @@ This repository contains various modules and scripts for signal processing and m
 
 ## Project Structure
 
-```
+```plaintext
 ├── __pycache__/
 ├── .gitignore
 ├── .idea/
