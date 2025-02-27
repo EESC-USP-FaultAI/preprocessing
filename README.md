@@ -1,6 +1,6 @@
 # Signal Processing and Metrics Calculation
 
-This repository contains various modules and scripts for signal processing and metrics calculation. The project includes functionalities for preprocessing, feature extraction, and evaluation of signals using different methods such as wavelet transform, Fourier transform, and variational mode decomposition (VMD).
+This repository contains various modules and scripts for signal processing and metrics calculation. The project includes functionalities for preprocessing, feature extraction, and evaluation of signals using different methods such as wavelet transform, Fourier transform, and variational mode decomposition.
 
 ## Project Structure
 
