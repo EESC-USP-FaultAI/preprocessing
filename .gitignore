@@ -163,7 +163,13 @@ cython_debug/
 */*.vscode
 setup.py
 test.py
-sphinx/
+
 metricas/new_features/*
 metricas/correlation/*
 metricas/features/*
+
+
+_build/
+_contents/
+generated/
+functions.TF/
