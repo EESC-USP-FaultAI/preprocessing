@@ -29,6 +29,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/plot_directive.css?v=7f9a90b1" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="_static/lsee.css?v=8cf2be1e" />
@@ -44,11 +45,12 @@
     <script src="_static/design-tabs.js?v=36754332"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'metricas.Features_Fourier';</script>
+    <link rel="icon" href="_static/logo.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Sep 25, 2024"/>
+    <meta name="docbuild:last-update" content="Mar 21, 2025"/>
   </head>
   
   
@@ -326,116 +328,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <span class="target" id="module-metricas.Features_Fourier"></span><dl class="py function">
-<dt class="sig sig-object py" id="metricas.Features_Fourier.dft_features">
-<span class="sig-prename descclassname"><span class="pre">metricas.Features_Fourier.</span></span><span class="sig-name descname"><span class="pre">dft_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.Features_Fourier.dft_features" title="Link to this definition">#</a></dt>
-<dd><p>Calculate the DFT features from the input data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>data</strong><span class="classifier">array-like</span></dt><dd><p>Input data, 3 phase current and 3 phase voltage</p>
-</dd>
-<dt><strong>fs</strong><span class="classifier">int</span></dt><dd><p>Sampling frequency</p>
-</dd>
-<dt><strong>base_freq</strong><span class="classifier">int, optional</span></dt><dd><p>Base frequency, by default 60</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt>array</dt><dd><p>DFT features</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="metricas.Features_Fourier.first_paper_features">
-<span class="sig-prename descclassname"><span class="pre">metricas.Features_Fourier.</span></span><span class="sig-name descname"><span class="pre">first_paper_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_fft</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.Features_Fourier.first_paper_features" title="Link to this definition">#</a></dt>
-<dd><dl class="simple">
-<dt>Based Papaer: </dt><dd><p>Fourier Transform and Probabilistic Neural Network based Fault Detection in Distribution System Containing DGs</p>
-</dd>
-<dt>Description:</dt><dd><p>This paper used the DFT to classify the fault in the distribution system. The algorithm used by the author estimates the magnitude and angle of the phasors using the Modified Full Cycle Discrete Fourier Transform (MFCDFT). After that, the author calculates the positive sequence component model matrix from the estimated phasors.</p>
-</dd>
-<dt>The features extracted from the paper are the following:</dt><dd><ul class="simple">
-<li><p>i_1: Positive sequence component</p></li>
-</ul>
-</dd>
-<dt>Additional features outside of the paper:</dt><dd><ul class="simple">
-<li><p>i_0: Zero sequence component</p></li>
-<li><p>i_2: Negative sequence component</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="metricas.Features_Fourier.fourth_paper_feature">
-<span class="sig-prename descclassname"><span class="pre">metricas.Features_Fourier.</span></span><span class="sig-name descname"><span class="pre">fourth_paper_feature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_fft</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.Features_Fourier.fourth_paper_feature" title="Link to this definition">#</a></dt>
-<dd><dl class="simple">
-<dt>Based Papaer:</dt><dd><p>Frequency Estimation of Distorted and Noisy Signals in Power Systems by FFT-Based Approach</p>
-</dd>
-<dt>Description:</dt><dd><p>Frequency estimation of distorted and noisy signals in power systems by FFT-based approach</p>
-</dd>
-</dl>
-<p>The following features are calculated:</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="metricas.Features_Fourier.second_paper_feature">
-<span class="sig-prename descclassname"><span class="pre">metricas.Features_Fourier.</span></span><span class="sig-name descname"><span class="pre">second_paper_feature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_fft</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.Features_Fourier.second_paper_feature" title="Link to this definition">#</a></dt>
-<dd><dl class="simple">
-<dt>Based Papaer:</dt><dd><p>Modified FFT based high impedance fault detection technique considering distribution non-linear loads: Simulation and experimental data analysis</p>
-</dd>
-<dt>Description:</dt><dd><p>This paper uses the energy of the harmonic components to detect high impedance faults</p>
-</dd>
-<dt>The following features are calculated:</dt><dd><ul class="simple">
-<li><p>h2: Harmonic 2</p></li>
-<li><p>h3: Harmonic 3</p></li>
-<li><p>h5: Harmonic 5</p></li>
-<li><p>h7: Harmonic 7</p></li>
-<li><p>h5/h3: Ratio of Harmonic 5 and Harmonic 3</p></li>
-<li><p>h7/h3: Ratio of Harmonic 7 and Harmonic 3</p></li>
-<li><p>(h7+h5)/h1: Ratio of Harmonic 7 and Harmonic 5</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="metricas.Features_Fourier.statistical_values">
-<span class="sig-prename descclassname"><span class="pre">metricas.Features_Fourier.</span></span><span class="sig-name descname"><span class="pre">statistical_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.Features_Fourier.statistical_values" title="Link to this definition">#</a></dt>
-<dd><p>Calculate statistical values from the input data.</p>
-<p>Parameters:
-data: numpy.ndarray</p>
-<blockquote>
-<div><p>Input data</p>
-</div></blockquote>
-<p>Returns:
-numpy.ndarray</p>
-<blockquote>
-<div><p>Statistical values (centroid, variance, skewness, kurtosis)</p>
-</div></blockquote>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="metricas.Features_Fourier.third_paper_feature">
-<span class="sig-prename descclassname"><span class="pre">metricas.Features_Fourier.</span></span><span class="sig-name descname"><span class="pre">third_paper_feature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_fft</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_fft_angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angRef_pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.Features_Fourier.third_paper_feature" title="Link to this definition">#</a></dt>
-<dd><dl class="simple">
-<dt>Based Papaer:</dt><dd><p>Fault Detection on Distribution Network Planning Using Fast Fourier Transform-Based Steady State and Transient Response</p>
-</dd>
-<dt>Description:</dt><dd><p>Fault classifier using maximum voltage and it’s angle</p>
-</dd>
-<dt>The following features are calculated:</dt><dd><ul class="simple">
-<li><p>Vmax: Maximum voltage of each phase</p></li>
-<li><p>AngVmax: Angle of the maximum voltage of each phase</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-
+  
 
                 </article>
               
@@ -457,13 +350,7 @@ numpy.ndarray</p>
     <i class="fa-solid fa-list"></i> On this page
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><code class="docutils literal notranslate"><span class="pre">dft_features</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.Features_Fourier.first_paper_features"><code class="docutils literal notranslate"><span class="pre">first_paper_features</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.Features_Fourier.fourth_paper_feature"><code class="docutils literal notranslate"><span class="pre">fourth_paper_feature</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.Features_Fourier.second_paper_feature"><code class="docutils literal notranslate"><span class="pre">second_paper_feature</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.Features_Fourier.statistical_values"><code class="docutils literal notranslate"><span class="pre">statistical_values</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.Features_Fourier.third_paper_feature"><code class="docutils literal notranslate"><span class="pre">third_paper_feature</span></code></a></li>
+    <ul class="simple visible nav section-nav flex-column">
 </ul>
 
   </nav></div>

@@ -29,6 +29,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/plot_directive.css?v=7f9a90b1" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="_static/lsee.css?v=8cf2be1e" />
@@ -44,11 +45,12 @@
     <script src="_static/design-tabs.js?v=36754332"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'metricas.MetricasWavelet';</script>
+    <link rel="icon" href="_static/logo.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Sep 25, 2024"/>
+    <meta name="docbuild:last-update" content="Mar 21, 2025"/>
   </head>
   
   
@@ -326,116 +328,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <span class="target" id="module-metricas.MetricasWavelet"></span><dl class="py function">
-<dt class="sig sig-object py" id="metricas.MetricasWavelet.calculate_metrics">
-<span class="sig-prename descclassname"><span class="pre">metricas.MetricasWavelet.</span></span><span class="sig-name descname"><span class="pre">calculate_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.MetricasWavelet.calculate_metrics" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="metricas.MetricasWavelet.clark_zero_transform">
-<span class="sig-prename descclassname"><span class="pre">metricas.MetricasWavelet.</span></span><span class="sig-name descname"><span class="pre">clark_zero_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.MetricasWavelet.clark_zero_transform" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="metricas.MetricasWavelet.energy_of_signal">
-<span class="sig-prename descclassname"><span class="pre">metricas.MetricasWavelet.</span></span><span class="sig-name descname"><span class="pre">energy_of_signal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.MetricasWavelet.energy_of_signal" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="metricas.MetricasWavelet.energy_sum_of_squares">
-<span class="sig-prename descclassname"><span class="pre">metricas.MetricasWavelet.</span></span><span class="sig-name descname"><span class="pre">energy_sum_of_squares</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coef</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.MetricasWavelet.energy_sum_of_squares" title="Link to this definition">#</a></dt>
-<dd><p>Calculates the energy of a signal using the sum of squares method.</p>
-<p>Parameters:
-- coef (array-like): Coefficients representing the signal.</p>
-<p>Returns:
-- float: Energy of the signal.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="metricas.MetricasWavelet.entropy">
-<span class="sig-prename descclassname"><span class="pre">metricas.MetricasWavelet.</span></span><span class="sig-name descname"><span class="pre">entropy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.MetricasWavelet.entropy" title="Link to this definition">#</a></dt>
-<dd><p>Calculates the entropy of a signal.</p>
-<p>Parameters:
-- signal (array-like): Signal to be analyzed.</p>
-<p>Returns:
-- float: Entropy of the signal.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="metricas.MetricasWavelet.kurtosis">
-<span class="sig-prename descclassname"><span class="pre">metricas.MetricasWavelet.</span></span><span class="sig-name descname"><span class="pre">kurtosis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.MetricasWavelet.kurtosis" title="Link to this definition">#</a></dt>
-<dd><p>Calculates the kurtosis of a signal.</p>
-<p>Parameters:
-- signal (array-like): Signal to be analyzed.</p>
-<p>Returns:
-- float: Kurtosis of the signal.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="metricas.MetricasWavelet.mean">
-<span class="sig-prename descclassname"><span class="pre">metricas.MetricasWavelet.</span></span><span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.MetricasWavelet.mean" title="Link to this definition">#</a></dt>
-<dd><p>Calculates the mean of a signal.</p>
-<p>Parameters:
-- signal (array-like): Signal to be analyzed.</p>
-<p>Returns:
-- float: Mean of the signal.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="metricas.MetricasWavelet.metricas_yordanos">
-<span class="sig-prename descclassname"><span class="pre">metricas.MetricasWavelet.</span></span><span class="sig-name descname"><span class="pre">metricas_yordanos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'db4'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.MetricasWavelet.metricas_yordanos" title="Link to this definition">#</a></dt>
-<dd><p>This function calculates several statistical measures for a given signal. The signal is first decomposed using the
-Discrete Wavelet Transform (DWT).</p>
-<p>Parameters:
-- s (matrix-like): The signal to be analyzed.
-- level (int): The level of decomposition in the DWT. Default is 1.
-- wavelet (str): The name of the wavelet to be used in the DWT. Default is ‘db4’.</p>
-<p>Returns:
-- list: A list containing the calculated metrics for the signal. The metrics are as follows:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>F1: Skewness of the signal.</p></li>
-<li><p>F2: Mean of the signal.</p></li>
-<li><p>F3: Energy of the signal, calculated using the sum of squares method.</p></li>
-<li><p>F4: Entropy of the signal.</p></li>
-<li><p>F5: Standard deviation of the signal.</p></li>
-<li><p>F6: Kurtosis of the signal.</p></li>
-</ul>
-</div></blockquote>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="metricas.MetricasWavelet.skewness">
-<span class="sig-prename descclassname"><span class="pre">metricas.MetricasWavelet.</span></span><span class="sig-name descname"><span class="pre">skewness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.MetricasWavelet.skewness" title="Link to this definition">#</a></dt>
-<dd><p>Calculates the skewness of a signal.</p>
-<p>Parameters:
-- signal (array-like): Signal to be analyzed.</p>
-<p>Returns:
-- float: Skewness of the signal.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="metricas.MetricasWavelet.split_signal">
-<span class="sig-prename descclassname"><span class="pre">metricas.MetricasWavelet.</span></span><span class="sig-name descname"><span class="pre">split_signal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.MetricasWavelet.split_signal" title="Link to this definition">#</a></dt>
-<dd><p>Splits the signal into windows of a given size.</p>
-<p>Parameters:
-- signal (array-like): Signal to be split.
-- window_size (int): Size of the windows.</p>
-<p>Returns:
-- list: List of windows.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="metricas.MetricasWavelet.standard_deviation">
-<span class="sig-prename descclassname"><span class="pre">metricas.MetricasWavelet.</span></span><span class="sig-name descname"><span class="pre">standard_deviation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metricas.MetricasWavelet.standard_deviation" title="Link to this definition">#</a></dt>
-<dd><p>Calculates the standard deviation of a signal.</p>
-<p>Parameters:
-- signal (array-like): Signal to be analyzed.</p>
-<p>Returns:
-- float: Standard deviation of the signal.</p>
-</dd></dl>
-
-
+  
 
                 </article>
               
@@ -457,18 +350,7 @@ Discrete Wavelet Transform (DWT).</p>
     <i class="fa-solid fa-list"></i> On this page
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><code class="docutils literal notranslate"><span class="pre">calculate_metrics</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.MetricasWavelet.clark_zero_transform"><code class="docutils literal notranslate"><span class="pre">clark_zero_transform</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.MetricasWavelet.energy_of_signal"><code class="docutils literal notranslate"><span class="pre">energy_of_signal</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.MetricasWavelet.energy_sum_of_squares"><code class="docutils literal notranslate"><span class="pre">energy_sum_of_squares</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.MetricasWavelet.entropy"><code class="docutils literal notranslate"><span class="pre">entropy</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.MetricasWavelet.kurtosis"><code class="docutils literal notranslate"><span class="pre">kurtosis</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.MetricasWavelet.mean"><code class="docutils literal notranslate"><span class="pre">mean</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.MetricasWavelet.metricas_yordanos"><code class="docutils literal notranslate"><span class="pre">metricas_yordanos</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.MetricasWavelet.skewness"><code class="docutils literal notranslate"><span class="pre">skewness</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.MetricasWavelet.split_signal"><code class="docutils literal notranslate"><span class="pre">split_signal</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas.MetricasWavelet.standard_deviation"><code class="docutils literal notranslate"><span class="pre">standard_deviation</span></code></a></li>
+    <ul class="simple visible nav section-nav flex-column">
 </ul>
 
   </nav></div>

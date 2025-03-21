@@ -27,6 +27,7 @@ extensions = extensions = [
     'sphinx.ext.coverage',
     'sphinx.ext.mathjax',
     'sphinx.ext.intersphinx',
+    'myst_nb',
     'numpydoc',
     'nbsphinx',
     'sphinx_design',
@@ -35,7 +36,7 @@ extensions = extensions = [
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
-
+nbsphinx_allow_errors = True
 # The suffix of source filenames.
 source_suffix = '.rst'
 
